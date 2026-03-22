@@ -177,6 +177,9 @@ if [ "$RUN" = true ]; then
     echo "=== Executando (modo interativo) ==="
     "$DIRNAME/bin/Debug/$FILENAME"
   else
+    # Cria in.txt e out.txt se não existirem
+    touch "$ROOT/in.txt" "$ROOT/out.txt"
+
     echo "=== Executando (input: in.txt, output: out.txt) ==="
     if ! "$DIRNAME/bin/Debug/$FILENAME" < "$ROOT/in.txt" > "$ROOT/out.txt"; then
       echo "Erro: Falha na execução." >&2
