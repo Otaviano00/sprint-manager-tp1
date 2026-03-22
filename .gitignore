@@ -1,0 +1,6 @@
+bin/Debug/*
+!bin/Debug/*.txt
+obj/Debug/*.o
+
+in.txt
+out.txt
