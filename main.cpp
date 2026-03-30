@@ -1,18 +1,27 @@
 #include <iostream>
-#include"dominios.hpp"
-
-using namespace std;
+#include "util.hpp"
+#include <vector>
+#include "dominios.hpp"
+#include <fstream>
 
 int main()
 {
-    string input =  "Teste";
-    Nome nome;
+    string input;
+    Senha object;
+    int count = 0;
 
-    if (nome.setValor(input)) {
-        cout << input << " é válido" << endl;
-    } else {
-        cout << input << " não é válido" << endl;
-    }
+    do
+    {
+        std::getline(std::cin, input);
+        if (object.setValor(input))
+        {
+            cout << "Objeto: " << input << " válido" << endl;
+        }
+        else
+        {
+            cout << "Objeto: " << input << " inválido" << endl;
+        }
+    } while (!input.empty() && count++ < 1000);
 
     return 0;
 }

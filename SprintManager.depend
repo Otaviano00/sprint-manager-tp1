@@ -1,15 +1,25 @@
 # depslib dependency file v1.0
-1774207620 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/dominios.cpp
+1774835056 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/dominios.cpp
 	"dominios.hpp"
 	"util.hpp"
 	<iostream>
 
-1774202795 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/dominios.hpp
+1774729061 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/dominios.hpp
 	<iostream>
 
-1774204423 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/main.cpp
+1774834861 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/main.cpp
 	<iostream>
+	"util.hpp"
+	<vector>
 	"dominios.hpp"
+	<fstream>
 
-1774203505 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/util.hpp
+1774817123 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/util.hpp
+	<iostream>
+	<vector>
+
+1774826038 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/util.cpp
+	"util.hpp"
+	<iostream>
+	<vector>
 

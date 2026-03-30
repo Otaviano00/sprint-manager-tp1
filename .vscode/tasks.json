@@ -2,7 +2,7 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: gcc build active file",
+      "label": "run_c_debug",
       "command": "../run.sh",
       "args": ["-f", "${fileDirname}/${fileBasename}", "-d"],
       "options": {

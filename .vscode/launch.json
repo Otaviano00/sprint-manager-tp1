@@ -24,7 +24,7 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "run_c",
+      "preLaunchTask": "run_c_debug",
       "miDebuggerPath": "gdb"
     }
   ]
