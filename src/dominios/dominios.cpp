@@ -2,7 +2,7 @@
 #define DOMINIOS_CPP_INCLUDED
 
 #include "dominios.hpp"
-#include "util.hpp"
+#include "../util/util.hpp"
 #include <iostream>
 
 // Código

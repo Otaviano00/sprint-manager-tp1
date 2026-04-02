@@ -1,7 +1,7 @@
 #include <iostream>
-#include "util.hpp"
+#include "util/util.hpp"
 #include <vector>
-#include "dominios.hpp"
+#include "dominios/dominios.hpp"
 #include <fstream>
 
 int main()

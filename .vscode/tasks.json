@@ -3,10 +3,10 @@
     {
       "type": "cppbuild",
       "label": "run_c_debug",
-      "command": "../run.sh",
-      "args": ["-f", "${fileDirname}/${fileBasename}", "-d"],
+      "command": "./run.sh",
+      "args": ["-m", "main", "-d"],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
       "group": {
@@ -18,10 +18,18 @@
     {
       "type": "cppbuild",
       "label": "run_c",
-      "command": "../run.sh",
-      "args": ["-f", "${fileDirname}/${fileBasename}", "-i"],
+      "command": "./run.sh",
+      "args": ["-m", "main"],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "always",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "clear": false
       },
       "problemMatcher": ["$gcc"],
       "group": {

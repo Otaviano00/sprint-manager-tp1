@@ -23,3 +23,27 @@
 	<iostream>
 	<vector>
 
+1775098551 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/dominios.cpp
+	"dominios.hpp"
+	"../util/util.hpp"
+	<iostream>
+
+1774729061 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/dominios.hpp
+	<iostream>
+
+1774817123 /home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/util.hpp
+	<iostream>
+	<vector>
+
+1775098330 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/main.cpp
+	<iostream>
+	"util/util.hpp"
+	<vector>
+	"dominios/dominios.hpp"
+	<fstream>
+
+1775095629 source:/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/util.cpp
+	"util.hpp"
+	<iostream>
+	<vector>
+

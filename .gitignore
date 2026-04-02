@@ -1,6 +1,9 @@
-bin/Debug/*
-!bin/Debug/*.txt
-obj/Debug/*.o
+## Artefatos de build
+bin/**
+obj/**
+
+# Objetos em qualquer lugar
+*.o
 
 in.txt
 out.txt
