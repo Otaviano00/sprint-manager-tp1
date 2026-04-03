@@ -70,6 +70,56 @@ is_compile_flag() {
   esac
 }
 
+read_depfile_deps() {
+  local depfile="$1"
+  # Lê apenas a primeira regra do arquivo .d (as dependências reais).
+  # Ignora as regras "dummy" geradas por -MP (linhas do tipo "header.hpp:").
+  # Observação: assume que os caminhos não contêm espaços.
+  awk '
+    NR==1 { sub(/^[^:]+:[[:space:]]*/, ""); }
+    NR==1 || /^[[:space:]]/ {
+      gsub(/\\$/, "");
+      for (i=1; i<=NF; i++) if ($i != "") print $i;
+      next
+    }
+    { exit }
+  ' "$depfile"
+}
+
+needs_recompile() {
+  local src="$1"
+  local obj="$2"
+  local depfile="$3"
+  local dependency
+
+  if [ ! -f "$obj" ]; then
+    return 0
+  fi
+  if [[ "$src" -nt "$obj" ]]; then
+    return 0
+  fi
+  if [ ! -f "$depfile" ]; then
+    return 0
+  fi
+
+  while IFS= read -r dependency; do
+    # Ignora o próprio src/obj se aparecerem na lista
+    [ -z "$dependency" ] && continue
+    [ "$dependency" = "$src" ] && continue
+    [ "$dependency" = "$obj" ] && continue
+
+    # Se um header sumiu, recompila (dependências mudaram)
+    if [ ! -e "$dependency" ]; then
+      return 0
+    fi
+    if [[ "$dependency" -nt "$obj" ]]; then
+      return 0
+    fi
+  done < <(read_depfile_deps "$depfile")
+
+  return 1
+}
+
 show_help() {
   cat << EOF
 Uso: $0 [opções]
@@ -153,7 +203,7 @@ if [ -z "$MAIN_PATH" ]; then
   )
 
   if [ "${#_MAIN_CANDIDATES[@]}" -eq 0 ]; then
-    echo "Erro: não encontrei 'main.(c|cpp|cc|cxx|c++)' dentro de '$SRC_DIR'." >&2
+    echo "Erro: não encontrado 'main.(c|cpp|cc|cxx|c++)' dentro de '$SRC_DIR'." >&2
     exit 1
   fi
 
@@ -280,14 +330,23 @@ for src in "${SOURCES[@]}"; do
     rel="${rel//\//_}"
   fi
   obj="$OBJ_DIR/${rel%.*}.o"
+  dep="$OBJ_DIR/${rel%.*}.d"
   mkdir -p "$(dirname "$obj")"
 
-  if [[ "${src,,}" == *.c ]]; then
-    echo "  [CC ] $rel"
-    gcc "${COMMON_FLAGS[@]}" "${AUTO_INCLUDE_FLAGS[@]}" "${BIB_COMPILE_FLAGS[@]}" -c "$src" -o "$obj"
+  if needs_recompile "$src" "$obj" "$dep"; then
+    if [[ "${src,,}" == *.c ]]; then
+      echo "  [CC ] $rel"
+      gcc "${COMMON_FLAGS[@]}" "${AUTO_INCLUDE_FLAGS[@]}" "${BIB_COMPILE_FLAGS[@]}" \
+        -MMD -MP -MF "$dep" -MT "$obj" \
+        -c "$src" -o "$obj"
+    else
+      echo "  [CXX] $rel"
+      g++ "${COMMON_FLAGS[@]}" "${AUTO_INCLUDE_FLAGS[@]}" "${BIB_COMPILE_FLAGS[@]}" \
+        -MMD -MP -MF "$dep" -MT "$obj" \
+        -c "$src" -o "$obj"
+    fi
   else
-    echo "  [CXX] $rel"
-    g++ "${COMMON_FLAGS[@]}" "${AUTO_INCLUDE_FLAGS[@]}" "${BIB_COMPILE_FLAGS[@]}" -c "$src" -o "$obj"
+    echo "  [SKIP] $rel"
   fi
   OBJECTS+=("$obj")
 done
@@ -298,8 +357,25 @@ if [ "$HAS_CPP" = true ] || is_cpp_file "$MAIN_FILE"; then
 fi
 
 OUT_BIN="$BIN_DIR/$OUT_NAME"
-echo "Linkando: $OUT_BIN"
-"$LINKER" "${OBJECTS[@]}" "${BIB_LINK_FLAGS[@]}" -o "$OUT_BIN"
+
+NEED_LINK=false
+if [ ! -f "$OUT_BIN" ]; then
+  NEED_LINK=true
+else
+  for obj in "${OBJECTS[@]}"; do
+    if [[ "$obj" -nt "$OUT_BIN" ]]; then
+      NEED_LINK=true
+      break
+    fi
+  done
+fi
+
+if [ "$NEED_LINK" = true ]; then
+  echo "Linkando: $OUT_BIN"
+  "$LINKER" "${OBJECTS[@]}" "${BIB_LINK_FLAGS[@]}" -o "$OUT_BIN"
+else
+  echo "Link: [SKIP] (binário atualizado)"
+fi
 
 echo "✓ Compilação concluída: $OUT_BIN"
 
