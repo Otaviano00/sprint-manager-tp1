@@ -2,7 +2,8 @@
 set -euo pipefail
 
 # Compila e executa um projeto C/C++ seguindo estas regras:
-# - Deve ser informado o "main" por nome (-m), e o arquivo deve existir em src/**
+# - Sem flags: tenta localizar src/**/main.(c|cpp|cc|cxx|c++)
+# - Com -m: usa o caminho do arquivo principal informado
 # - Compila todos os .c/.cpp (recursivo) dentro de src/ (e extras do bib.txt)
 # - Binário vai para bin/Debug (debug) ou bin/Release (release)
 
@@ -11,7 +12,7 @@ shopt -s nullglob
 #==============================================================================
 # VARIÁVEIS GLOBAIS
 #==============================================================================
-MAIN_NAME=""
+MAIN_PATH=""
 BIB_FILE=""
 NEED_INPUT=false
 RUN=true
@@ -21,6 +22,7 @@ ROOT=""
 SRC_DIR=""
 
 MAIN_FILE=""
+OUT_NAME=""
 
 declare -a BIB_COMPILE_FLAGS=()
 declare -a BIB_LINK_FLAGS=()
@@ -63,7 +65,7 @@ is_cpp_file() {
 is_compile_flag() {
   local f="$1"
   case "$f" in
-    -I*|-D*|-U*|-std=*|-W*|-f*|-O*|-g|-pthread|-m*) return 0 ;;
+    -I*|-D*|-U*|-std=*|-W*|-f*|-O*|-g|-pthread) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -73,19 +75,21 @@ show_help() {
 Uso: $0 [opções]
 
 Opções:
-  -m NAME       Nome do arquivo principal (sem extensão). Ex: -m main (obrigatório)
+  Sem flag:     Roda o arquivo main.* que encontrar na pasta src/ (recursivo). Se encontrar mais que um, não executa.
+  -m FILE       Caminho do arquivo principal. Ex: -m src/main2.cpp
   -b FILE       Arquivo com flags/arquivos extras (padrão: <root>/bib.txt)
   -i            Executa interativamente (aguarda input do usuário)
+  Sem -i:       Redireciona in.txt para o programa e saída para out.txt
   -g            Compila em modo Debug e executa
   -d            Compila em modo Debug sem executar
-                Sem -i: redireciona in.txt para o programa e saída para out.txt
   -h            Mostra esta ajuda
 
 Exemplos:
-  $0 -m main
-  $0 -m main -i
-  $0 -m main -g
-  $0 -m main -b bib.txt
+  $0
+  $0 -i
+  $0 -g 
+  $0 -m src/main.cpp
+  $0 -m src/main.cpp -b bib.txt
 EOF
   exit 0
 }
@@ -96,7 +100,7 @@ EOF
 while getopts ":m:ib:hgd" opt; do
   case $opt in
     m)
-      MAIN_NAME="$OPTARG"
+      MAIN_PATH="$OPTARG"
       ;;
     i) 
       NEED_INPUT=true
@@ -131,39 +135,50 @@ done
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_DIR="$ROOT/src"
 
-if [ -z "$MAIN_NAME" ]; then
-  echo "Erro: -m <nome_principal> é obrigatório." >&2
-  show_help
-fi
-
 if [ ! -d "$SRC_DIR" ]; then
   echo "Erro: pasta 'src' não encontrada em '$ROOT'." >&2
   exit 1
 fi
 
-# Localiza o arquivo principal dentro de src/**
-mapfile -t _MAIN_CANDIDATES < <(
-  find "$SRC_DIR" -type f \( \
-    -name "$MAIN_NAME.c" -o \
-    -name "$MAIN_NAME.cpp" -o \
-    -name "$MAIN_NAME.cc" -o \
-    -name "$MAIN_NAME.cxx" -o \
-    -name "$MAIN_NAME.c++" \
-  \) -print
-)
+if [ -z "$MAIN_PATH" ]; then
+  # Sem -m: procura por src/**/main.(c|cpp|cc|cxx|c++)
+  mapfile -t _MAIN_CANDIDATES < <(
+    find "$SRC_DIR" -type f \( \
+      -name "main.c" -o \
+      -name "main.cpp" -o \
+      -name "main.cc" -o \
+      -name "main.cxx" -o \
+      -name "main.c++" \
+    \) -print
+  )
 
-if [ "${#_MAIN_CANDIDATES[@]}" -eq 0 ]; then
-  echo "Erro: não encontrado '$MAIN_NAME.(c|cpp|cc|cxx|c++)' dentro de '$SRC_DIR'." >&2
-  exit 1
+  if [ "${#_MAIN_CANDIDATES[@]}" -eq 0 ]; then
+    echo "Erro: não encontrei 'main.(c|cpp|cc|cxx|c++)' dentro de '$SRC_DIR'." >&2
+    exit 1
+  fi
+
+  if [ "${#_MAIN_CANDIDATES[@]}" -gt 1 ]; then
+    echo "Erro: mais de um main encontrado em '$SRC_DIR'. Use -m para escolher um:" >&2
+    printf '  - %s\n' "${_MAIN_CANDIDATES[@]}" >&2
+    exit 1
+  fi
+
+  MAIN_FILE="${_MAIN_CANDIDATES[0]}"
+else
+  MAIN_FILE="$(resolve_path "$MAIN_PATH")"
+  if [ ! -f "$MAIN_FILE" ]; then
+    echo "Erro: arquivo principal '$MAIN_PATH' não encontrado." >&2
+    exit 1
+  fi
+  if ! is_source_file "$MAIN_FILE"; then
+    echo "Erro: arquivo principal deve ser .c/.cpp/.cxx (recebi '$MAIN_PATH')." >&2
+    exit 1
+  fi
 fi
 
-if [ "${#_MAIN_CANDIDATES[@]}" -gt 1 ]; then
-  echo "Erro: mais de um arquivo principal encontrado para '$MAIN_NAME' em '$SRC_DIR':" >&2
-  printf '  - %s\n' "${_MAIN_CANDIDATES[@]}" >&2
-  exit 1
-fi
+OUT_NAME="$(basename "$MAIN_FILE")"
+OUT_NAME="${OUT_NAME%.*}"
 
-MAIN_FILE="${_MAIN_CANDIDATES[0]}"
 
 #==============================================================================
 # CARREGAMENTO DE BIBLIOTECAS
@@ -227,6 +242,11 @@ if [ "${#BIB_EXTRA_SOURCES[@]}" -gt 0 ]; then
   SOURCES+=("${BIB_EXTRA_SOURCES[@]}")
 fi
 
+# Se o main informado via -m estiver fora de src/, garante que ele será compilado.
+if [[ "$MAIN_FILE" != "$ROOT/"* ]]; then
+  SOURCES+=("$MAIN_FILE")
+fi
+
 HAS_CPP=false
 for s in "${SOURCES[@]}"; do
   if is_cpp_file "$s"; then
@@ -277,7 +297,7 @@ if [ "$HAS_CPP" = true ] || is_cpp_file "$MAIN_FILE"; then
   LINKER="g++"
 fi
 
-OUT_BIN="$BIN_DIR/$MAIN_NAME"
+OUT_BIN="$BIN_DIR/$OUT_NAME"
 echo "Linkando: $OUT_BIN"
 "$LINKER" "${OBJECTS[@]}" "${BIB_LINK_FLAGS[@]}" -o "$OUT_BIN"
 

@@ -4,7 +4,7 @@
       "type": "cppbuild",
       "label": "run_c_debug",
       "command": "./run.sh",
-      "args": ["-m", "main", "-d"],
+      "args": ["-d"],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -19,7 +19,7 @@
       "type": "cppbuild",
       "label": "run_c",
       "command": "./run.sh",
-      "args": ["-m", "main"],
+      "args": [],
       "options": {
         "cwd": "${workspaceFolder}"
       },
