@@ -5,5 +5,9 @@ obj/**
 # Objetos em qualquer lugar
 *.o
 
+# Documentos gerados pelo Doxygen
+doxygen_docs/**
+
+# Documentos de saída e entrada para testes
 in.txt
 out.txt
