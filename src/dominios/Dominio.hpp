@@ -2,11 +2,8 @@
 #define DOMINIOS_HPP_INCLUDED
 
 #include <iostream>
-#include "../util/util.hpp"
-#include "Estado.hpp"
-#include "Papel.hpp"
-#include "Propriedade.hpp"
-
+#include "../util/StringUtils.hpp"
+#include "../util/DateUtils.hpp"
 using namespace std;
 template <typename T>
 

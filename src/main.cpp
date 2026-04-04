@@ -1,5 +1,4 @@
 #include <iostream>
-#include "util/util.hpp"
 #include <vector>
 #include "dominios/Senha.hpp"
 #include <fstream>
