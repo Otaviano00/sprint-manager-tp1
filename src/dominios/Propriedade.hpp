@@ -1,0 +1,11 @@
+#ifndef PROPRIEDADE_HPP_INCLUDED
+#define PROPRIEDADE_HPP_INCLUDED
+
+enum Propriedade
+{
+    ALTA = 3,
+    MEDIA = 2,
+    BAIXA = 1
+};
+
+#endif // PROPRIEDADE_HPP_INCLUDED
