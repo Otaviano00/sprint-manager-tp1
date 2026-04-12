@@ -1,0 +1,45 @@
+#ifndef DATA_CPP_INCLUDED
+#define DATA_CPP_INCLUDED
+
+#include "Data.hpp"
+
+bool Data::validar(string valor)
+{
+    if (valor.length() != 10)
+    {
+        return false;
+    }
+
+    if (valor[2] != '/' || valor[5] != '/')
+    {
+        return false;
+    }
+
+    int dia = std::stoi(valor.substr(0, 2));
+    int mes = std::stoi(valor.substr(3, 2));
+    int ano = std::stoi(valor.substr(6, 4));
+
+    if (dia < 1 || dia > 31)
+    {
+        return false;
+    }
+
+    if (mes < 1 || mes > 12)
+    {
+        return false;
+    }
+
+    if (ano < 2000 || ano > 2999)
+    {
+        return false;
+    }
+
+    if (!DateUtils::isValidDate(dia, mes, ano))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+#endif // DATA_CPP_INCLUDED
