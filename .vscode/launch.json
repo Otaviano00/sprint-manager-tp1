@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++: run.sh build and debug active file",
+      "name": "C++: Debug CMake Project",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/Debug/main",
+      "program": "${workspaceFolder}/build/main",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
@@ -25,7 +25,7 @@
         }
       ],
       "preLaunchTask": "run_c_debug",
-      "miDebuggerPath": "gdb"
+      "miDebuggerPath": "/usr/bin/gdb"
     }
   ]
 }

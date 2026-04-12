@@ -1,13 +1,8 @@
 ## Artefatos de build
-bin/**
-obj/**
-
-# Objetos em qualquer lugar
-*.o
+build/**
 
 # Documentos gerados pelo Doxygen
 doxygen_docs/**
-
 # Documentos de saída e entrada para testes
 in.txt
 out.txt
