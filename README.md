@@ -4,42 +4,28 @@
 
 Requisitos:
 
-- `bash`
-- `gcc` e/ou `g++` (o script escolhe automaticamente)
+- `python`
+- `cmake`
+- `g++`
+- `mingw` (no Windows)
 
 ### Rodar (Release)
 
-Sem flags, o script procura automaticamente por `src/**/main.(c|cpp|cc|cxx|c++)`.
+O script `run.py` compila e executa o projeto.
 
 ```shell
-./run.sh
+python run.py
 ```
 
-O executável gerado fica em `bin/Release/main` (ou com o mesmo nome do arquivo principal, sem extensão).
-
-### Escolher um main específico
-
-Passe o caminho do arquivo principal via `-m`:
-
-```shell
-./run.sh -m src/main.cpp
-```
+O executável gerado fica em `build/main.exe`.
 
 ### Debug
 
-Compilar em Debug e executar:
+Apenas compilar o projeto (sem executar):
 
 ```shell
-./run.sh -g
+python run.py -b
 ```
-
-Compilar em Debug sem executar:
-
-```shell
-./run.sh -d
-```
-
-O executável gerado fica em `bin/Debug/main`.
 
 ### Input/Output
 
@@ -47,22 +33,22 @@ O executável gerado fica em `bin/Debug/main`.
 - Sem `-i`: o programa lê de `in.txt` e grava em `out.txt` na raiz do projeto.
 
 ```shell
-./run.sh -i
+python run.py -i
 ```
 
 ### Ajuda
 
 ```shell
-./run.sh -h
+python run.py -h
 ```
 
 ## Como rodar o projeto no VS Code
 
 ### Normal
 
-- `Ctrl+Shift+P` -> **Tasks: Run Task** -> `run_c`
+- `Ctrl+Shift+P` -> **Tasks: Run Task** -> `run_c_full`
 
 ### Debug
 
-- Aba **Run and Debug** -> configuração **C/C++: run.sh build and debug active file**
-  - Isso chama a task `run_c_debug` e debuga `bin/Debug/main`.
+- Adicione o breakpoint -> aperte F5
+  - Isso chama a task `run_c_debug` e debuga `build/main.exe`.
