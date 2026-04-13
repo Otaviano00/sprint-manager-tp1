@@ -34,7 +34,12 @@ def main():
     # 1. Configuração do CMake (Cria a pasta build se não existir)
     if not os.path.exists("build"):
         print("[*] Configurando CMake...")
-        run_command(["cmake", "-B", "build"], args.debug)
+        
+        cmake_cmd = ["cmake", "-B", "build"]
+        if os.name == 'nt': # Se for Windows
+            cmake_cmd.extend(["-G", "MinGW Makefiles"])
+
+        run_command(cmake_cmd, args.debug)
 
     # 2. Compilação
     print("[*] Compilando...")
@@ -52,7 +57,7 @@ def main():
     # Nota: O nome do executável deve ser o mesmo definido no CMakeLists.txt (ex: main)
     executable = os.path.join("build", "main")
     if os.name == 'nt' and not os.path.exists(executable):
-        executable = os.path.join("build", "Debug", "main.exe")
+        executable = os.path.join("build", "main.exe")
 
     print(f"[*] Rodando {executable}...")
     
