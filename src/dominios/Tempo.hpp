@@ -1,7 +1,7 @@
 #ifndef TEMPO_HPP_INCLUDED
 #define TEMPO_HPP_INCLUDED
 
-#include "Dominio.hpp"
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de duração em dias.

@@ -1,7 +1,7 @@
 #ifndef PRIORIDADE_CPP_INCLUDED
 #define PRIORIDADE_CPP_INCLUDED
 
-#include "Prioridade.hpp"
+#include <dominios/Prioridade.hpp>
 #include <string>
 
 bool Prioridade::validar(std::string valor)

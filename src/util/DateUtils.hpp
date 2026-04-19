@@ -1,7 +1,7 @@
 #ifndef DATE_UTILS_HPP_INCLUDED
 #define DATE_UTILS_HPP_INCLUDED
 
-#include "../dominios/Mes.hpp"
+#include <dominios/Mes.hpp>
 
 /**
  * @brief Conjunto de utilitários para regras de calendário e validação de datas.

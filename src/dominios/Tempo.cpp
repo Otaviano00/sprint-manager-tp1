@@ -1,7 +1,7 @@
 #ifndef TEMPO_CPP_INCLUDED
 #define TEMPO_CPP_INCLUDED
 
-#include "Tempo.hpp"
+#include <dominios/Tempo.hpp>
 
 bool Tempo::validar(int valor)
 {

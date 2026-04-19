@@ -1,9 +1,9 @@
 #ifndef NOME_CPP_INCLUDED
 #define NOME_CPP_INCLUDED
 
-#include "Nome.hpp"
+#include <dominios/Nome.hpp>
 #include <string>
-#include "../util/StringUtils.hpp"
+#include <util/StringUtils.hpp>
 
 using namespace std;
 

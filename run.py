@@ -56,9 +56,9 @@ def main():
 
     # 4. Execução
     # Nota: O nome do executável deve ser o mesmo definido no CMakeLists.txt
-    executable = os.path.join("build", "main")
+    executable = os.path.join("build", "src", "SprintManager")
     if os.name == 'nt' and not os.path.exists(executable):
-        executable = os.path.join("build", "main.exe")
+        executable = os.path.join("build", "src", "SprintManager.exe")
 
     print(f"[*] Rodando {executable}...")
     

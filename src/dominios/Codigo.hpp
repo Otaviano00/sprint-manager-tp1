@@ -2,7 +2,7 @@
 #define CODIGO_HPP_INCLUDED
 
 #include <string>
-#include "Dominio.hpp"
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio responsável por validar códigos no formato de 2 letras maiúsculas e 3 dígitos.

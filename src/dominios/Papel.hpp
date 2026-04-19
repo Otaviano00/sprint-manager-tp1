@@ -2,7 +2,7 @@
 #define PAPEL_HPP_INCLUDED
 
 #include <string>
-#include "Dominio.hpp"
+#include <dominios/Dominio.hpp>
 
 enum PapelEnum
 {
