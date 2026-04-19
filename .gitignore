@@ -5,6 +5,10 @@ obj/**
 
 # Documentos gerados pelo Doxygen
 doxygen_docs/**
+
 # Documentos de saída e entrada para testes
 in.txt
 out.txt
+
+# Arquivos de sqlite temporários
+*.db3
