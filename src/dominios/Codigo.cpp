@@ -22,7 +22,7 @@ bool Codigo::validar(string valor)
         }
     }
 
-    for (int i = numMaiusculos; i < valor.length(); i++)
+    for (size_t i = numMaiusculos; i < valor.length(); i++)
     {
         if ('0' > valor[i] || '9' < valor[i])
         {

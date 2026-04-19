@@ -1,5 +1,7 @@
 ## Artefatos de build
 build/**
+bin/**
+obj/**
 
 # Documentos gerados pelo Doxygen
 doxygen_docs/**

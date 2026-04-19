@@ -19,7 +19,7 @@ bool Texto::validar(string valor)
         return false;
     }
 
-    for (int i = 0; i < valor.length(); i++)
+    for (size_t i = 0; i < valor.length(); i++)
     {
         char caractere = valor[i];
         bool isChar = StringUtils::isChar(caractere, true);

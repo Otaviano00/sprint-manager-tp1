@@ -16,7 +16,7 @@ bool Senha::validar(string valor)
 
     int countMaiusc = 0, countMinusc = 0, countDigito = 0;
 
-    for (int i = 0; i < valor.length(); i++)
+    for (size_t i = 0; i < valor.length(); i++)
     {
         char caractere = valor[i];
         if (!StringUtils::isChar(caractere, true) && !StringUtils::isDigit(caractere))

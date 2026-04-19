@@ -14,7 +14,7 @@ bool Nome::validar(string valor)
         return false;
     }
 
-    for (int i = 0; i < valor.length(); i++)
+    for (size_t i = 0; i < valor.length(); i++)
     {
         char caracter = valor[i];
         if (!StringUtils::isChar(caracter, true) && !StringUtils::isIn(caracter, " "))
