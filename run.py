@@ -16,7 +16,6 @@ def run_command(command, debug=False):
         print(f"[DEBUG] Executando: {' '.join(command)}")
     
     try:
-        # shell=True é necessário no Windows para alguns comandos de sistema
         result = subprocess.run(command, check=True)
         return True
     except subprocess.CalledProcessError as e:
@@ -35,11 +34,9 @@ def main():
     if not os.path.exists("build"):
         print("[*] Configurando CMake...")
         
-        cmake_cmd = ["cmake", "-B", "build"]
-        if os.name == 'nt': # Se for Windows
-            cmake_cmd.extend(["-G", "MinGW Makefiles"])
-
-        run_command(cmake_cmd, args.debug)
+    cmake_cmd = ["cmake", "-B", "build", "-G", "CodeBlocks - MinGW Makefiles"]
+    
+    run_command(cmake_cmd, args.debug)
 
     # 2. Compilação
     print("[*] Compilando...")
@@ -54,7 +51,7 @@ def main():
     setup_files(args.interactive)
 
     # 4. Execução
-    # Nota: O nome do executável deve ser o mesmo definido no CMakeLists.txt (ex: main)
+    # Nota: O nome do executável deve ser o mesmo definido no CMakeLists.txt
     executable = os.path.join("build", "main")
     if os.name == 'nt' and not os.path.exists(executable):
         executable = os.path.join("build", "main.exe")
