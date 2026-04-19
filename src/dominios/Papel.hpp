@@ -1,6 +1,7 @@
 #ifndef PAPEL_HPP_INCLUDED
 #define PAPEL_HPP_INCLUDED
 
+#include <string>
 #include "Dominio.hpp"
 
 enum PapelEnum
@@ -16,7 +17,7 @@ enum PapelEnum
 /**
  * @brief Domínio para validação dos papeis dos usuários do sistema
  */
-class Papel : public Dominio<string>
+class Papel : public Dominio<std::string>
 {
 private:
     /**
@@ -26,7 +27,7 @@ private:
      * @return true quando o valor representa um papel válido.
      * @return false quando o valor não representa um papel válido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // PAPEL_HPP_INCLUDED

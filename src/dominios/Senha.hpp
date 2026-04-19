@@ -1,6 +1,7 @@
 #ifndef SENHA_HPP_INCLUDED
 #define SENHA_HPP_INCLUDED
 
+#include <string>
 #include "Dominio.hpp"
 
 /**
@@ -16,7 +17,7 @@ private:
      * @return true quando a senha é válida.
      * @return false quando a senha é inválida.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // SENHA_HPP_INCLUDED

@@ -1,6 +1,7 @@
 #ifndef ESTADO_HPP_INCLUDED
 #define ESTADO_HPP_INCLUDED
 
+#include <string>
 #include "Dominio.hpp"
 
 enum EstadoEnum
@@ -16,7 +17,7 @@ enum EstadoEnum
 /**
  * @brief Domínio para validação do estado das Histórias de Usuário
  */
-class Estado : public Dominio<string>
+class Estado : public Dominio<std::string>
 {
 private:
     /**
@@ -26,7 +27,7 @@ private:
      * @return true quando o valor representa um estado válido.
      * @return false quando o valor não representa um estado válido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // ESTADO_HPP_INCLUDED

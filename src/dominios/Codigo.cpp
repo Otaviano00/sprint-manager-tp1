@@ -2,7 +2,9 @@
 #define CODIGO_CPP_INCLUDED
 
 #include "Codigo.hpp"
-#include <iostream>
+#include <string>
+
+using namespace std;
 
 bool Codigo::validar(string valor)
 {

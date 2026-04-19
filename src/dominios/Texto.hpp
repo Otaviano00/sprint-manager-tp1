@@ -1,6 +1,7 @@
 #ifndef TEXTO_HPP_INCLUDED
 #define TEXTO_HPP_INCLUDED
 
+#include <string>
 #include "Dominio.hpp"
 
 /**
@@ -16,7 +17,7 @@ private:
      * @return true quando o texto é válido.
      * @return false quando o texto é inválido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // TEXTO_HPP_INCLUDED

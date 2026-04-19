@@ -2,6 +2,10 @@
 #define DATA_CPP_INCLUDED
 
 #include "Data.hpp"
+#include <string>
+#include "../util/DateUtils.hpp"
+
+using namespace std;
 
 bool Data::validar(string valor)
 {
@@ -15,9 +19,9 @@ bool Data::validar(string valor)
         return false;
     }
 
-    int dia = std::stoi(valor.substr(0, 2));
-    int mes = std::stoi(valor.substr(3, 2));
-    int ano = std::stoi(valor.substr(6, 4));
+    int dia = stoi(valor.substr(0, 2));
+    int mes = stoi(valor.substr(3, 2));
+    int ano = stoi(valor.substr(6, 4));
 
     if (dia < 1 || dia > 31)
     {

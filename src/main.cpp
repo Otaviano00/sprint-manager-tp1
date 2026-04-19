@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include "dominios/Senha.hpp"
 #include <fstream>
+
+using namespace std;
 
 int main()
 {

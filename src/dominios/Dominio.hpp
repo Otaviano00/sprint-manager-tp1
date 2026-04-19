@@ -1,11 +1,6 @@
 #ifndef DOMINIOS_HPP_INCLUDED
 #define DOMINIOS_HPP_INCLUDED
 
-#include <iostream>
-#include "../util/StringUtils.hpp"
-#include "../util/DateUtils.hpp"
-using namespace std;
-
 /**
  * @brief Classe base abstrata para domínios com validação de valor.
  *

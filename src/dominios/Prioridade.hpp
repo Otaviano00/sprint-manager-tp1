@@ -1,6 +1,7 @@
 #ifndef PRIORIDADE_HPP_INCLUDED
 #define PRIORIDADE_HPP_INCLUDED
 
+#include <string>
 #include "Dominio.hpp"
 
 enum PrioridadeEnum
@@ -16,7 +17,7 @@ enum PrioridadeEnum
 /**
  * @brief Domínio para validação da prioridade das Histórias de Usuário
  */
-class Prioridade : public Dominio<string>
+class Prioridade : public Dominio<std::string>
 {
 private:
     /**
@@ -26,7 +27,7 @@ private:
      * @return true quando o valor representa uma prioridade válida.
      * @return false quando o valor não representa uma prioridade válida.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // PRIORIDADE_HPP_INCLUDED

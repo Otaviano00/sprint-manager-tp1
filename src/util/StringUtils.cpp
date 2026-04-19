@@ -1,7 +1,8 @@
-#ifndef STRING_UTILS_CPP_INCLUDED
-#define STRING_UTILS_CPP_INCLUDED
-
 #include "StringUtils.hpp"
+#include <vector>
+#include <string>
+
+using namespace std;
 
 bool StringUtils::isChar(char caracter, bool includeCaps)
 {
@@ -61,5 +62,3 @@ vector<string> StringUtils::split(const string value, const string delimiter)
 
     return values;
 }
-
-#endif // STRING_UTILS_CPP_INCLUDED

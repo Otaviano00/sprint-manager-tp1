@@ -2,6 +2,10 @@
 #define SENHA_CPP_INCLUDED
 
 #include "Senha.hpp"
+#include <string>
+#include "../util/StringUtils.hpp"
+
+using namespace std;
 
 bool Senha::validar(string valor)
 {

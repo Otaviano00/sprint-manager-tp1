@@ -2,6 +2,10 @@
 #define NOME_CPP_INCLUDED
 
 #include "Nome.hpp"
+#include <string>
+#include "../util/StringUtils.hpp"
+
+using namespace std;
 
 bool Nome::validar(string valor)
 {

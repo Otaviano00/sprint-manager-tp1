@@ -2,8 +2,9 @@
 #define PRIORIDADE_CPP_INCLUDED
 
 #include "Prioridade.hpp"
+#include <string>
 
-bool Prioridade::validar(string valor)
+bool Prioridade::validar(std::string valor)
 {
     return valor == "ALTA" ||
            valor == "MEDIA" ||

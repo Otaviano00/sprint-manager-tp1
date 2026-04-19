@@ -2,6 +2,10 @@
 #define TEXTO_CPP_INCLUDED
 
 #include "Texto.hpp"
+#include <string>
+#include "../util/StringUtils.hpp"
+
+using namespace std;
 
 bool Texto::validar(string valor)
 {

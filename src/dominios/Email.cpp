@@ -2,6 +2,11 @@
 #define EMAIL_CPP_INCLUDED
 
 #include "Email.hpp"
+#include <string>
+#include <vector>
+#include "../util/StringUtils.hpp"
+
+using namespace std;
 
 bool Email::validar(string valor)
 {
