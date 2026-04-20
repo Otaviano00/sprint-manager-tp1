@@ -1,7 +1,7 @@
 #ifndef CODIGO_CPP_INCLUDED
 #define CODIGO_CPP_INCLUDED
 
-#include "Codigo.hpp"
+#include <dominios/Codigo.hpp>
 #include <string>
 
 using namespace std;

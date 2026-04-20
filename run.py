@@ -33,10 +33,14 @@ def main():
     # 1. Configuração do CMake (Cria a pasta build se não existir)
     if not os.path.exists("build"):
         print("[*] Configurando CMake...")
-        
-    cmake_cmd = ["cmake", "-B", "build", "-G", "CodeBlocks - MinGW Makefiles"]
-    
-    run_command(cmake_cmd, args.debug)
+                
+        cmake_cmd = ["cmake", "-B", "build", "-G"]
+        if os.name == 'nt':
+            cmake_cmd.append("CodeBlocks - MinGW Makefiles")
+        else:
+            cmake_cmd.append("CodeBlocks - Unix Makefiles")
+
+        run_command(cmake_cmd, args.debug)
 
     # 2. Compilação
     print("[*] Compilando...")
@@ -51,10 +55,9 @@ def main():
     setup_files(args.interactive)
 
     # 4. Execução
-    # Nota: O nome do executável deve ser o mesmo definido no CMakeLists.txt
-    executable = os.path.join("build", "main")
+    executable = os.path.join("build", "src", "SprintManager")
     if os.name == 'nt' and not os.path.exists(executable):
-        executable = os.path.join("build", "main.exe")
+        executable = os.path.join("build", "src", "SprintManager.exe")
 
     print(f"[*] Rodando {executable}...")
     

@@ -1,9 +1,9 @@
 #ifndef TEXTO_CPP_INCLUDED
 #define TEXTO_CPP_INCLUDED
 
-#include "Texto.hpp"
+#include <dominios/Texto.hpp>
 #include <string>
-#include "../util/StringUtils.hpp"
+#include <util/StringUtils.hpp>
 
 using namespace std;
 

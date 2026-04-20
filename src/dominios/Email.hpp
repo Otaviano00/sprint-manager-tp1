@@ -2,7 +2,7 @@
 #define EMAIL_HPP_INCLUDED
 
 #include <string>
-#include "Dominio.hpp"
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de endereços de e-mail.

@@ -1,7 +1,7 @@
 #ifndef PAPEL_CPP_INCLUDED
 #define PAPEL_CPP_INCLUDED
 
-#include "Papel.hpp"
+#include <dominios/Papel.hpp>
 #include <string>
 
 bool Papel::validar(std::string valor)
