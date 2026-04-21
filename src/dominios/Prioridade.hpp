@@ -2,7 +2,7 @@
 #define PRIORIDADE_HPP_INCLUDED
 
 #include <string>
-#include "Dominio.hpp"
+#include <dominios/Dominio.hpp>
 
 enum PrioridadeEnum
 {

@@ -1,9 +1,9 @@
 #ifndef SENHA_CPP_INCLUDED
 #define SENHA_CPP_INCLUDED
 
-#include "Senha.hpp"
+#include <dominios/Senha.hpp>
 #include <string>
-#include "../util/StringUtils.hpp"
+#include <util/StringUtils.hpp>
 
 using namespace std;
 

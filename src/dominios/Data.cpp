@@ -1,9 +1,9 @@
 #ifndef DATA_CPP_INCLUDED
 #define DATA_CPP_INCLUDED
 
-#include "Data.hpp"
+#include <dominios/Data.hpp>
 #include <string>
-#include "../util/DateUtils.hpp"
+#include <util/DateUtils.hpp>
 
 using namespace std;
 
