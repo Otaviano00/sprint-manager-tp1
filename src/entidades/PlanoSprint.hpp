@@ -1,61 +1,79 @@
 #ifndef PLANOSPRINT_HPP_INCLUDED
 #define PLANOSPRINT_HPP_INCLUDED
 
-#include "../dominios/dominios.hpp"
+#include <dominios/Codigo.hpp>
+#include <dominios/Nome.hpp>
+#include <dominios/Data.hpp>
 
 /**
- * Classe que representa um plano de sprint.
+ * @brief Classe que representa um plano de sprint.
  *
- * Armazena informações básicas de uma sprint dentro de um projeto.
+ * Armazena as informações básicas de uma sprint dentro de um projeto.
  */
-class PlanoSprint {
+class PlanoSprint
+{
 private:
-    Codigo codigo; // Código da sprint
-    Nome nome;     // Nome da sprint
-    Data dataInicio; // Data de início
-    Data dataFim;    // Data de fim
+  Codigo codigo;   /**< Código identificador da sprint. */
+  Nome nome;       /**< Nome da sprint. */
+  Data dataInicio; /**< Data de início da sprint. */
+  Data dataFim;    /**< Data de fim da sprint. */
 
 public:
+  /**
+   * @brief Define o código da sprint.
+   *
+   * @param codigo Instância do domínio Codigo contendo o código validado.
+   */
+  void setCodigo(const Codigo &codigo);
 
-    /**
-     *  Define o código da sprint.
-     */
-    void setCodigo(const Codigo &);
+  /**
+   * @brief Retorna o código da sprint.
+   *
+   * @return Instância do domínio Codigo.
+   */
+  Codigo getCodigo() const;
 
-    /**
-     *  Retorna o código da sprint.
-     */
-    Codigo getCodigo() const;
+  /**
+   * @brief Define o nome da sprint.
+   *
+   * @param nome Instância do domínio Nome contendo o nome validado.
+   */
+  void setNome(const Nome &nome);
 
-    /**
-     *  Define o nome da sprint.
-     */
-    void setNome(const Nome &);
+  /**
+   * @brief Retorna o nome da sprint.
+   *
+   * @return Instância do domínio Nome.
+   */
+  Nome getNome() const;
 
-    /**
-     * Retorna o nome da sprint.
-     */
-    Nome getNome() const;
+  /**
+   * @brief Define a data de início da sprint.
+   *
+   * @param dataInicio Instância do domínio Data contendo a data de início validada.
+   */
+  void setDataInicio(const Data &dataInicio);
 
-    /**
-      Define a data de início da sprint.
-     */
-    void setDataInicio(const Data &);
+  /**
+   * @brief Retorna a data de início da sprint.
+   *
+   * @return Instância do domínio Data correspondente à data de início.
+   */
+  Data getDataInicio() const;
 
-    /**
-      Retorna a data de início da sprint.
-     */
-    Data getDataInicio() const;
+  /**
+   * @brief Define a data de fim da sprint.
+   *
+   * @param dataFim Instância do domínio Data contendo a data de fim validada.
+   */
+  void setDataFim(const Data &dataFim);
 
-    /**
-      Define a data de fim da sprint.
-     */
-    void setDataFim(const Data &);
-
-    /**
-     Retorna a data de fim da sprint.
-     */
-    Data getDataFim() const;
+  /**
+   * @brief Retorna a data de fim da sprint.
+   *
+   * @return Instância do domínio Data correspondente à data de fim.
+   */
+  Data getDataFim() const;
 };
 
 #endif
