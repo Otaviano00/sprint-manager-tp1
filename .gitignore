@@ -1,9 +1,7 @@
 ## Artefatos de build
+build/**
 bin/**
 obj/**
-
-# Objetos em qualquer lugar
-*.o
 
 # Documentos gerados pelo Doxygen
 doxygen_docs/**
@@ -11,3 +9,6 @@ doxygen_docs/**
 # Documentos de saída e entrada para testes
 in.txt
 out.txt
+
+# Arquivos de sqlite temporários
+*.db3
