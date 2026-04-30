@@ -14,10 +14,9 @@ private:
      * @brief Valida o valor informado para o domínio Nome.
      *
      * @param valor Nome em texto.
-     * @return true quando o nome é válido.
-     * @return false quando o nome é inválido.
+     * @throw invalid_argument Quando o nome é inválido.
      */
-    bool validar(std::string valor);
+    void validar(std::string valor);
 };
 
 #endif // NOME_HPP_INCLUDED

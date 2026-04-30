@@ -24,10 +24,9 @@ private:
      * @brief Verifica se a string é uma prioridade válida
      *
      * @param valor Valor textual a ser validado.
-     * @return true quando o valor representa uma prioridade válida.
-     * @return false quando o valor não representa uma prioridade válida.
+     * @throw invalid_argument Quando o valor não representa uma prioridade válida.
      */
-    bool validar(std::string valor);
+    void validar(std::string valor);
 };
 
 #endif // PRIORIDADE_HPP_INCLUDED

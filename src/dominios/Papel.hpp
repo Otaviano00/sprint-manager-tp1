@@ -24,10 +24,9 @@ private:
      * @brief Verifica se a string é um papel válido
      *
      * @param valor Valor textual a ser validado.
-     * @return true quando o valor representa um papel válido.
-     * @return false quando o valor não representa um papel válido.
+     * @throw invalid_argument Quando o valor não representa um papel válido.
      */
-    bool validar(std::string valor);
+    void validar(std::string valor);
 };
 
 #endif // PAPEL_HPP_INCLUDED
