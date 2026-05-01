@@ -12,21 +12,21 @@ bool Email::validar(string valor)
 {
     if (valor.length() > 64 + 1 + 255)
     {
-        return false;
+        throw invalid_argument("Tamanho inválido!");
     }
 
     vector<string> partes = StringUtils::split(valor, "@");
 
     if (partes.size() != 2)
     {
-        return false;
+        throw invalid_argument("Formato inválido!");
     }
 
     string local = partes[0];
 
     if (StringUtils::isIn(local[0], ".-") || StringUtils::isIn(local[local.length() - 1], ".-"))
     {
-        return false;
+        throw invalid_argument("E-mail inválido!");
     }
 
     for (size_t i = 0; i < local.length(); i++)
@@ -34,12 +34,12 @@ bool Email::validar(string valor)
         char caractere = local[i];
         if (!StringUtils::isChar(caractere, false) && !StringUtils::isDigit(caractere) && !StringUtils::isIn(caractere, ".-"))
         {
-            return false;
+            throw invalid_argument("Caractere inválido!");
         }
 
         if (StringUtils::isIn(caractere, ".-") && !StringUtils::isChar(local[i + 1], false) && !StringUtils::isDigit(local[i + 1]))
         {
-            return false;
+            throw invalid_argument("Caractere inválido, ponto ou hífen no meio do email!");
         }
     }
 
@@ -57,14 +57,14 @@ bool Email::validar(string valor)
     vector<string> subdominios = StringUtils::split(dominio, ".");
     if (count + 1 != subdominios.size())
     {
-        return false;
+        throw invalid_argument("Formato de domínio inválido!");
     }
 
     for (string subdominio : subdominios)
     {
         if (StringUtils::isIn(subdominio[0], "-") || StringUtils::isIn(subdominio[subdominio.length() - 1], "-"))
         {
-            return false;
+            throw invalid_argument("Hífen em posição inválida!");
         }
 
         for (size_t i = 0; i < subdominio.length(); i++)
@@ -72,16 +72,15 @@ bool Email::validar(string valor)
             char caractere = subdominio[i];
             if (!StringUtils::isChar(caractere, false) && !StringUtils::isDigit(caractere) && !StringUtils::isIn(caractere, "-"))
             {
-                return false;
+                throw invalid_argument("Caractere inválido!");
             }
 
             if (StringUtils::isIn(caractere, "-") && !StringUtils::isChar(subdominio[i + 1], false) && !StringUtils::isDigit(subdominio[i + 1]))
             {
-                return false;
+                throw invalid_argument("Formato inválido!");
             }
         }
     }
-
     return true;
 }
 
