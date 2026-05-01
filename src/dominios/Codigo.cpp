@@ -8,7 +8,7 @@ bool Codigo::validar(string valor)
 {
     if (valor.length() != 5)
     {
-        return false;
+        throw std::invalid_argument("Tamanho diferente de 5");
     }
 
     int numMaiusculos = 2;
@@ -16,7 +16,7 @@ bool Codigo::validar(string valor)
     {
         if ('A' > valor[i] || 'Z' < valor[i])
         {
-            return false;
+           throw std::invalid_argument("Não é letra maísucula");
         }
     }
 
@@ -24,7 +24,7 @@ bool Codigo::validar(string valor)
     {
         if ('0' > valor[i] || '9' < valor[i])
         {
-            return false;
+            throw std::invalid_argument("Não é numero");
         }
     }
 
