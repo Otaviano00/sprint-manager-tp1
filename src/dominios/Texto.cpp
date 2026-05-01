@@ -3,6 +3,7 @@
 
 #include <dominios/Texto.hpp>
 #include <string>
+#include <stdexcept>
 #include <util/StringUtils.hpp>
 
 using namespace std;
@@ -11,12 +12,13 @@ bool Texto::validar(string valor)
 {
     if (valor.length() > 40)
     {
-        return false;
+        throw invalid_argument("Texto com mais de 40 caracteres");
     }
 
-    if (StringUtils::isIn(valor[0], ",. ") || StringUtils::isIn(valor[valor.length() - 1], ",. "))
+    if (StringUtils::isIn(valor[0], ",. ") || 
+        StringUtils::isIn(valor[valor.length() - 1], ",. "))
     {
-        return false;
+        throw invalid_argument("Texto não pode começar ou terminar com pontuação ou espaço");
     }
 
     for (size_t i = 0; i < valor.length(); i++)
@@ -28,17 +30,24 @@ bool Texto::validar(string valor)
 
         if (!isChar && !isDigit && !isIn)
         {
-            return false;
+            throw invalid_argument("Caractere inválido no texto");
         }
 
-        if (StringUtils::isIn(caractere, ",.") && StringUtils::isIn(valor[i + 1], ",."))
+        // Verifica apenas se não for o último caractere
+        if (i + 1 < valor.length())
         {
-            return false;
-        }
+            if (StringUtils::isIn(caractere, ",.") && 
+                StringUtils::isIn(valor[i + 1], ",."))
+            {
+                throw invalid_argument("Pontuação duplicada");
+            }
 
-        if (caractere == ' ' && !StringUtils::isChar(valor[i + 1], true) && !StringUtils::isDigit(valor[i + 1]))
-        {
-            return false;
+            if (caractere == ' ' && 
+                !StringUtils::isChar(valor[i + 1], true) && 
+                !StringUtils::isDigit(valor[i + 1]))
+            {
+                throw invalid_argument("Espaço em posição inválida");
+            }
         }
     }
 
