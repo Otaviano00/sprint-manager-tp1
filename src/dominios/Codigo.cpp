@@ -3,6 +3,7 @@
 
 #include "Codigo.hpp"
 #include <iostream>
+#include <stdexcept>
 
 bool Codigo::validar(string valor)
 {

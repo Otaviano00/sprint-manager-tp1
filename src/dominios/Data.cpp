@@ -2,6 +2,7 @@
 #define DATA_CPP_INCLUDED
 
 #include "Data.hpp"
+#include <stdexcept>
 
 bool Data::validar(string valor)
 {

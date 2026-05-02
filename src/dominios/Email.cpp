@@ -2,6 +2,7 @@
 #define EMAIL_CPP_INCLUDED
 
 #include "Email.hpp"
+#include <stdexcept>
 
 bool Email::validar(string valor)
 {
