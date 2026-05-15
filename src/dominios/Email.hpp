@@ -1,7 +1,8 @@
 #ifndef EMAIL_HPP_INCLUDED
 #define EMAIL_HPP_INCLUDED
 
-#include "Dominio.hpp"
+#include <string>
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de endereços de e-mail.
@@ -16,7 +17,7 @@ private:
      * @return true quando o e-mail é válido.
      * @return false quando o e-mail é inválido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // EMAIL_HPP_INCLUDED

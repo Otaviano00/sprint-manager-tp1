@@ -1,33 +1,43 @@
 #ifndef SENHA_CPP_INCLUDED
 #define SENHA_CPP_INCLUDED
 
-#include "Senha.hpp"
+#include <dominios/Senha.hpp>
+#include <string>
+#include <stdexcept>
+#include <util/StringUtils.hpp>
+
+using namespace std;
 
 bool Senha::validar(string valor)
 {
     if (valor.length() != 6)
     {
-        return false;
+        throw invalid_argument("Senha deve ter exatamente 6 caracteres");
     }
 
     int countMaiusc = 0, countMinusc = 0, countDigito = 0;
 
-    for (int i = 0; i < valor.length(); i++)
+    for (size_t i = 0; i < valor.length(); i++)
     {
         char caractere = valor[i];
+
         if (!StringUtils::isChar(caractere, true) && !StringUtils::isDigit(caractere))
         {
-            return false;
+            throw invalid_argument("Senha possui caractere inválido");
         }
 
-        if (StringUtils::isChar(caractere, true) && StringUtils::isChar(valor[i + 1], true))
+        // Verifica apenas se não for o último caractere
+        if (i + 1 < valor.length())
         {
-            return false;
-        }
+            if (StringUtils::isChar(caractere, true) && StringUtils::isChar(valor[i + 1], true))
+            {
+                throw invalid_argument("Senha não pode ter duas letras consecutivas");
+            }
 
-        if (StringUtils::isDigit(caractere) && StringUtils::isDigit(valor[i + 1]))
-        {
-            return false;
+            if (StringUtils::isDigit(caractere) && StringUtils::isDigit(valor[i + 1]))
+            {
+                throw invalid_argument("Senha não pode ter dois dígitos consecutivos");
+            }
         }
 
         if (caractere >= 'a' && caractere <= 'z')
@@ -48,8 +58,9 @@ bool Senha::validar(string valor)
 
     if (countDigito == 0 || countMaiusc == 0 || countMinusc == 0)
     {
-        return false;
+        throw invalid_argument("Senha deve conter pelo menos uma letra maiúscula, uma minúscula e um dígito");
     }
+
     return true;
 }
 

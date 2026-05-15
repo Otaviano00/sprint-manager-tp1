@@ -1,7 +1,6 @@
 #ifndef STRING_UTILS_HPP_INCLUDED
 #define STRING_UTILS_HPP_INCLUDED
 
-using namespace std;
 #include <string>
 #include <vector>
 
@@ -38,7 +37,7 @@ public:
      * @return true quando o caractere está no conjunto.
      * @return false quando o caractere não está no conjunto.
      */
-    static bool isIn(char caracter, string values);
+    static bool isIn(char caracter, std::string values);
 
     /**
      * @brief Divide uma string em partes usando um delimitador.
@@ -47,7 +46,7 @@ public:
      * @param delimiter Delimitador de separação.
      * @return vector<string> Lista com as partes não vazias.
      */
-    static vector<string> split(const string value, const string delimiter);
+    static std::vector<std::string> split(const std::string value, const std::string delimiter);
 };
 
 #endif // STRING_UTILS_HPP_INCLUDED

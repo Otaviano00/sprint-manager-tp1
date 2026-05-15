@@ -1,8 +1,13 @@
 #ifndef EMAIL_CPP_INCLUDED
 #define EMAIL_CPP_INCLUDED
 
-#include "Email.hpp"
+#include <dominios/Email.hpp>
+#include <string>
+#include <vector>
 #include <stdexcept>
+#include <util/StringUtils.hpp>
+
+using namespace std;
 
 bool Email::validar(string valor)
 {
@@ -25,7 +30,7 @@ bool Email::validar(string valor)
         throw invalid_argument("E-mail inválido!");
     }
 
-    for (int i = 0; i < local.length(); i++)
+    for (size_t i = 0; i < local.length(); i++)
     {
         char caractere = local[i];
         if (!StringUtils::isChar(caractere, false) && !StringUtils::isDigit(caractere) && !StringUtils::isIn(caractere, ".-"))
@@ -40,7 +45,7 @@ bool Email::validar(string valor)
     }
 
     string dominio = partes[1];
-    int count = 0;
+    size_t count = 0;
 
     for (char caractere : dominio)
     {
@@ -63,7 +68,7 @@ bool Email::validar(string valor)
             throw invalid_argument("Hífen em posição inválida!");
         }
 
-        for (int i = 0; i < subdominio.length(); i++)
+        for (size_t i = 0; i < subdominio.length(); i++)
         {
             char caractere = subdominio[i];
             if (!StringUtils::isChar(caractere, false) && !StringUtils::isDigit(caractere) && !StringUtils::isIn(caractere, "-"))

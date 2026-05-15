@@ -1,7 +1,8 @@
 #ifndef NOME_HPP_INCLUDED
 #define NOME_HPP_INCLUDED
 
-#include "Dominio.hpp"
+#include <string>
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de nomes.
@@ -16,7 +17,7 @@ private:
      * @return true quando o nome é válido.
      * @return false quando o nome é inválido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // NOME_HPP_INCLUDED

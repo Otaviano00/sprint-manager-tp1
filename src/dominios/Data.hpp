@@ -1,7 +1,8 @@
 #ifndef DATA_HPP_INCLUDED
 #define DATA_HPP_INCLUDED
 
-#include "Dominio.hpp"
+#include <string>
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de datas no formato dd/mm/aaaa.
@@ -16,7 +17,7 @@ private:
      * @return true quando a data é válida.
      * @return false quando a data é inválida.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // DATA_HPP_INCLUDED

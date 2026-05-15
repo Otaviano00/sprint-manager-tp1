@@ -1,9 +1,11 @@
 #ifndef CODIGO_CPP_INCLUDED
 #define CODIGO_CPP_INCLUDED
 
-#include "Codigo.hpp"
-#include <iostream>
+#include <dominios/Codigo.hpp>
 #include <stdexcept>
+#include <string>
+
+using namespace std;
 
 bool Codigo::validar(string valor)
 {
@@ -17,11 +19,11 @@ bool Codigo::validar(string valor)
     {
         if ('A' > valor[i] || 'Z' < valor[i])
         {
-           throw std::invalid_argument("Não é letra maísucula");
+            throw std::invalid_argument("Não é letra maísucula");
         }
     }
 
-    for (int i = numMaiusculos; i < valor.length(); i++)
+    for (size_t i = numMaiusculos; i < valor.length(); i++)
     {
         if ('0' > valor[i] || '9' < valor[i])
         {

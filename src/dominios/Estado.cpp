@@ -1,7 +1,10 @@
 #ifndef ESTADO_CPP_INCLUDED
 #define ESTADO_CPP_INCLUDED
 
-#include "Estado.hpp"
+#include <dominios/Estado.hpp>
+#include <string>
+
+using namespace std;
 
 bool Estado::validar(string valor)
 {

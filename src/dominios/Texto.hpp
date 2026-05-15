@@ -1,7 +1,8 @@
 #ifndef TEXTO_HPP_INCLUDED
 #define TEXTO_HPP_INCLUDED
 
-#include "Dominio.hpp"
+#include <string>
+#include <dominios/Dominio.hpp>
 
 /**
  * @brief Domínio para validação de textos curtos.
@@ -16,7 +17,7 @@ private:
      * @return true quando o texto é válido.
      * @return false quando o texto é inválido.
      */
-    bool validar(string valor);
+    bool validar(std::string valor);
 };
 
 #endif // TEXTO_HPP_INCLUDED
