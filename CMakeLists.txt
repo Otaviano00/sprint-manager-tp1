@@ -9,3 +9,5 @@ add_subdirectory(lib)
 add_subdirectory(src)
 add_subdirectory(tests)
 
+include(CTest)
+enable_testing()

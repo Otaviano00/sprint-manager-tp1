@@ -1,10 +1,13 @@
-file(GLOB_RECURSE SOURCES "*.cpp")
-add_executable(SprintManager ${SOURCES})
+file(GLOB_RECURSE SPRINTMANAGER_SOURCES "*.cpp")
+list(REMOVE_ITEM SPRINTMANAGER_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
 
-target_include_directories(SprintManager PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
-target_link_libraries(SprintManager 
-    PRIVATE SQLiteCpp_lib 
-    PRIVATE sqlite3_lib
-    PRIVATE ${CMAKE_DL_LIBS}
+add_library(SprintManagerCore STATIC ${SPRINTMANAGER_SOURCES})
+target_include_directories(SprintManagerCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(SprintManagerCore
+    PUBLIC SQLiteCpp_lib
+    PUBLIC sqlite3_lib
+    PUBLIC ${CMAKE_DL_LIBS}
 )
+
+add_executable(SprintManager main.cpp)
+target_link_libraries(SprintManager PRIVATE SprintManagerCore)
