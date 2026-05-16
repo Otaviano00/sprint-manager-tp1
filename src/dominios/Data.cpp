@@ -3,6 +3,7 @@
 
 #include <dominios/Data.hpp>
 #include <string>
+#include <stdexcept>
 #include <util/DateUtils.hpp>
 
 using namespace std;
@@ -11,12 +12,12 @@ bool Data::validar(string valor)
 {
     if (valor.length() != 10)
     {
-        return false;
+        throw invalid_argument("Tamanho inválido!");
     }
 
     if (valor[2] != '/' || valor[5] != '/')
     {
-        return false;
+        throw invalid_argument("Formato inválido!");
     }
 
     int dia = stoi(valor.substr(0, 2));
@@ -25,24 +26,23 @@ bool Data::validar(string valor)
 
     if (dia < 1 || dia > 31)
     {
-        return false;
+        throw invalid_argument("Dia inválido!");
     }
 
     if (mes < 1 || mes > 12)
     {
-        return false;
+        throw invalid_argument("Mês inválido!");
     }
 
     if (ano < 2000 || ano > 2999)
     {
-        return false;
+        throw invalid_argument("Ano inválido!");
     }
 
     if (!DateUtils::isValidDate(dia, mes, ano))
     {
-        return false;
+        throw invalid_argument("Data inválida!");
     }
-
     return true;
 }
 
