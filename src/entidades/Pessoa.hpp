@@ -4,13 +4,16 @@
 #include <dominios/Email.hpp>
 #include <dominios/Nome.hpp>
 #include <dominios/Senha.hpp>
+#include <entidades/Entity.hpp>
+
+#define TABLE_NAME "pessoa"
 
 /**
  * @brief Classe que representa uma pessoa.
  *
  * Armazena as informações básicas do usuário do sistema.
  */
-class Pessoa
+class Pessoa : public Entity
 {
 private:
     Email email; /**< E-mail da pessoa. */
@@ -18,6 +21,9 @@ private:
     Senha senha; /**< Senha da pessoa. */
 
 public:
+    Pessoa() : Entity(-1) {} // Set id inicial inválido
+    Pessoa(long id) : Entity(id) {}
+
     /**
      * @brief Define o e-mail da pessoa.
      *

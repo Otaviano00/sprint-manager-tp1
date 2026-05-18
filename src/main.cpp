@@ -31,61 +31,60 @@ namespace SQLite
 }
 #endif
 
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <unistd.h>
+#include <SQLiteCpp/SQLiteCpp.h>
+
+#include <entidades/Pessoa.hpp>
+#include <repository/PessoaRepository.hpp>
+
 int main()
 {
+    std::cout << "=== Testando o RepositoryBase e PessoaRepository ===" << std::endl;
 
-    char cwd[1024];
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-    {
-        std::cout << "O programa está rodando em: " << cwd << std::endl;
-    }
-    // Using SQLITE_VERSION would require #include <sqlite3.h> which we want to avoid: use SQLite::VERSION if possible.
-    //  std::cout << "SQlite3 version " << SQLITE_VERSION << std::endl;
-    std::cout << "SQlite3 version " << SQLite::VERSION << " (" << SQLite::getLibVersion() << ")" << std::endl;
-    std::cout << "SQliteC++ version " << SQLITECPP_VERSION << std::endl;
-
-    ////////////////////////////////////////////////////////////////////////////
-    // Simple batch queries example :
     try
     {
-        // Open a database file in create/write mode
-        SQLite::Database db("initial-database.db3", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
-        std::cout << "SQLite database file '" << db.getFilename().c_str() << "' opened successfully\n";
+        // Instancia classe de persistência de entidade Pessoa
+        // Cria tabela "pessoa" uma única vez e com as configurações setadas na classe.
+        PessoaRepository repo;
 
-        // Create a new table with an explicit "id" column aliasing the underlying rowid
-        // db.exec("DROP TABLE IF EXISTS test");
-        db.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, value TEXT)");
+        // Instancia entidade Pessoa. Não há id atrelado ainda
+        Pessoa novaPessoa;
 
-        // first row
-        int nb = db.exec("INSERT INTO test VALUES (NULL, \"test\")");
-        std::cout << "INSERT INTO test VALUES (NULL, \"test\")\", returned " << nb << std::endl;
+        Email email;
+        email.setValor("te@ste.com");
+        novaPessoa.setEmail(email);
 
-        // second row
-        nb = db.exec("INSERT INTO test VALUES (NULL, \"second\")");
-        std::cout << "INSERT INTO test VALUES (NULL, \"second\")\", returned " << nb << std::endl;
+        Nome nome;
+        nome.setValor("Joao");
+        novaPessoa.setNome(nome);
 
-        // update the second row
-        nb = db.exec("UPDATE test SET value=\"second-updated\" WHERE id='2'");
-        std::cout << "UPDATE test SET value=\"second-updated\" WHERE id='2', returned " << nb << std::endl;
+        Senha senha;
+        senha.setValor("A1b2C3");
+        novaPessoa.setSenha(senha);
 
-        // Check the results : expect two row of result
-        SQLite::Statement query(db, "SELECT * FROM test");
-        std::cout << "SELECT * FROM test :\n";
-        while (query.executeStep())
+        // Salva a instancia de Pessoa no banco de dados. Atrela novo ID no ssave
+        if (repo.save(novaPessoa))
         {
-            std::cout << "row (" << query.getColumn(0) << ", \"" << query.getColumn(1) << "\")\n";
+            std::cout << "Nova pessoa salva com sucesso no banco de dados, com ID gerado = " << novaPessoa.getId() << std::endl;
         }
 
-        // db.exec("DROP TABLE test");
+        std::cout << "\nLista de pessoas no banco de dados:" << std::endl;
+        std::vector<Pessoa> pessoas = repo.findAll();
+        for (const Pessoa &p : pessoas)
+        {
+            std::cout << "- [" << p.getEmail().getValor() << "] "
+                      << p.getNome().getValor() << std::endl;
+        }
     }
     catch (std::exception &e)
     {
-        std::cout << "SQLite exception: " << e.what() << std::endl;
-        return EXIT_FAILURE; // unexpected error : exit the example program
+        std::cout << "Exceção do SQLite: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
-    // remove("test.db3");
 
-    std::cout << "everything ok, quitting\n";
-
+    std::cout << "tudo ok!\n";
     return EXIT_SUCCESS;
 }
