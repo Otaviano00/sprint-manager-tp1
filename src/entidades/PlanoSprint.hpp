@@ -4,13 +4,14 @@
 #include <dominios/Codigo.hpp>
 #include <dominios/Nome.hpp>
 #include <dominios/Data.hpp>
+#include <entidades/Entity.hpp>
 
 /**
  * @brief Classe que representa um plano de sprint.
  *
  * Armazena as informações básicas de uma sprint dentro de um projeto.
  */
-class PlanoSprint
+class PlanoSprint : public Entity
 {
 private:
   Codigo codigo;   /**< Código identificador da sprint. */
@@ -19,6 +20,9 @@ private:
   Data dataFim;    /**< Data de fim da sprint. */
 
 public:
+  PlanoSprint() : Entity(0) {}
+  PlanoSprint(long id) : Entity(id) {}
+
   /**
    * @brief Define o código da sprint.
    *
