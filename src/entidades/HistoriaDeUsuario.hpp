@@ -7,12 +7,14 @@
 #include <dominios/Tempo.hpp>
 #include <dominios/Prioridade.hpp>
 #include <dominios/Estado.hpp>
+#include <entidades/Entity.hpp>
 
 /// @brief Entidade que representa uma Historia de Usuario no sistema Scrum.
 ///
 /// Cada historia e composta por papel, acao e valor, e pode estar
 /// associada a um Projeto ou a um Plano de Sprint (nunca ambos).
-class HistoriaDeUsuario {
+class HistoriaDeUsuario : public Entity
+{
 private:
     Codigo codigo;
     Texto titulo;
@@ -24,15 +26,18 @@ private:
     Estado estado;
 
 public:
+    HistoriaDeUsuario() : Entity(0) {}
+    HistoriaDeUsuario(long id) : Entity(id) {}
+
     // Setters
-    void setCodigo(const Codigo&);
-    void setTitulo(const Texto&);
-    void setPapel(const Texto&);
-    void setAcao(const Texto&);
-    void setValor(const Texto&);
-    void setEstimativa(const Tempo&);
-    void setPrioridade(const Prioridade&);
-    void setEstado(const Estado&);
+    void setCodigo(const Codigo &);
+    void setTitulo(const Texto &);
+    void setPapel(const Texto &);
+    void setAcao(const Texto &);
+    void setValor(const Texto &);
+    void setEstimativa(const Tempo &);
+    void setPrioridade(const Prioridade &);
+    void setEstado(const Estado &);
 
     // Getters
     Codigo getCodigo() const;

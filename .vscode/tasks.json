@@ -2,6 +2,26 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "clear_build",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-rf", "build"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "shared",
+        "reveal": "silent",
+        "focus": false,
+        "echo": false,
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "none",
+      "detail": "Limpa os arquivos compilados do projeto"
+    },
+    {
       "label": "run_c_debug",
       "type": "shell",
       "command": "python",

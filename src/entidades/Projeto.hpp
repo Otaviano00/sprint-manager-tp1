@@ -4,13 +4,14 @@
 #include <dominios/Codigo.hpp>
 #include <dominios/Nome.hpp>
 #include <dominios/Data.hpp>
+#include <entidades/Entity.hpp>
 
 /**
  * @brief Classe que representa um projeto.
  *
  * Armazena as informações básicas de um projeto de desenvolvimento.
  */
-class Projeto
+class Projeto : public Entity
 {
 private:
     Codigo codigo;   /**< Código identificador do projeto. */
@@ -19,6 +20,9 @@ private:
     Data dataFim;    /**< Data de fim do projeto. */
 
 public:
+    Projeto() : Entity(0) {}
+    Projeto(long id) : Entity(id) {}
+
     /**
      * @brief Define o código do projeto.
      *
