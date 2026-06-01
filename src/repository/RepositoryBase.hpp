@@ -66,7 +66,7 @@ template <typename T>
 T RepositoryBase<T>::findById(long id)
 {
     SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE id = ?");
-    query.bind(1, id);
+    query.bind(1, static_cast<int>(id));
 
     if (query.executeStep())
     {
@@ -94,7 +94,7 @@ template <typename T>
 bool RepositoryBase<T>::deleteById(long id)
 {
     SQLite::Statement query(db, "DELETE FROM " + tableName + " WHERE id = ?");
-    query.bind(1, id);
+    query.bind(1, static_cast<int>(id));
 
     int rowsModified = query.exec();
     return rowsModified > 0;
