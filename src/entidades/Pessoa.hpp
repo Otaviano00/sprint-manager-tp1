@@ -4,6 +4,7 @@
 #include <dominios/Email.hpp>
 #include <dominios/Nome.hpp>
 #include <dominios/Senha.hpp>
+#include <dominios/Papel.hpp>
 #include <entidades/Entity.hpp>
 
 #define TABLE_NAME "pessoa"
@@ -19,6 +20,7 @@ private:
     Email email; /**< E-mail da pessoa. */
     Nome nome;   /**< Nome da pessoa. */
     Senha senha; /**< Senha da pessoa. */
+    Papel papel; /**< Papel da pessoa no sistema. */
 
 public:
     Pessoa() : Entity(-1) {} // Set id inicial inválido
@@ -65,6 +67,20 @@ public:
      * @return Instância do domínio Senha.
      */
     Senha getSenha() const;
+
+    /**
+     * @brief Define o papel da pessoa.
+     *
+     * @param papel Instância do domínio Papel contendo o papel validado.
+     */
+    void setPapel(const Papel &papel);
+
+    /**
+     * @brief Retorna o papel da pessoa.
+     *
+     * @return Instância do domínio Papel.
+     */
+    Papel getPapel() const;
 };
 
 #endif

@@ -29,3 +29,13 @@ Senha Pessoa::getSenha() const
 {
     return senha;
 }
+
+void Pessoa::setPapel(const Papel &papel)
+{
+    this->papel = papel;
+}
+
+Papel Pessoa::getPapel() const
+{
+    return papel;
+}
