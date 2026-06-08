@@ -1,5 +1,5 @@
 #include "UnitTestBase.hpp"
-#include <repository/PlanoSprintRepository.hpp>
+#include <modulos/plano_sprint/PlanoSprintRepository.hpp>
 
 class TUPlanoSprintRepository : public UnitTestBase
 {
