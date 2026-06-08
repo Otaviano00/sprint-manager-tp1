@@ -1,5 +1,5 @@
 #include "UnitTestBase.hpp"
-#include <repository/ProjetoRepository.hpp>
+#include <modulos/projeto/ProjetoRepository.hpp>
 
 class TUProjetoRepository : public UnitTestBase
 {

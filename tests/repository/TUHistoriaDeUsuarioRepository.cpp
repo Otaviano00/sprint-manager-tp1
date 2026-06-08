@@ -1,5 +1,5 @@
 #include "UnitTestBase.hpp"
-#include <repository/HistoriaDeUsuarioRepository.hpp>
+#include <modulos/historia_usuario/HistoriaDeUsuarioRepository.hpp>
 
 class TUHistoriaDeUsuarioRepository : public UnitTestBase
 {
