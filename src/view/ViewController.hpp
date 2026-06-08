@@ -8,6 +8,9 @@
 #include <view/IProjetoView.hpp>
 #include <view/IPlanoSprintView.hpp>
 
+/**
+ * @brief Controlador principal que orquestra a navegação entre módulos de view.
+ */
 class ViewController : public IViewController
 {
 private:
@@ -18,9 +21,19 @@ private:
     IPlanoSprintView *planoSprintView;
 
 public:
+    /**
+     * @brief Constrói o controlador principal e instancia submódulos visuais.
+     */
     ViewController();
+
+    /**
+     * @brief Libera recursos alocados pelo controlador principal.
+     */
     ~ViewController();
 
+    /**
+     * @brief Exibe o menu principal e delega fluxo para submódulos.
+     */
     void executar() override;
 };
 

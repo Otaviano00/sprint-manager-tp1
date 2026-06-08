@@ -5,6 +5,9 @@
 #include <service/IHistoriaUsuarioService.hpp>
 #include <panel/Panel.hpp>
 
+/**
+ * @brief Implementa a interface CLI para operações de história de usuário.
+ */
 class HistoriaUsuarioView : public IHistoriaUsuarioView
 {
 private:
@@ -15,8 +18,14 @@ private:
     void interfaceListarHistorias();
 
 public:
+    /**
+     * @brief Constrói o módulo de histórias de usuário e inicializa dependências.
+     */
     HistoriaUsuarioView();
 
+    /**
+     * @brief Exibe o menu de histórias de usuário e executa ações selecionadas.
+     */
     void executar() override;
 };
 

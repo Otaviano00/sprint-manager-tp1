@@ -5,6 +5,9 @@
 #include <service/IPlanoSprintService.hpp>
 #include <panel/Panel.hpp>
 
+/**
+ * @brief Implementa a interface CLI para operações de plano de sprint.
+ */
 class PlanoSprintView : public IPlanoSprintView
 {
 private:
@@ -18,8 +21,14 @@ private:
     void interfaceListarPorProjeto();
 
 public:
+    /**
+     * @brief Constrói o módulo de planos de sprint e inicializa dependências.
+     */
     PlanoSprintView();
 
+    /**
+     * @brief Exibe o menu de planos de sprint e executa ações selecionadas.
+     */
     void executar() override;
 };
 

@@ -5,6 +5,9 @@
 #include <service/IPessoaService.hpp>
 #include <panel/Panel.hpp>
 
+/**
+ * @brief Implementa a interface CLI para operações de pessoa.
+ */
 class PessoaView : public IPessoaView
 {
 private:
@@ -17,8 +20,14 @@ private:
     void interfaceExcluirPessoa();
 
 public:
+    /**
+     * @brief Constrói o módulo de pessoas e inicializa dependências.
+     */
     PessoaView();
 
+    /**
+     * @brief Exibe o menu de pessoas e executa ações selecionadas.
+     */
     void executar() override;
 };
 
