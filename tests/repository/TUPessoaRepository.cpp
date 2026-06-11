@@ -52,6 +52,10 @@ void TUPessoaRepository::testarCenarioCRUD()
     senha.setValor("A1b2C3");
     p.setSenha(senha);
 
+    Papel papel;
+    papel.setValor("DESENVOLVEDOR");
+    p.setPapel(papel);
+
     // Testar Save
     if (repo->save(p))
     {
@@ -62,7 +66,8 @@ void TUPessoaRepository::testarCenarioCRUD()
         {
             Pessoa recuperada = repo->findById(p.getId());
             if (recuperada.getEmail().getValor() == p.getEmail().getValor() &&
-                recuperada.getNome().getValor() == p.getNome().getValor())
+                recuperada.getNome().getValor() == p.getNome().getValor() &&
+                recuperada.getPapel().getValor() == p.getPapel().getValor())
             {
                 recordSuccess("findById Pessoa retorna dados corretos");
             }
