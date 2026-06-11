@@ -13,6 +13,7 @@ bool PessoaService::autenticarPapel(ServicoEnum servico)
     {
     case S1_CRIAR_PESSOA:
     case S2_LER_PESSOA:
+    case S2_LISTAR_PESSOA:
     case S3_ATUALIZAR_PESSOA:
     case S4_EXCLUIR_PESSOA:
         return true;

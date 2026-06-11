@@ -40,7 +40,7 @@ public:
     bool deleteById(long id);
 };
 
-// Implementações
+// Implementações genéricas devem ficar aqui, pois RepositoryBase é uma classe abstrata
 
 template <typename T>
 void RepositoryBase<T>::createTable()

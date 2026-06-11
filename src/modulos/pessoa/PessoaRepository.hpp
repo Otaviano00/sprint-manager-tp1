@@ -14,14 +14,12 @@
 class PessoaRepository : public RepositoryBase<Pessoa>
 {
 public:
-    PessoaRepository() : RepositoryBase<Pessoa>(TABLE_NAME, {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
-                                                             {"email", "TEXT NOT NULL"},
-                                                             {"nome", "TEXT NOT NULL"},
-                                                             {"senha", "TEXT NOT NULL"}})
-    {
-    }
+    PessoaRepository();
 
     bool save(Pessoa &pessoa) override;
+    bool update(Pessoa &pessoa);
+    Pessoa *findByEmail(Email email);
+    Pessoa *findByEmailAndSenha(Email email, Senha senha);
 
 protected:
     Pessoa mapToEntity(SQLite::Statement &query) override;

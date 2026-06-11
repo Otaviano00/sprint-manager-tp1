@@ -12,19 +12,12 @@ class ProjetoView : public IProjetoView
 {
 private:
     IProjetoService *service;
-    JustOptionsPanel *menuLocal;
-
-    void interfaceCriarProjeto();
-    void interfaceListarProjetos();
-    void interfaceAtualizarProjeto();
-    void interfaceExcluirProjeto();
-    void interfaceListarProjetosPorPessoa();
 
 public:
     /**
      * @brief Constrói o módulo de projetos e inicializa dependências.
      */
-    ProjetoView();
+    ProjetoView() = default;
 
     /**
      * @brief Exibe o menu de projetos e executa ações selecionadas.

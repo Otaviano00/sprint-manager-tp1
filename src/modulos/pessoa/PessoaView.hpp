@@ -12,18 +12,12 @@ class PessoaView : public IPessoaView
 {
 private:
     IPessoaService *service;
-    JustOptionsPanel *menuLocal;
-
-    void interfaceCriarPessoa();
-    void interfaceListarPessoas();
-    void interfaceAtualizarPessoa();
-    void interfaceExcluirPessoa();
 
 public:
     /**
      * @brief Constrói o módulo de pessoas e inicializa dependências.
      */
-    PessoaView();
+    PessoaView() = default;
 
     /**
      * @brief Exibe o menu de pessoas e executa ações selecionadas.
