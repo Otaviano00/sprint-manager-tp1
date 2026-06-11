@@ -1,5 +1,5 @@
-#ifndef PANEL_BASE
-#define PANEL_BASE
+#ifndef PANEL_HPP
+#define PANEL_HPP
 
 #include <string>
 #include <vector>
@@ -8,49 +8,55 @@
 
 class Panel
 {
-protected:
-    bool hasTitle;
-    bool hasContent;
-    bool hasOptions;
-    std::string title;
-    std::vector<Panel *> panels;
 
+private:
+    bool hasTitle = false;
+    bool hasAction = false;
+    bool hasOptions = false;
+    bool hasZeroOption = true;
+    bool hasEnd = false;
+    bool hasConfirmation = false;
+
+    std::string title;
+    std::string zeroOptionLabel;
+    std::vector<Panel *> options;
     std::function<void()> action = nullptr;
+    std::function<void()> zeroOptionAction = nullptr;
+
     void showOptions();
-    bool choseOption();
+    int choseOption();
 
 public:
-    Panel(std::string title = "", bool hasContent = false, bool hasOptions = true);
+    Panel() = default;
+
     virtual ~Panel() = default;
+
+    void showPanel();
+    void showPanel(bool clearScreen);
 
     void setAction(std::function<void()> callback)
     {
         this->action = callback;
     }
+
     void addOption(Panel *option)
     {
-        this->panels.push_back(option);
-    }
-    void showPanel();
-};
+        if (!this->hasOptions)
+        {
+            this->hasOptions = true;
+        }
 
-class ActionPanel : public Panel
-{
-public:
-    ActionPanel(std::string title, std::function<void()> callback)
-        : Panel(title, true, false)
+        this->options.push_back(option);
+    }
+
+    void setZeroOption(const std::string &label, std::function<void()> callback = nullptr)
     {
-        this->setAction(callback);
+        this->hasZeroOption = true;
+        this->zeroOptionLabel = label;
+        this->zeroOptionAction = callback;
     }
+
+    friend class PanelBuilder;
 };
 
-class JustOptionsPanel : public Panel
-{
-public:
-    JustOptionsPanel()
-        : Panel("", false, true)
-    {
-    }
-};
-
-#endif // PANEL_BASE
+#endif // PANEL_HPP

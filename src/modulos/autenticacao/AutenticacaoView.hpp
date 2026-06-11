@@ -12,7 +12,6 @@ class AutenticacaoView : public IAutenticacaoView
 {
 private:
     IAutenticacaoService *service;
-    JustOptionsPanel *menuLocal;
 
     void interfaceLogin();
     void interfaceLogout();
@@ -24,9 +23,16 @@ public:
     AutenticacaoView();
 
     /**
-     * @brief Exibe o menu de autenticação e executa ações selecionadas.
+     * @brief Exibe o fluxo de login via CLI.
+     *
      */
-    void executar() override;
+    bool login() override;
+
+    /**
+     * @brief Exibe o fluxo de logout via CLI.
+     *
+     */
+    bool logout() override;
 };
 
 #endif // AUTENTICACAOVIEW_HPP

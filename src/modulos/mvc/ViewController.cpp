@@ -5,6 +5,8 @@
 #include <modulos/projeto/ProjetoView.hpp>
 #include <modulos/plano_sprint/PlanoSprintView.hpp>
 #include <core/Panel.hpp>
+#include <core/PanelBuilder.hpp>
+#include <util/ViewUtils.hpp>
 #include <iostream>
 
 ViewController::ViewController()
@@ -25,26 +27,70 @@ ViewController::~ViewController()
     delete planoSprintView;
 }
 
+void showLogo()
+{
+    if (ViewUtils::printTextFile("logo.txt"))
+    {
+        return;
+    }
+}
+
 void ViewController::executar()
 {
-    auto menuPrincipal = new Panel("Menu Principal", false, true);
 
-    menuPrincipal->addOption(new ActionPanel("Autenticação / Login", [this]()
-                                             { this->autenticacaoView->executar(); }));
+    auto menuPrincipal = PanelBuilder::builder()
+                             ->withTitle("Menu Principal")
+                             ->withOptions(true)
+                             ->withZeroAction(true, "Logout", [this]()
+                                              { this->autenticacaoView->logout(); })
+                             ->build();
 
-    menuPrincipal->addOption(new ActionPanel("Gerenciar Pessoas", [this]()
-                                             { this->pessoaView->executar(); }));
+    auto menuPessoas = PanelBuilder::builder()
+                           ->withTitle("Gerenciar Pessoas")
+                           ->withAction([this]()
+                                        { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
+                           ->withEnd(true) // temporário para teste de fluxo
+                           ->build();
 
-    menuPrincipal->addOption(new ActionPanel("Gerenciar Projetos", [this]()
-                                             { this->projetoView->executar(); }));
+    menuPrincipal->addOption(menuPessoas);
 
-    menuPrincipal->addOption(new ActionPanel("Histórias de Usuário", [this]()
-                                             { this->historiaView->executar(); }));
+    auto menuProjetos = PanelBuilder::builder()
+                            ->withTitle("Gerenciar Projetos")
+                            ->withAction([this]()
+                                         { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
+                            ->withEnd(true) // temporário para teste de fluxo
+                            ->build();
 
-    menuPrincipal->addOption(new ActionPanel("Planos de Sprint", [this]()
-                                             { this->planoSprintView->executar(); }));
+    menuPrincipal->addOption(menuProjetos);
 
-    menuPrincipal->showPanel();
+    auto menuHistoriasUsuario = PanelBuilder::builder()
+                                    ->withTitle("Gerenciar Historias de Usuario")
+                                    ->withAction([this]()
+                                                 { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
+                                    ->withEnd(true) // temporário para teste de fluxo
+                                    ->build();
 
+    menuPrincipal->addOption(menuHistoriasUsuario);
+
+    auto menuPlanosSprint = PanelBuilder::builder()
+                                ->withTitle("Gerenciar Planos de Sprint")
+                                ->withAction([this]()
+                                             { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
+                                ->withEnd(true) // temporário para teste de fluxo
+                                ->build();
+
+    menuPrincipal->addOption(menuPlanosSprint);
+
+    while (true)
+    {
+        ViewUtils::clear();
+        showLogo();
+        if (!autenticacaoView->login())
+        {
+            continue;
+        }
+
+        menuPrincipal->showPanel();
+    }
     delete menuPrincipal;
 }

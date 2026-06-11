@@ -1,5 +1,5 @@
-#ifndef IAUTENTICACAOSINGLETON_HPP
-#define IAUTENTICACAOSINGLETON_HPP
+#ifndef IAUTENTICACAOSERVICE_HPP
+#define IAUTENTICACAOSERVICE_HPP
 
 #include <string>
 #include <stdexcept>
@@ -19,7 +19,7 @@ public:
      * @param senha Senha informada no login.
      * @return true quando a autenticação for bem-sucedida.
      */
-    virtual bool autenticarLogin(std::string email, std::string senha) = 0;
+    virtual bool login(std::string email, std::string senha) = 0;
 
     /**
      * @brief Retorna o papel do usuário autenticado na sessão atual.
@@ -28,9 +28,20 @@ public:
     virtual PapelEnum getPapel() = 0;
 
     /**
+     * @brief Encerra a sessão atual do usuário autenticado.
+     */
+    virtual void logout() = 0;
+
+    /**
+     * @brief Verifica se há um usuário autenticado na sessão atual.
+     * @return true se um usuário estiver logado, false caso contrário.
+     */
+    virtual bool isLoggedIn() = 0;
+
+    /**
      * @brief Destrutor virtual da interface de autenticação.
      */
     virtual ~IAutenticacaoService() = default;
 };
 
-#endif // IAUTENTICACAOSINGLETON_HPP
+#endif // IAUTENTICACAOSERVICE_HPP

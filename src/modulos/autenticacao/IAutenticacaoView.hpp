@@ -8,9 +8,14 @@ class IAutenticacaoView
 {
 public:
     /**
-     * @brief Exibe o fluxo de autenticação (login/logout) via CLI.
+     * @brief Exibe o fluxo de login via CLI.
      */
-    virtual void executar() = 0;
+    virtual bool login() = 0;
+
+    /**
+     * @brief Exibe o fluxo de logout via CLI.
+     */
+    virtual bool logout() = 0;
 
     /**
      * @brief Destrutor virtual da interface de autenticação visual.

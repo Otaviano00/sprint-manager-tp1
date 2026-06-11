@@ -3,65 +3,74 @@
 
 #include <iostream>
 #include <core/Panel.hpp>
+#include <util/ViewUtils.hpp>
 #include <vector>
 #include <stdexcept>
 
-#define SIZE_DEFAULT 20
-
-#ifndef _WIN32
-#define CLEAR "clear"
-#else
-#define CLEAR "cls"
-#endif
+#define SIZE_DEFAULT 50
 
 using namespace std;
 
-void clear()
+int Panel::choseOption()
 {
-    system(CLEAR);
-}
+    std::string optionText;
+    std::getline(cin, optionText);
 
-Panel::Panel(string title, bool hasContent, bool hasOptions)
-    : hasTitle(!title.empty()), hasContent(hasContent), hasOptions(hasOptions), title(title)
-{
-}
-
-bool Panel::choseOption()
-{
-    int option;
-
-    if (!(cin >> option))
+    if (optionText.empty())
     {
-        cin.clear();             // Limpa as flags de erro do cin ANTES de ignorar
-        cin.ignore(10000, '\n'); // Descarta a sequência de letras inválida digitada
         throw invalid_argument("Entrada inválida. Digite um número.");
     }
 
-    cin.ignore(10000, '\n');
+    size_t parsedLen = 0;
+    int option = 0;
+    try
+    {
+        option = std::stoi(optionText, &parsedLen);
+    }
+    catch (const std::exception &)
+    {
+        throw invalid_argument("Entrada inválida. Digite um número.");
+    }
+
+    if (parsedLen != optionText.length())
+    {
+        throw invalid_argument("Entrada inválida. Digite apenas números.");
+    }
 
     if (option == 0)
     {
-        return false;
+        if (!hasZeroOption)
+        {
+            throw invalid_argument("Opção inválida");
+        }
+
+        if (this->zeroOptionAction == nullptr)
+        {
+            return -1;
+        }
+
+        return option;
     }
 
-    if (option < 1 || option > (int)this->panels.size())
+    if (option < 1 || option > (int)this->options.size())
     {
         throw invalid_argument("Opção inválida");
     }
 
-    clear();
-    this->panels.at(option - 1)->showPanel();
-    return true;
+    return option;
 }
 
 void Panel::showOptions()
 {
-    for (int i = 0; i < (int)this->panels.size(); i++)
+    for (int i = 0; i < (int)this->options.size(); i++)
     {
-        cout << "[" << (i + 1) << "] - " << this->panels.at(i)->title << endl;
+        cout << "[" << (i + 1) << "] - " << this->options.at(i)->title << endl;
     }
 
-    cout << "[0] - Retornar" << endl;
+    if (hasZeroOption)
+    {
+        cout << "[0] - " << zeroOptionLabel << endl;
+    }
 
     cout << endl;
 }
@@ -85,41 +94,87 @@ void showTitle(std::string title, int length)
 
 void Panel::showPanel()
 {
+    this->showPanel(true);
+}
+
+void Panel::showPanel(bool clearScreen)
+{
 
     while (true)
     {
-        clear();
+        if (clearScreen)
+            ViewUtils::clear();
 
         if (this->hasTitle)
             showTitle(this->title, SIZE_DEFAULT);
 
-        if (this->hasContent && this->action != nullptr)
-            this->action();
-
-        if (this->hasOptions && !this->panels.empty())
+        if (this->hasAction && this->action != nullptr)
         {
-            showOptions();
-
             try
             {
-                if (!choseOption())
+                this->action();
+
+                if (this->hasEnd)
                 {
+                    cout << endl;
+                    ViewUtils::waitForEnter();
                     break;
                 }
             }
             catch (const exception &e)
             {
-                cout << "Erro: " << e.what() << endl;
-                cout << "[Pressione Enter para tentar novamente]" << endl;
-                cin.get();
+                if (this->hasEnd)
+                {
+                    ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
+                    break;
+                }
+                continue;
             }
         }
-        else
+
+        if (this->hasOptions && !this->options.empty())
         {
-            cout << endl
-                 << "[Pressione Enter para voltar]" << endl;
-            cin.get();
-            break;
+            showOptions();
+
+            try
+            {
+                int option = choseOption();
+
+                if (this->hasConfirmation)
+                {
+                    if (!ViewUtils::confirmAction())
+                    {
+                        continue;
+                    }
+                }
+
+                if (option == -1)
+                {
+                    break;
+                }
+
+                if (option == 0)
+                {
+                    this->zeroOptionAction();
+                    break;
+                }
+
+                if (option > 0)
+                    this->options.at(option - 1)->showPanel();
+            }
+            catch (const exception &e)
+            {
+                if (this->hasEnd)
+                {
+                    cout << endl;
+                    ViewUtils::waitForEnter("[Pressione Enter para voltar ao menu]");
+                    break;
+                }
+                else
+                {
+                    ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
+                }
+            }
         }
     }
 }

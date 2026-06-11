@@ -1,13 +1,32 @@
 #include <modulos/autenticacao/AutenticacaoService.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
+#include <dominios/Email.hpp>
+#include <dominios/Senha.hpp>
 
-bool AutenticacaoService::autenticarLogin(std::string email, std::string senha)
+bool AutenticacaoService::login(std::string email, std::string senha)
 {
-    if (email == "" || senha == "")
+    Email emailDominio;
+    emailDominio.setValor(email);
+
+    Senha senhaDominio;
+    senhaDominio.setValor(senha);
+
+    pessoa = pessoaRepository->findByEmailAndSenha(emailDominio, senhaDominio);
+    return pessoa != nullptr;
+}
+
+bool AutenticacaoService::isLoggedIn()
+{
+    return pessoa != nullptr;
+}
+
+void AutenticacaoService::logout()
+{
+    if (pessoa != nullptr)
     {
-        return false;
+        delete pessoa;
+        pessoa = nullptr;
     }
-    return true;
 }
 
 PapelEnum AutenticacaoService::getPapel()

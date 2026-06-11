@@ -12,16 +12,12 @@ class HistoriaUsuarioView : public IHistoriaUsuarioView
 {
 private:
     IHistoriaUsuarioService *service;
-    JustOptionsPanel *menuLocal; // Árvore local de opções deste módulo
-
-    void interfaceCriarHistoria();
-    void interfaceListarHistorias();
 
 public:
     /**
      * @brief Constrói o módulo de histórias de usuário e inicializa dependências.
      */
-    HistoriaUsuarioView();
+    HistoriaUsuarioView() = default;
 
     /**
      * @brief Exibe o menu de histórias de usuário e executa ações selecionadas.

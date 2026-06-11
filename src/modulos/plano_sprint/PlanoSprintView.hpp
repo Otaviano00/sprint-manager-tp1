@@ -12,19 +12,12 @@ class PlanoSprintView : public IPlanoSprintView
 {
 private:
     IPlanoSprintService *service;
-    JustOptionsPanel *menuLocal;
-
-    void interfaceCriarPlanoSprint();
-    void interfaceListarPlanosSprint();
-    void interfaceAtualizarPlanoSprint();
-    void interfaceExcluirPlanoSprint();
-    void interfaceListarPorProjeto();
 
 public:
     /**
      * @brief Constrói o módulo de planos de sprint e inicializa dependências.
      */
-    PlanoSprintView();
+    PlanoSprintView() = default;
 
     /**
      * @brief Exibe o menu de planos de sprint e executa ações selecionadas.

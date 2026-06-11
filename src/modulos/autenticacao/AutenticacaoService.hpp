@@ -2,6 +2,7 @@
 #define AUTENTICACAOSERVICE_HPP
 
 #include <modulos/autenticacao/IAutenticacaoService.hpp>
+#include <modulos/pessoa/PessoaRepository.hpp>
 
 /**
  * @brief Implementação de autenticação e gerenciamento de sessão da aplicação.
@@ -9,10 +10,12 @@
 class AutenticacaoService : public IAutenticacaoService
 {
 private:
-    static AutenticacaoService *instance;
+    PessoaRepository *pessoaRepository;
     Pessoa *pessoa;
 
-    AutenticacaoService() : pessoa(nullptr) {}
+    AutenticacaoService() : pessoa(nullptr), pessoaRepository(new PessoaRepository())
+    {
+    }
 
 public:
     /**
@@ -21,12 +24,8 @@ public:
      */
     static IAutenticacaoService *getInstance()
     {
-        if (instance == nullptr)
-        {
-            static AutenticacaoService staticInstance;
-            instance = &staticInstance;
-        }
-        return instance;
+        static AutenticacaoService staticInstance;
+        return &staticInstance;
     }
 
     /**
@@ -35,7 +34,18 @@ public:
      * @param senha Senha informada no login.
      * @return true quando as credenciais forem válidas.
      */
-    bool autenticarLogin(std::string email, std::string senha) override;
+    bool login(std::string email, std::string senha) override;
+
+    /**
+     * @brief Encerra a sessão atual.
+     */
+    void logout() override;
+
+    /**
+     * @brief Verifica se há um usuário autenticado na sessão atual.
+     * @return true se um usuário estiver logado.
+     */
+    bool isLoggedIn() override;
 
     /**
      * @brief Obtém o papel do usuário autenticado na sessão atual.
