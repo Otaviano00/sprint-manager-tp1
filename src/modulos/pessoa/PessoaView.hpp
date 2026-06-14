@@ -6,23 +6,54 @@
 #include <core/Panel.hpp>
 
 /**
- * @brief Implementa a interface CLI para operações de pessoa.
+ * @brief Interface de apresentação do módulo Pessoa.
+ *
+ * Responsável por interagir com o usuário através do terminal,
+ * coletando dados e acionando os serviços da camada de negócio.
  */
 class PessoaView : public IPessoaView
 {
 private:
+    /**
+     * @brief Serviço responsável pelas regras de negócio.
+     */
     IPessoaService *service;
+
+    /**
+     * @brief Fluxo de criação de pessoa.
+     */
+    void criarPessoa();
+
+    /**
+     * @brief Fluxo de listagem de pessoas.
+     */
+    void listarPessoas();
+
+    /**
+     * @brief Fluxo de atualização de pessoa.
+     */
+    void atualizarPessoa();
+
+    /**
+     * @brief Fluxo de exclusão de pessoa.
+     */
+    void excluirPessoa();
 
 public:
     /**
-     * @brief Constrói o módulo de pessoas e inicializa dependências.
+     * @brief Constrói a view e inicializa o serviço.
      */
-    PessoaView() = default;
+    PessoaView();
 
     /**
-     * @brief Exibe o menu de pessoas e executa ações selecionadas.
+     * @brief Exibe o menu principal do módulo Pessoa.
      */
     void executar() override;
+
+    /**
+     * @brief Destrutor da view.
+     */
+    ~PessoaView();
 };
 
 #endif // PESSOAVIEW_HPP
