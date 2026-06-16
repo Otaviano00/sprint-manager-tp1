@@ -27,9 +27,60 @@ bool ProjetoService::autenticarPapel(ServicoEnum servico)
     }
 }
 
-void ProjetoService::criar(Projeto &projeto) {}
-Projeto ProjetoService::listarPorId(int id) { return Projeto(); }
-std::list<Projeto> ProjetoService::listar() { return std::list<Projeto>(); }
-void ProjetoService::atualizar(Projeto &projeto) {}
-void ProjetoService::excluir(int id) {}
-std::list<Projeto> ProjetoService::listarPorPessoa(Pessoa &pessoa) { return std::list<Projeto>(); }
+void ProjetoService::criar(Projeto &projeto)
+{
+    if (!repository->save(projeto))
+    {
+        throw std::runtime_error("Erro ao persistir projeto no banco de dados.");
+    }
+}
+
+Projeto ProjetoService::listarPorId(int id)
+{
+    try
+    {
+        return repository->findById(id);
+    }
+    catch (const std::runtime_error &e)
+    {
+        throw std::invalid_argument("Projeto com o ID fornecido não encontrado.");
+    }
+}
+
+std::list<Projeto> ProjetoService::listar()
+{
+    std::vector<Projeto> projetos = repository->findAll();
+    return std::list<Projeto>(projetos.begin(), projetos.end());
+}
+
+void ProjetoService::atualizar(Projeto &projeto)
+{
+    // Atualiza nome e datas
+    SQLite::Database db(DATABASE_NAME, SQLite::OPEN_READWRITE);
+    SQLite::Statement query(db, "UPDATE projeto SET nome = ?, dataInicio = ?, dataFim = ? WHERE id = ?");
+    
+    query.bind(1, projeto.getNome().getValor());
+    query.bind(2, projeto.getDataInicio().getValor());
+    query.bind(3, projeto.getDataFim().getValor());
+    query.bind(4, static_cast<int>(projeto.getId()));
+
+    int rows = query.exec();
+    if (rows == 0)
+    {
+        throw std::runtime_error("Projeto não encontrado ou erro ao atualizar.");
+    }
+}
+
+void ProjetoService::excluir(int id)
+{
+    if (!repository->deleteById(id))
+    {
+        throw std::runtime_error("Projeto não encontrado ou erro ao excluir.");
+    }
+}
+
+std::list<Projeto> ProjetoService::listarPorPessoa(Pessoa &pessoa)
+{
+    // Implementação futura: listar projetos associados a uma pessoa
+    return std::list<Projeto>();
+}
