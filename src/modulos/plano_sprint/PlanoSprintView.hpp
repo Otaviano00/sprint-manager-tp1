@@ -17,7 +17,7 @@ public:
     /**
      * @brief Constrói o módulo de planos de sprint e inicializa dependências.
      */
-    PlanoSprintView() = default;
+    PlanoSprintView();
 
     /**
      * @brief Exibe o menu de planos de sprint e executa ações selecionadas.

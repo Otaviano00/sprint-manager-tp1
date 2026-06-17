@@ -3,6 +3,7 @@ add_library(sqlite3_lib STATIC
     sqlite3/sqlite3.c
 )
 target_include_directories(sqlite3_lib PUBLIC sqlite3)
+target_link_libraries(sqlite3_lib PUBLIC pthread)
 
 # --- 2. COMPILAR O SQLITECPP ---
 file(GLOB SQLITECPP_SOURCES "SQLiteCpp/src/*.cpp")
