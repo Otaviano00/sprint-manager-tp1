@@ -57,8 +57,8 @@ void ViewController::executar()
     auto menuProjetos = PanelBuilder::builder()
                             ->withTitle("Gerenciar Projetos")
                             ->withAction([this]()
-                                         { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
-                            ->withEnd(true) // temporário para teste de fluxo
+                                         { this->projetoView->executar(); })
+                            ->withEnd(true)
                             ->build();
 
     menuPrincipal->addOption(menuProjetos);
