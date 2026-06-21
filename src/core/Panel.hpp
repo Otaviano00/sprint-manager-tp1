@@ -22,9 +22,11 @@ private:
     std::vector<Panel *> options;
     std::function<void()> action = nullptr;
     std::function<void()> zeroOptionAction = nullptr;
+    Panel *parent = nullptr;
 
     void showOptions();
     int choseOption();
+    Panel *step(bool clearScreen);
 
 public:
     Panel() = default;
@@ -46,6 +48,7 @@ public:
             this->hasOptions = true;
         }
 
+        option->parent = this;
         this->options.push_back(option);
     }
 

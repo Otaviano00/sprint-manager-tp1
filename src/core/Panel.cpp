@@ -97,84 +97,108 @@ void Panel::showPanel()
     this->showPanel(true);
 }
 
-void Panel::showPanel(bool clearScreen)
+Panel *Panel::step(bool clearScreen)
 {
+    if (clearScreen)
+        ViewUtils::clear();
 
-    while (true)
+    if (this->hasTitle)
+        showTitle(this->title, SIZE_DEFAULT);
+
+    if (this->hasAction && this->action != nullptr)
     {
-        if (clearScreen)
-            ViewUtils::clear();
-
-        if (this->hasTitle)
-            showTitle(this->title, SIZE_DEFAULT);
-
-        if (this->hasAction && this->action != nullptr)
+        try
         {
-            try
-            {
-                this->action();
+            this->action();
 
-                if (this->hasEnd)
-                {
-                    cout << endl;
-                    ViewUtils::waitForEnter();
-                    break;
-                }
-            }
-            catch (const exception &e)
+            if (this->hasEnd)
             {
-                if (this->hasEnd)
-                {
-                    ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
-                    break;
-                }
-                continue;
+                cout << endl;
+                ViewUtils::waitForEnter();
+                return nullptr;
             }
         }
-
-        if (this->hasOptions && !this->options.empty())
+        catch (const exception &e)
         {
-            showOptions();
-
-            try
+            if (this->hasEnd)
             {
-                int option = choseOption();
-
-                if (this->hasConfirmation)
-                {
-                    if (!ViewUtils::confirmAction())
-                    {
-                        continue;
-                    }
-                }
-
-                if (option == -1)
-                {
-                    break;
-                }
-
-                if (option == 0)
-                {
-                    this->zeroOptionAction();
-                    break;
-                }
-
-                if (option > 0)
-                    this->options.at(option - 1)->showPanel();
+                ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
+                return nullptr;
             }
-            catch (const exception &e)
+            return this;
+        }
+    }
+
+    if (this->hasOptions && !this->options.empty())
+    {
+        showOptions();
+
+        try
+        {
+            int option = choseOption();
+
+            if (this->hasConfirmation)
             {
-                if (this->hasEnd)
+                if (!ViewUtils::confirmAction())
                 {
-                    cout << endl;
-                    ViewUtils::waitForEnter("[Pressione Enter para voltar ao menu]");
-                    break;
-                }
-                else
-                {
-                    ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
+                    return this;
                 }
             }
+
+            if (option == -1)
+            {
+                return nullptr;
+            }
+
+            if (option == 0)
+            {
+                this->zeroOptionAction();
+                return nullptr;
+            }
+
+            if (option > 0)
+            {
+                return this->options.at(option - 1);
+            }
+        }
+        catch (const exception &e)
+        {
+            if (this->hasEnd)
+            {
+                cout << endl;
+                ViewUtils::waitForEnter("[Pressione Enter para voltar ao menu]");
+                return nullptr;
+            }
+            else
+            {
+                ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
+                return this;
+            }
+        }
+    }
+
+    return nullptr;
+}
+
+void Panel::showPanel(bool clearScreen)
+{
+    Panel *current = this;
+    bool isFirst = true;
+
+    while (current != nullptr)
+    {
+        Panel *next = current->step(isFirst ? clearScreen : true);
+        isFirst = false;
+
+        if (next == nullptr)
+        {
+            if (current == this)
+                break;
+            current = current->parent;
+        }
+        else
+        {
+            current = next;
         }
     }
 }
