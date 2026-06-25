@@ -40,8 +40,8 @@ void ViewController::executar()
     auto menuPessoas = PanelBuilder::builder()
                            ->withTitle("Gerenciar Pessoas")
                            ->withAction([this]()
-                                        { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
-                           ->withEnd(true) // temporário para teste de fluxo
+                                        { this->pessoaView->executar(); })
+                           ->withEnd(true)
                            ->build();
 
     auto menuProjetos = PanelBuilder::builder()

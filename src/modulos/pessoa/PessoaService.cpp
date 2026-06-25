@@ -7,8 +7,18 @@ PessoaService::PessoaService()
     repository = new PessoaRepository();
 }
 
+PessoaService::~PessoaService()
+{
+    delete repository;
+}
+
 bool PessoaService::autenticarPapel(ServicoEnum servico)
 {
+    if (!autenticacao->isLoggedIn())
+    {
+        throw std::invalid_argument("Usuário não autenticado");
+    }
+
     switch (servico)
     {
     case S1_CRIAR_PESSOA:
@@ -22,8 +32,44 @@ bool PessoaService::autenticarPapel(ServicoEnum servico)
     }
 }
 
-void PessoaService::criar(Pessoa &pessoa) {}
-Pessoa PessoaService::listarPorId(int id) { return Pessoa(); }
-std::list<Pessoa> PessoaService::listar() { return std::list<Pessoa>(); }
-void PessoaService::atualizar(Pessoa &pessoa) {}
-void PessoaService::excluir(int id) {}
+void PessoaService::criar(Pessoa &pessoa)
+{
+    if (!repository->save(pessoa))
+    {
+        throw std::runtime_error("Falha ao cadastrar pessoa");
+    }
+}
+
+Pessoa PessoaService::listarPorId(int id)
+{
+    return repository->findById(id);
+}
+
+std::list<Pessoa> PessoaService::listar()
+{
+    std::list<Pessoa> pessoas;
+    std::vector<Pessoa> resultado = repository->findAll();
+
+    for (const auto &pessoa : resultado)
+    {
+        pessoas.push_back(pessoa);
+    }
+
+    return pessoas;
+}
+
+void PessoaService::atualizar(Pessoa &pessoa)
+{
+    if (!repository->update(pessoa))
+    {
+        throw std::runtime_error("Falha ao atualizar pessoa");
+    }
+}
+
+void PessoaService::excluir(int id)
+{
+    if (!repository->deleteById(id))
+    {
+        throw std::runtime_error("Falha ao excluir pessoa");
+    }
+}
