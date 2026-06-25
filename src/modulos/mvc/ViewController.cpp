@@ -27,14 +27,6 @@ ViewController::~ViewController()
     delete planoSprintView;
 }
 
-void showLogo()
-{
-    if (ViewUtils::printTextFile("logo.txt"))
-    {
-        return;
-    }
-}
-
 void ViewController::executar()
 {
 
@@ -42,7 +34,7 @@ void ViewController::executar()
                              ->withTitle("Menu Principal")
                              ->withOptions(true)
                              ->withZeroAction(true, "Logout", [this]()
-                                              { this->autenticacaoView->logout(); })
+                                              { this->autenticacaoView->logout(); }, true)
                              ->build();
 
     auto menuPessoas = PanelBuilder::builder()
@@ -52,16 +44,12 @@ void ViewController::executar()
                            ->withEnd(true) // temporário para teste de fluxo
                            ->build();
 
-    menuPrincipal->addOption(menuPessoas);
-
     auto menuProjetos = PanelBuilder::builder()
                             ->withTitle("Gerenciar Projetos")
                             ->withAction([this]()
                                          { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
                             ->withEnd(true) // temporário para teste de fluxo
                             ->build();
-
-    menuPrincipal->addOption(menuProjetos);
 
     auto menuHistoriasUsuario = PanelBuilder::builder()
                                     ->withTitle("Gerenciar Historias de Usuario")
@@ -70,8 +58,6 @@ void ViewController::executar()
                                     ->withEnd(true) // temporário para teste de fluxo
                                     ->build();
 
-    menuPrincipal->addOption(menuHistoriasUsuario);
-
     auto menuPlanosSprint = PanelBuilder::builder()
                                 ->withTitle("Gerenciar Planos de Sprint")
                                 ->withAction([this]()
@@ -79,18 +65,23 @@ void ViewController::executar()
                                 ->withEnd(true) // temporário para teste de fluxo
                                 ->build();
 
+    menuPrincipal->addOption(menuPessoas);
+    menuPrincipal->addOption(menuProjetos);
+    menuPrincipal->addOption(menuHistoriasUsuario);
     menuPrincipal->addOption(menuPlanosSprint);
 
     while (true)
     {
-        ViewUtils::clear();
-        showLogo();
-        if (!autenticacaoView->login())
-        {
-            continue;
-        }
+        autenticacaoView->login();
+
+        if (autenticacaoView->querSair())
+            break;
 
         menuPrincipal->showPanel();
     }
+
+    std::cout << std::endl
+              << "Encerrando o sistema... " << std::endl;
+
     delete menuPrincipal;
 }

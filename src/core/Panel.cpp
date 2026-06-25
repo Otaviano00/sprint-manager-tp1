@@ -92,14 +92,12 @@ void showTitle(std::string title, int length)
     cout << endl;
 }
 
-void Panel::showPanel()
+Panel *Panel::step()
 {
-    this->showPanel(true);
-}
+    if (this->exitCondition && this->exitCondition())
+        return nullptr;
 
-Panel *Panel::step(bool clearScreen)
-{
-    if (clearScreen)
+    if (this->cleanScreen)
         ViewUtils::clear();
 
     if (this->hasTitle)
@@ -152,6 +150,10 @@ Panel *Panel::step(bool clearScreen)
 
             if (option == 0)
             {
+                if (this->hasZeroConfirmation && !ViewUtils::confirmAction())
+                {
+                    return this;
+                }
                 this->zeroOptionAction();
                 return nullptr;
             }
@@ -180,19 +182,17 @@ Panel *Panel::step(bool clearScreen)
     return nullptr;
 }
 
-void Panel::showPanel(bool clearScreen)
+void Panel::showPanel()
 {
     Panel *current = this;
-    bool isFirst = true;
 
     while (current != nullptr)
     {
-        Panel *next = current->step(isFirst ? clearScreen : true);
-        isFirst = false;
+        Panel *next = current->step();
 
         if (next == nullptr)
         {
-            if (current == this)
+            if (current->parent == nullptr)
                 break;
             current = current->parent;
         }
@@ -201,6 +201,17 @@ void Panel::showPanel(bool clearScreen)
             current = next;
         }
     }
+}
+
+void Panel::addOption(Panel *option)
+{
+    if (!this->hasOptions)
+    {
+        this->hasOptions = true;
+    }
+
+    option->parent = this;
+    this->options.push_back(option);
 }
 
 #endif // PANEL_CPP

@@ -18,6 +18,11 @@ public:
     virtual bool logout() = 0;
 
     /**
+     * @brief Indica se o usuário escolheu sair da aplicação na tela de entrada.
+     */
+    virtual bool querSair() = 0;
+
+    /**
      * @brief Destrutor virtual da interface de autenticação visual.
      */
     virtual ~IAutenticacaoView() = default;

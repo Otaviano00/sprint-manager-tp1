@@ -3,6 +3,7 @@
 
 #include <modulos/autenticacao/IAutenticacaoView.hpp>
 #include <modulos/autenticacao/AutenticacaoService.hpp>
+#include <modulos/pessoa/IPessoaService.hpp>
 #include <core/Panel.hpp>
 
 /**
@@ -12,9 +13,12 @@ class AutenticacaoView : public IAutenticacaoView
 {
 private:
     IAutenticacaoService *service;
+    IPessoaService *pessoaService;
+    bool _querSair = false;
 
     void interfaceLogin();
     void interfaceLogout();
+    void interfacePrimeiroAcesso();
 
 public:
     /**
@@ -23,16 +27,25 @@ public:
     AutenticacaoView();
 
     /**
-     * @brief Exibe o fluxo de login via CLI.
-     *
+     * @brief Libera recursos alocados.
+     */
+    ~AutenticacaoView();
+
+    /**
+     * @brief Exibe a tela de entrada (Login / Primeiro Acesso / Saída).
+     * @return true se o usuário efetuou login com sucesso.
      */
     bool login() override;
 
     /**
      * @brief Exibe o fluxo de logout via CLI.
-     *
      */
     bool logout() override;
+
+    /**
+     * @brief Indica se o usuário escolheu sair da aplicação na tela de entrada.
+     */
+    bool querSair() override;
 };
 
 #endif // AUTENTICACAOVIEW_HPP

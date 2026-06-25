@@ -14,19 +14,22 @@ private:
     bool hasAction = false;
     bool hasOptions = false;
     bool hasZeroOption = true;
+    bool cleanScreen = true;
     bool hasEnd = false;
     bool hasConfirmation = false;
+    bool hasZeroConfirmation = false;
 
     std::string title;
     std::string zeroOptionLabel;
     std::vector<Panel *> options;
     std::function<void()> action = nullptr;
     std::function<void()> zeroOptionAction = nullptr;
+    std::function<bool()> exitCondition = nullptr;
     Panel *parent = nullptr;
 
     void showOptions();
     int choseOption();
-    Panel *step(bool clearScreen);
+    Panel *step();
 
 public:
     Panel() = default;
@@ -34,30 +37,7 @@ public:
     virtual ~Panel() = default;
 
     void showPanel();
-    void showPanel(bool clearScreen);
-
-    void setAction(std::function<void()> callback)
-    {
-        this->action = callback;
-    }
-
-    void addOption(Panel *option)
-    {
-        if (!this->hasOptions)
-        {
-            this->hasOptions = true;
-        }
-
-        option->parent = this;
-        this->options.push_back(option);
-    }
-
-    void setZeroOption(const std::string &label, std::function<void()> callback = nullptr)
-    {
-        this->hasZeroOption = true;
-        this->zeroOptionLabel = label;
-        this->zeroOptionAction = callback;
-    }
+    void addOption(Panel *option);
 
     friend class PanelBuilder;
 };

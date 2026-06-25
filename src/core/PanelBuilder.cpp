@@ -10,6 +10,12 @@ PanelBuilder *PanelBuilder::withTitle(const std::string &title)
     return this;
 }
 
+PanelBuilder *PanelBuilder::withInitialCleanScreen(bool cleanScreen)
+{
+    this->panel->cleanScreen = cleanScreen;
+    return this;
+}
+
 PanelBuilder *PanelBuilder::withAction(std::function<void()> action)
 {
     this->panel->hasAction = action != nullptr;
@@ -24,11 +30,12 @@ PanelBuilder *PanelBuilder::withOptions(bool hasOptions, std::vector<Panel *> op
     return this;
 }
 
-PanelBuilder *PanelBuilder::withZeroAction(bool hasZeroOption, const std::string &label, std::function<void()> action)
+PanelBuilder *PanelBuilder::withZeroAction(bool hasZeroOption, const std::string &label, std::function<void()> action, bool hasZeroConfirmation)
 {
     this->panel->hasZeroOption = hasZeroOption;
     this->panel->zeroOptionLabel = label;
     this->panel->zeroOptionAction = action;
+    this->panel->hasZeroConfirmation = hasZeroConfirmation;
     return this;
 }
 
@@ -41,6 +48,12 @@ PanelBuilder *PanelBuilder::withEnd(bool hasEnd)
 PanelBuilder *PanelBuilder::withConfirmation(bool hasConfirmation)
 {
     this->panel->hasConfirmation = hasConfirmation;
+    return this;
+}
+
+PanelBuilder *PanelBuilder::withExitCondition(std::function<bool()> condition)
+{
+    this->panel->exitCondition = condition;
     return this;
 }
 
