@@ -21,6 +21,11 @@ public:
     PessoaService();
 
     /**
+     * @brief Destrói o serviço e libera o repositório.
+     */
+    ~PessoaService();
+
+    /**
      * @brief Verifica autorização do papel logado para o serviço de pessoa.
      * @param servico Identificador do serviço solicitado.
      * @return true quando a operação for permitida.
