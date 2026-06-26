@@ -11,14 +11,20 @@ public:
                                                               {"codigo", "TEXT NOT NULL"},
                                                               {"nome", "TEXT NOT NULL"},
                                                               {"dataInicio", "TEXT NOT NULL"},
-                                                              {"dataFim", "TEXT NOT NULL"}})
+                                                              {"dataFim", "TEXT NOT NULL"},
+                                                              {"pessoaId", "INTEGER NOT NULL"}})
     {
+        ensureSchema();
     }
 
     bool save(Projeto &projeto) override;
+    bool update(Projeto &projeto);
 
 protected:
     Projeto mapToEntity(SQLite::Statement &query) override;
+
+private:
+    void ensureSchema();
 };
 
 #endif // PROJETO_REPOSITORY_HPP

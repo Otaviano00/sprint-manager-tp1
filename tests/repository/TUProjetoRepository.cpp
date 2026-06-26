@@ -56,6 +56,9 @@ void TUProjetoRepository::testarCenarioCRUD()
     dataFim.setValor("12/10/2030");
     p.setDataFim(dataFim);
 
+    Pessoa pessoa(7);
+    p.setPessoa(pessoa);
+
     // Testar Save
     if (repo->save(p))
     {

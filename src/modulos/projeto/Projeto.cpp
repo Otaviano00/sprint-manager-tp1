@@ -39,3 +39,13 @@ Data Projeto::getDataFim() const
 {
     return dataFim;
 }
+
+void Projeto::setPessoa(const Pessoa &pessoa)
+{
+    this->pessoa = pessoa;
+}
+
+Pessoa Projeto::getPessoa() const
+{
+    return pessoa;
+}
