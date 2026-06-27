@@ -16,6 +16,8 @@ public:
      * @brief Verifica se o usuário logado pode executar o serviço informado.
      * @param servico Identificador do serviço solicitado.
      * @return true quando o papel atual possui autorização.
+     *
+     * @see ServicoEnum Enumeração de serviços do sistema.
      */
     virtual bool autenticarPapel(ServicoEnum servico) = 0;
 

@@ -24,13 +24,6 @@ public:
      * @brief Exibe o menu de projetos e executa ações selecionadas.
      */
     void executar() override;
-
-private:
-    void interfaceCriarProjeto();
-    void interfaceListarProjetos();
-    void interfaceBuscarProjeto();
-    void interfaceAtualizarProjeto();
-    void interfaceExcluirProjeto();
 };
 
 #endif // PROJETOVIEW_HPP

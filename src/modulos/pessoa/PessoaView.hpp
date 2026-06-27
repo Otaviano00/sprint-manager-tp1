@@ -13,12 +13,6 @@ class PessoaView : public IPessoaView
 private:
     IPessoaService *service;
 
-    void interfaceCriarPessoa();
-    void interfaceListarPessoas();
-    void interfaceBuscarPessoa();
-    void interfaceAtualizarPessoa();
-    void interfaceExcluirPessoa();
-
 public:
     /**
      * @brief Constrói o módulo de pessoas e inicializa dependências.
