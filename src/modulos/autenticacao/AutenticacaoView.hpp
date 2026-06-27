@@ -14,7 +14,7 @@ class AutenticacaoView : public IAutenticacaoView
 private:
     IAutenticacaoService *service;
     IPessoaService *pessoaService;
-    bool _querSair = false;
+    bool querSair = false;
 
     void interfaceLogin();
     void interfaceLogout();
@@ -45,7 +45,7 @@ public:
     /**
      * @brief Indica se o usuário escolheu sair da aplicação na tela de entrada.
      */
-    bool querSair() override;
+    bool getQuerSair() override;
 };
 
 #endif // AUTENTICACAOVIEW_HPP

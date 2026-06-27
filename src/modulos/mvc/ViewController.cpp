@@ -74,7 +74,7 @@ void ViewController::executar()
     {
         autenticacaoView->login();
 
-        if (autenticacaoView->querSair())
+        if (autenticacaoView->getQuerSair())
             break;
 
         menuPrincipal->showPanel();

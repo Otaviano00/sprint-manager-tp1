@@ -100,7 +100,7 @@ void AutenticacaoView::interfaceLogout()
 
 bool AutenticacaoView::login()
 {
-    _querSair = false;
+    querSair = false;
 
     auto panelLogin = PanelBuilder::builder()
                           ->withTitle("Login")
@@ -122,9 +122,9 @@ bool AutenticacaoView::login()
                             ->withAction([this]()
                                          { showLogo(); })
                             ->withZeroAction(true, "Sair", [this]()
-                                             { _querSair = true; })
+                                             { querSair = true; })
                             ->withExitCondition([this]()
-                                                { return this->service->isLoggedIn() || this->_querSair; })
+                                                { return this->service->isLoggedIn() || this->getQuerSair(); })
                             ->build();
 
     panelEntrada->addOption(panelLogin);
@@ -156,7 +156,7 @@ bool AutenticacaoView::logout()
     return !service->isLoggedIn();
 }
 
-bool AutenticacaoView::querSair()
+bool AutenticacaoView::getQuerSair()
 {
-    return _querSair;
+    return querSair;
 }

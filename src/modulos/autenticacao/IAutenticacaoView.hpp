@@ -20,7 +20,7 @@ public:
     /**
      * @brief Indica se o usuário escolheu sair da aplicação na tela de entrada.
      */
-    virtual bool querSair() = 0;
+    virtual bool getQuerSair() = 0;
 
     /**
      * @brief Destrutor virtual da interface de autenticação visual.
