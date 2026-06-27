@@ -19,6 +19,7 @@ public:
      * @brief Constrói o serviço e inicializa autenticação e repositório.
      */
     ProjetoService();
+    ~ProjetoService();
 
     /**
      * @brief Verifica autorização do papel logado para o serviço de projeto.

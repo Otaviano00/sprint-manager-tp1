@@ -7,8 +7,18 @@ ProjetoService::ProjetoService()
     repository = new ProjetoRepository();
 }
 
+ProjetoService::~ProjetoService()
+{
+    delete repository;
+}
+
 bool ProjetoService::autenticarPapel(ServicoEnum servico)
 {
+    if (!autenticacao->isLoggedIn())
+    {
+        throw std::invalid_argument("Usuário não autenticado");
+    }
+
     PapelEnum papel = autenticacao->getPapel();
 
     switch (servico)
@@ -27,9 +37,100 @@ bool ProjetoService::autenticarPapel(ServicoEnum servico)
     }
 }
 
-void ProjetoService::criar(Projeto &projeto) {}
-Projeto ProjetoService::listarPorId(int id) { return Projeto(); }
-std::list<Projeto> ProjetoService::listar() { return std::list<Projeto>(); }
-void ProjetoService::atualizar(Projeto &projeto) {}
-void ProjetoService::excluir(int id) {}
-std::list<Projeto> ProjetoService::listarPorPessoa(Pessoa &pessoa) { return std::list<Projeto>(); }
+void ProjetoService::criar(Projeto &projeto)
+{
+    if (!autenticarPapel(S5_CRIAR_PROJETO))
+    {
+        throw std::invalid_argument("Você não tem permissão para criar projetos.");
+    }
+
+    if (projeto.getPessoa().getId() <= 0)
+    {
+        throw std::invalid_argument("É necessário informar uma pessoa associada ao projeto.");
+    }
+
+    if (!repository->save(projeto))
+    {
+        throw std::runtime_error("Falha ao cadastrar projeto");
+    }
+}
+
+Projeto ProjetoService::listarPorId(int id)
+{
+    if (!autenticarPapel(S6_LER_PROJETO))
+    {
+        throw std::invalid_argument("Você não tem permissão para consultar projetos.");
+    }
+
+    return repository->findById(id);
+}
+
+std::list<Projeto> ProjetoService::listar()
+{
+    if (!autenticarPapel(S6_LER_PROJETO))
+    {
+        throw std::invalid_argument("Você não tem permissão para listar projetos.");
+    }
+
+    std::list<Projeto> projetos;
+    std::vector<Projeto> resultado = repository->findAll();
+
+    for (const auto &projeto : resultado)
+    {
+        projetos.push_back(projeto);
+    }
+
+    return projetos;
+}
+
+void ProjetoService::atualizar(Projeto &projeto)
+{
+    if (!autenticarPapel(S7_ATUALIZAR_PROJETO))
+    {
+        throw std::invalid_argument("Você não tem permissão para atualizar projetos.");
+    }
+
+    if (projeto.getPessoa().getId() <= 0)
+    {
+        throw std::invalid_argument("É necessário informar uma pessoa associada ao projeto.");
+    }
+
+    if (!repository->update(projeto))
+    {
+        throw std::runtime_error("Falha ao atualizar projeto");
+    }
+}
+
+void ProjetoService::excluir(int id)
+{
+    if (!autenticarPapel(S8_EXCLUIR_PROJETO))
+    {
+        throw std::invalid_argument("Você não tem permissão para excluir projetos.");
+    }
+
+    if (!repository->deleteById(id))
+    {
+        throw std::runtime_error("Falha ao excluir projeto");
+    }
+}
+
+std::list<Projeto> ProjetoService::listarPorPessoa(Pessoa &pessoa)
+{
+    if (!autenticarPapel(S19_LISTAR_PROJETOS_ASSOCIADOS_A_PESSOA))
+    {
+        throw std::invalid_argument("Você não tem permissão para listar projetos associados à pessoa.");
+    }
+
+    std::list<Projeto> projetos;
+    std::vector<Projeto> resultado = repository->findAll();
+
+    for (const auto &projeto : resultado)
+    {
+        if (projeto.getPessoa().getId() == pessoa.getId())
+        {
+            projetos.push_back(projeto);
+        }
+    }
+
+    return projetos;
+}
