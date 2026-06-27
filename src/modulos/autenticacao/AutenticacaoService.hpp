@@ -34,7 +34,7 @@ public:
      * @param senha Senha informada no login.
      * @return true quando as credenciais forem válidas.
      */
-    bool login(std::string email, std::string senha) override;
+    bool login(Email email, Senha senha) override;
 
     /**
      * @brief Encerra a sessão atual.

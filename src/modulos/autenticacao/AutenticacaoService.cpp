@@ -3,15 +3,9 @@
 #include <dominios/Email.hpp>
 #include <dominios/Senha.hpp>
 
-bool AutenticacaoService::login(std::string email, std::string senha)
+bool AutenticacaoService::login(Email email, Senha senha)
 {
-    Email emailDominio;
-    emailDominio.setValor(email);
-
-    Senha senhaDominio;
-    senhaDominio.setValor(senha);
-
-    pessoa = pessoaRepository->findByEmailAndSenha(emailDominio, senhaDominio);
+    pessoa = pessoaRepository->findByEmailAndSenha(email, senha);
     return pessoa != nullptr;
 }
 

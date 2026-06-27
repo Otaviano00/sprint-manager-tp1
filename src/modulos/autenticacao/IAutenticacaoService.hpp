@@ -5,6 +5,8 @@
 #include <stdexcept>
 #include <util/ServicoEnum.hpp>
 #include <dominios/Papel.hpp>
+#include <dominios/Email.hpp>
+#include <dominios/Senha.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
 
 /**
@@ -19,7 +21,7 @@ public:
      * @param senha Senha informada no login.
      * @return true quando a autenticação for bem-sucedida.
      */
-    virtual bool login(std::string email, std::string senha) = 0;
+    virtual bool login(Email email, Senha senha) = 0;
 
     /**
      * @brief Retorna o papel do usuário autenticado na sessão atual.

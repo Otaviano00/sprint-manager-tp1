@@ -32,15 +32,21 @@ void showLogo()
 
 void AutenticacaoView::interfaceLogin()
 {
-    std::string email, senha;
-
+    std::string email;
     std::cout << "Digite seu email: ";
     std::getline(std::cin, email);
 
+    Email emailObj;
+    emailObj.setValor(email);
+
+    std::string senha;
     std::cout << "Digite sua senha: ";
     std::getline(std::cin, senha);
 
-    if (service->login(email, senha))
+    Senha senhaObj;
+    senhaObj.setValor(senha);
+
+    if (service->login(emailObj, senhaObj))
     {
         std::cout << std::endl
                   << "Login bem-sucedido!" << std::endl;
@@ -53,33 +59,35 @@ void AutenticacaoView::interfaceLogin()
 
 void AutenticacaoView::interfacePrimeiroAcesso()
 {
-    std::string nomeStr, emailStr, senhaStr, papelStr;
+    Pessoa pessoa;
 
+    std::string nomeStr;
     std::cout << "Nome: ";
     std::getline(std::cin, nomeStr);
-
-    std::cout << "Email: ";
-    std::getline(std::cin, emailStr);
-
-    std::cout << "Senha: ";
-    std::getline(std::cin, senhaStr);
-
-    std::cout << "Papel (DESENVOLVEDOR / MESTRE_SCRUM / PROPRIETARIO_DE_PRODUTO): ";
-    std::getline(std::cin, papelStr);
-
-    Pessoa pessoa;
 
     Nome nome;
     nome.setValor(nomeStr);
     pessoa.setNome(nome);
 
+    std::string emailStr;
+    std::cout << "Email: ";
+    std::getline(std::cin, emailStr);
+
     Email email;
     email.setValor(emailStr);
     pessoa.setEmail(email);
 
+    std::string senhaStr;
+    std::cout << "Senha: ";
+    std::getline(std::cin, senhaStr);
+
     Senha senha;
     senha.setValor(senhaStr);
     pessoa.setSenha(senha);
+
+    std::string papelStr;
+    std::cout << "Papel (DESENVOLVEDOR / MESTRE_SCRUM / PROPRIETARIO_DE_PRODUTO): ";
+    std::getline(std::cin, papelStr);
 
     Papel papel;
     papel.setValor(papelStr);
