@@ -118,9 +118,9 @@ Panel *Panel::step()
         }
         catch (const exception &e)
         {
-            if (this->hasEnd)
+            ViewUtils::showError(e.what());
+            if (!ViewUtils::confirmAction("Deseja tentar novamente? (S/n)"))
             {
-                ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
                 return nullptr;
             }
             return this;
@@ -165,17 +165,12 @@ Panel *Panel::step()
         }
         catch (const exception &e)
         {
-            if (this->hasEnd)
+            ViewUtils::showError(e.what());
+            if (!ViewUtils::confirmAction("Deseja continuar? (S/n)"))
             {
-                cout << endl;
-                ViewUtils::waitForEnter("[Pressione Enter para voltar ao menu]");
                 return nullptr;
             }
-            else
-            {
-                ViewUtils::showErrorAndWait(e.what(), "[Pressione Enter para tentar novamente]");
-                return this;
-            }
+            return this;
         }
     }
 

@@ -59,13 +59,14 @@ public:
         waitForEnter(enterMessage);
     }
 
-    static bool confirmAction(const std::string &message = "Tem certeza que deseja continuar? (s/n): ")
+    static bool confirmAction(const std::string &message = "Tem certeza que deseja continuar? (S/n): ")
     {
-        std::cout << message;
+        std::cout << std::endl
+                  << message;
         std::string confirmation;
         std::getline(std::cin, confirmation);
 
-        if (confirmation != "s" && confirmation != "S")
+        if (confirmation != "" && confirmation != "s" && confirmation != "S")
         {
             return false;
         }
