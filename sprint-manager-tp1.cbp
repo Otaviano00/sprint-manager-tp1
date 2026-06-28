@@ -1,0 +1,1526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sprint-manager-tp1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\src\;CMake Files\tests\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sqlite3_lib">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/libsqlite3_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 sqlite3_lib"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sqlite3_lib/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/libsqlite3_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 sqlite3_lib/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SQLiteCpp_lib">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/libSQLiteCpp_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 SQLiteCpp_lib"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SQLiteCpp_lib/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/libSQLiteCpp_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 SQLiteCpp_lib/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SprintManagerCore">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/libSprintManagerCore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 SprintManagerCore"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SprintManagerCore/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/libSprintManagerCore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 SprintManagerCore/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SprintManager">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/SprintManager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 SprintManager"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SprintManager/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/SprintManager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 SprintManager/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Experimental">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 Experimental"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Nightly">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 Nightly"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Continuous">
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 Continuous"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUCodigo">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUCodigo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUCodigo"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUCodigo/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUCodigo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUCodigo/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUData">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUData" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUData"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUData/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUData" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUData/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUEmail">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUEmail" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUEmail"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUEmail/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUEmail" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUEmail/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUEstado">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUEstado" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUEstado"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUEstado/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUEstado" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUEstado/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUNome">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUNome" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUNome"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUNome/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUNome" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUNome/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPapel">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPapel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPapel"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPapel/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPapel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPapel/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPrioridade">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPrioridade" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPrioridade"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPrioridade/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPrioridade" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPrioridade/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUSenha">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUSenha" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUSenha"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUSenha/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUSenha" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUSenha/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUTempo">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUTempo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUTempo"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUTempo/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUTempo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUTempo/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUTexto">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUTexto" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUTexto"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUTexto/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUTexto" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUTexto/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUHistoriaDeUsuarioRepository">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUHistoriaDeUsuarioRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUHistoriaDeUsuarioRepository"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUHistoriaDeUsuarioRepository/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUHistoriaDeUsuarioRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUHistoriaDeUsuarioRepository/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPessoaRepository">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPessoaRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPessoaRepository"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPessoaRepository/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPessoaRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPessoaRepository/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPlanoSprintRepository">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPlanoSprintRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPlanoSprintRepository"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUPlanoSprintRepository/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUPlanoSprintRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUPlanoSprintRepository/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUProjetoRepository">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUProjetoRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUProjetoRepository"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TUProjetoRepository/fast">
+				<Option output="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/TUProjetoRepository" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/include"/>
+					<Add directory="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3"/>
+					<Add directory="/usr/include/c++/13"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
+					<Add directory="/usr/include/c++/13/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 TUProjetoRepository/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Backup.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Column.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Database.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Exception.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Savepoint.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Statement.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/SQLiteCpp/src/Transaction.cpp">
+			<Option target="SQLiteCpp_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3/sqlite3.c">
+			<Option target="sqlite3_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/sqlite3/sqlite3.h">
+			<Option target="sqlite3_lib"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/Panel.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/Panel.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/PanelBuilder.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/PanelBuilder.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/RepositoryBase.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/core/RepositoryBase.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Codigo.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Codigo.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Data.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Data.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Email.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Email.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Estado.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Estado.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Nome.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Nome.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Papel.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Papel.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Prioridade.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Prioridade.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Senha.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Senha.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Tempo.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Tempo.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Texto.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/dominios/Texto.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/main.cpp">
+			<Option target="SprintManager"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/AutenticacaoService.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/AutenticacaoService.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/AutenticacaoView.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/AutenticacaoView.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/AutenticacaoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/AutenticacaoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/LoginCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/LoginCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/LogoutCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/LogoutCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/PrimeiroAcessoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/autenticacao/commands/PrimeiroAcessoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaDeUsuario.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaDeUsuario.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaDeUsuarioRepository.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaDeUsuarioRepository.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaUsuarioService.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaUsuarioService.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaUsuarioView.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/HistoriaUsuarioView.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/AlterarEstadoHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/AlterarEstadoHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/AtualizarHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/AtualizarHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/BuscarHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/BuscarHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/CriarHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/CriarHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/DesvincularHistoriaPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/DesvincularHistoriaPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ExcluirHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ExcluirHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriaProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriasCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/ListarHistoriasCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/MoverHistoriaSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/MoverHistoriaSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/RecuperarHistoriaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/RecuperarHistoriaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/VincularHistoriaPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/historia_usuario/commands/VincularHistoriaPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/mvc/ViewController.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/mvc/ViewController.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/Pessoa.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/Pessoa.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaRepository.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaRepository.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaService.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaService.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaView.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/PessoaView.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/AtualizarPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/AtualizarPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/BuscarPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/BuscarPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/CriarPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/CriarPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/ExcluirPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/ExcluirPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/ListarPessoasCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/ListarPessoasCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/PessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/PessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/RecuperarPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/pessoa/commands/RecuperarPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprint.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprint.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintRepository.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintRepository.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintService.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintService.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintView.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/PlanoSprintView.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/AtualizarPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/AtualizarPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/CriarPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/CriarPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ExcluirPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ExcluirPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ListarPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ListarPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ListarPlanoSprintProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/ListarPlanoSprintProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/PlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/PlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/RecuperarPlanoSprintCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/plano_sprint/commands/RecuperarPlanoSprintCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/Projeto.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/Projeto.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoRepository.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoRepository.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoService.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoService.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoView.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/ProjetoView.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/AtualizarProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/AtualizarProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/BuscarProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/BuscarProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/CriarProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/CriarProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ExcluirProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ExcluirProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ListarProjetosCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ListarProjetosCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ListarProjetosPessoaCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ListarProjetosPessoaCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/ProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/RecuperarProjetoCommand.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/modulos/projeto/commands/RecuperarProjetoCommand.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/DateUtils.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/DateUtils.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/StringUtils.cpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/util/StringUtils.hpp">
+			<Option target="SprintManagerCore"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUCodigo.cpp">
+			<Option target="TUCodigo"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUData.cpp">
+			<Option target="TUData"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUEmail.cpp">
+			<Option target="TUEmail"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUEstado.cpp">
+			<Option target="TUEstado"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUNome.cpp">
+			<Option target="TUNome"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUPapel.cpp">
+			<Option target="TUPapel"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUPrioridade.cpp">
+			<Option target="TUPrioridade"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUSenha.cpp">
+			<Option target="TUSenha"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUTempo.cpp">
+			<Option target="TUTempo"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/dominios/TUTexto.cpp">
+			<Option target="TUTexto"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/repository/TUHistoriaDeUsuarioRepository.cpp">
+			<Option target="TUHistoriaDeUsuarioRepository"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/repository/TUPessoaRepository.cpp">
+			<Option target="TUPessoaRepository"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/repository/TUPlanoSprintRepository.cpp">
+			<Option target="TUPlanoSprintRepository"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/repository/TUProjetoRepository.cpp">
+			<Option target="TUProjetoRepository"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/otaviano/Documentos/unb/semestre3/TP1/codigos/SprintManager/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

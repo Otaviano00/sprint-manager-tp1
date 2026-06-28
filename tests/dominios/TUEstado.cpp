@@ -49,7 +49,7 @@ void TUEstado::executeTests()
 void TUEstado::testarValoresValidos()
 {
     const vector<string> validos = {
-        "A_FAZER",
+        "A FAZER",
         "FAZENDO",
         "FEITO",
     };
