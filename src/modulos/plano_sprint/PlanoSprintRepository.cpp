@@ -33,6 +33,17 @@ PlanoSprint PlanoSprintRepository::mapToEntity(SQLite::Statement &query)
     return plano;
 }
 
+bool PlanoSprintRepository::update(PlanoSprint &plano)
+{
+    SQLite::Statement query(db, "UPDATE " + tableName + " SET codigo = ?, nome = ?, dataInicio = ?, dataFim = ? WHERE id = ?");
+    query.bind(1, plano.getCodigo().getValor());
+    query.bind(2, plano.getNome().getValor());
+    query.bind(3, plano.getDataInicio().getValor());
+    query.bind(4, plano.getDataFim().getValor());
+    query.bind(5, static_cast<int>(plano.getId()));
+    return query.exec() > 0;
+}
+
 bool PlanoSprintRepository::save(PlanoSprint &plano)
 {
     SQLite::Statement query(db, "INSERT INTO " + tableName + " (codigo, nome, dataInicio, dataFim) VALUES (?, ?, ?, ?)");
