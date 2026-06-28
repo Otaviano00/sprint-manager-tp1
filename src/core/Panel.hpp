@@ -82,7 +82,7 @@ private:
     std::string title;
 
     /** @brief Rótulo exibido ao lado de [0] na lista de opções. Padrão: "Retornar". */
-    std::string zeroOptionLabel;
+    std::string zeroOptionLabel = "Retornar";
 
     /** @brief Lista de sub-painéis filhos exibidos como opções numeradas [1..N]. */
     std::vector<Panel *> options;

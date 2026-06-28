@@ -29,8 +29,7 @@ void PessoaView::executar()
                           ->withAction([this]()
                                        { 
                                            CriarPessoaCommand cmd(this->service);
-                                           cmd.executar(); 
-                                       })
+                                           cmd.executar(); })
                           ->withEnd(true)
                           ->build();
     }
@@ -43,8 +42,7 @@ void PessoaView::executar()
                            ->withAction([this]()
                                         { 
                                             ListarPessoasCommand cmd(this->service);
-                                            cmd.executar();
-                                        })
+                                            cmd.executar(); })
                            ->withEnd(true)
                            ->build();
     }
@@ -57,8 +55,7 @@ void PessoaView::executar()
                            ->withAction([this]()
                                         { 
                                             BuscarPessoaCommand cmd(this->service);
-                                            cmd.executar();
-                                        })
+                                            cmd.executar(); })
                            ->withEnd(true)
                            ->build();
     }
@@ -71,8 +68,7 @@ void PessoaView::executar()
                               ->withAction([this]()
                                            { 
                                                AtualizarPessoaCommand cmd(this->service);
-                                               cmd.executar();
-                                           })
+                                               cmd.executar(); })
                               ->withEnd(true)
                               ->build();
     }
@@ -85,8 +81,7 @@ void PessoaView::executar()
                             ->withAction([this]()
                                          { 
                                              ExcluirPessoaCommand cmd(this->service);
-                                             cmd.executar();
-                                         })
+                                             cmd.executar(); })
                             ->withEnd(true)
                             ->build();
     }
@@ -94,7 +89,6 @@ void PessoaView::executar()
     auto painelPessoas = PanelBuilder::builder()
                              ->withTitle("Gerenciar Pessoas")
                              ->withOptions(true)
-                             ->withZeroAction(true, "Voltar")
                              ->build();
 
     if (painelCriar != nullptr)

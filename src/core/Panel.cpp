@@ -111,19 +111,32 @@ Panel *Panel::step()
 
             if (this->hasEnd)
             {
+                if (this->hasConfirmation)
+                {
+                    if (ViewUtils::confirmAction("Deseja continuar? (S/n)"))
+                    {
+                        return this;
+                    }
+
+                    return nullptr;
+                }
+
                 cout << endl;
                 ViewUtils::waitForEnter();
+
                 return nullptr;
             }
         }
         catch (const exception &e)
         {
             ViewUtils::showError(e.what());
-            if (!ViewUtils::confirmAction("Deseja tentar novamente? (S/n)"))
+
+            if (ViewUtils::confirmAction("Deseja tentar novamente? (S/n)"))
             {
-                return nullptr;
+                return this;
             }
-            return this;
+
+            return nullptr;
         }
     }
 
@@ -135,12 +148,9 @@ Panel *Panel::step()
         {
             int option = choseOption();
 
-            if (this->hasConfirmation)
+            if (this->hasConfirmation && !ViewUtils::confirmAction())
             {
-                if (!ViewUtils::confirmAction())
-                {
-                    return this;
-                }
+                return this;
             }
 
             if (option == -1)
@@ -166,11 +176,13 @@ Panel *Panel::step()
         catch (const exception &e)
         {
             ViewUtils::showError(e.what());
-            if (!ViewUtils::confirmAction("Deseja continuar? (S/n)"))
+
+            if (ViewUtils::confirmAction("Deseja tentar novamente? (S/n)"))
             {
-                return nullptr;
+                return this;
             }
-            return this;
+
+            return nullptr;
         }
     }
 
