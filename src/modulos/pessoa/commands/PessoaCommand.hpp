@@ -9,8 +9,6 @@ class PessoaCommand : public ICommand
 protected:
     IPessoaService *service;
 
-    int getIdFromUserInput();
-
 public:
     PessoaCommand(IPessoaService *service);
     virtual ~PessoaCommand() = default;

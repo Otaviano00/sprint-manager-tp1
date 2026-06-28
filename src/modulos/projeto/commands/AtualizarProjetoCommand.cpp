@@ -1,5 +1,6 @@
-#include "AtualizarProjetoCommand.hpp"
 #include <modulos/projeto/Projeto.hpp>
+#include <modulos/projeto/commands/AtualizarProjetoCommand.hpp>
+#include <modulos/projeto/commands/RecuperarProjetoCommand.hpp>
 #include <dominios/Codigo.hpp>
 #include <dominios/Nome.hpp>
 #include <dominios/Data.hpp>
@@ -10,8 +11,7 @@ AtualizarProjetoCommand::AtualizarProjetoCommand(IProjetoService *service) : Pro
 
 void AtualizarProjetoCommand::executar()
 {
-    int id = getIdFromUserInput();
-    Projeto projeto = service->listarPorId(id);
+    Projeto projeto = RecuperarProjetoCommand().getProjetoFromInput();
 
     std::string codigoStr;
     std::cout << "Codigo: ";
@@ -74,7 +74,14 @@ void AtualizarProjetoCommand::executar()
         }
     }
 
-    service->atualizar(projeto);
+    try
+    {
+        service->atualizar(projeto);
+    }
+    catch (const std::invalid_argument &e)
+    {
+        throw std::invalid_argument("Erro ao atualizar projeto: " + std::string(e.what()));
+    }
 
     std::cout << std::endl
               << "Projeto atualizado com sucesso!" << std::endl;

@@ -1,7 +1,7 @@
 #ifndef LISTARPESSOASCOMMAND_HPP
 #define LISTARPESSOASCOMMAND_HPP
 
-#include "PessoaCommand.hpp"
+#include <modulos/pessoa/commands/PessoaCommand.hpp>
 
 class ListarPessoasCommand : public PessoaCommand
 {

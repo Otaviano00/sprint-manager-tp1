@@ -1,7 +1,7 @@
 #ifndef CRIARPESSOACOMMAND_HPP
 #define CRIARPESSOACOMMAND_HPP
 
-#include "PessoaCommand.hpp"
+#include <modulos/pessoa/commands/PessoaCommand.hpp>
 
 class CriarPessoaCommand : public PessoaCommand
 {

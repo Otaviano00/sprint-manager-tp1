@@ -1,7 +1,7 @@
 #ifndef EXCLUIRPROJETOCOMMAND_HPP
 #define EXCLUIRPROJETOCOMMAND_HPP
 
-#include "ProjetoCommand.hpp"
+#include <modulos/projeto/commands/ProjetoCommand.hpp>
 
 class ExcluirProjetoCommand : public ProjetoCommand
 {

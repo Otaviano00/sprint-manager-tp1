@@ -1,7 +1,7 @@
 #ifndef CRIARPROJETOCOMMAND_HPP
 #define CRIARPROJETOCOMMAND_HPP
 
-#include "ProjetoCommand.hpp"
+#include <modulos/projeto/commands/ProjetoCommand.hpp>
 
 class CriarProjetoCommand : public ProjetoCommand
 {

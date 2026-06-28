@@ -1,14 +1,13 @@
-#include "BuscarProjetoCommand.hpp"
 #include <modulos/projeto/Projeto.hpp>
+#include <modulos/projeto/commands/BuscarProjetoCommand.hpp>
+#include <modulos/projeto/commands/RecuperarProjetoCommand.hpp>
 #include <iostream>
 
 BuscarProjetoCommand::BuscarProjetoCommand(IProjetoService *service) : ProjetoCommand(service) {}
 
 void BuscarProjetoCommand::executar()
 {
-    int id = getIdFromUserInput();
-
-    Projeto projeto = service->listarPorId(id);
+    Projeto projeto = RecuperarProjetoCommand().getProjetoFromInput();
 
     std::cout << "Projeto encontrado:" << std::endl;
     std::cout << "- ID: " << projeto.getId()

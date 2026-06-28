@@ -9,8 +9,6 @@ class ProjetoCommand : public ICommand
 protected:
     IProjetoService *service;
 
-    int getIdFromUserInput();
-
 public:
     ProjetoCommand(IProjetoService *service);
     virtual ~ProjetoCommand() = default;

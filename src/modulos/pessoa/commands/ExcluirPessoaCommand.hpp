@@ -1,7 +1,7 @@
 #ifndef EXCLUIRPESSOACOMMAND_HPP
 #define EXCLUIRPESSOACOMMAND_HPP
 
-#include "PessoaCommand.hpp"
+#include <modulos/pessoa/commands/PessoaCommand.hpp>
 
 class ExcluirPessoaCommand : public PessoaCommand
 {

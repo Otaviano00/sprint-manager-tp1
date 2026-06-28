@@ -1,4 +1,5 @@
-#include "BuscarPessoaCommand.hpp"
+#include <modulos/pessoa/commands/RecuperarPessoaCommand.hpp>
+#include <modulos/pessoa/commands/BuscarPessoaCommand.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
 #include <dominios/Email.hpp>
 #include <dominios/Nome.hpp>
@@ -11,9 +12,7 @@ BuscarPessoaCommand::BuscarPessoaCommand(IPessoaService *service) : PessoaComman
 
 void BuscarPessoaCommand::executar()
 {
-    int id = getIdFromUserInput();
-
-    Pessoa pessoa = service->listarPorId(id);
+    Pessoa pessoa = RecuperarPessoaCommand().getPessoaFromInput();
 
     std::cout << std::endl
               << "Pessoa encontrada:" << std::endl;

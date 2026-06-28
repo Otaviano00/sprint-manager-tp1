@@ -1,7 +1,7 @@
 #ifndef LISTARPROJETOSCOMMAND_HPP
 #define LISTARPROJETOSCOMMAND_HPP
 
-#include "ProjetoCommand.hpp"
+#include <modulos/projeto/commands/ProjetoCommand.hpp>
 
 class ListarProjetosCommand : public ProjetoCommand
 {

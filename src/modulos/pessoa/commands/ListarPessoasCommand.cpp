@@ -1,4 +1,4 @@
-#include "ListarPessoasCommand.hpp"
+#include <modulos/pessoa/commands/ListarPessoasCommand.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
 #include <dominios/Email.hpp>
 #include <dominios/Nome.hpp>

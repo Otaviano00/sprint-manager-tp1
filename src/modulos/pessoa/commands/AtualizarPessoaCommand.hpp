@@ -1,7 +1,7 @@
 #ifndef ATUALIZARPESSOACOMMAND_HPP
 #define ATUALIZARPESSOACOMMAND_HPP
 
-#include "PessoaCommand.hpp"
+#include <modulos/pessoa/commands/PessoaCommand.hpp>
 
 class AtualizarPessoaCommand : public PessoaCommand
 {

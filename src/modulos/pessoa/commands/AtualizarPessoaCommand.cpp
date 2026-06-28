@@ -1,4 +1,5 @@
-#include "AtualizarPessoaCommand.hpp"
+#include <modulos/pessoa/commands/AtualizarPessoaCommand.hpp>
+#include <modulos/pessoa/commands/RecuperarPessoaCommand.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
 #include <dominios/Email.hpp>
 #include <dominios/Nome.hpp>
@@ -11,9 +12,7 @@ AtualizarPessoaCommand::AtualizarPessoaCommand(IPessoaService *service) : Pessoa
 
 void AtualizarPessoaCommand::executar()
 {
-    int id = getIdFromUserInput();
-
-    Pessoa pessoa = service->listarPorId(id);
+    Pessoa pessoa = RecuperarPessoaCommand().getPessoaFromInput();
 
     std::string nomeStr;
     std::cout << "Nome: ";

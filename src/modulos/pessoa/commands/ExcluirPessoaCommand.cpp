@@ -1,4 +1,5 @@
-#include "ExcluirPessoaCommand.hpp"
+#include <modulos/pessoa/commands/ExcluirPessoaCommand.hpp>
+#include <modulos/pessoa/commands/RecuperarPessoaCommand.hpp>
 #include <iostream>
 #include <string>
 
@@ -6,9 +7,9 @@ ExcluirPessoaCommand::ExcluirPessoaCommand(IPessoaService *service) : PessoaComm
 
 void ExcluirPessoaCommand::executar()
 {
-    int id = getIdFromUserInput();
+    Pessoa pessoa = RecuperarPessoaCommand().getPessoaFromInput();
 
-    service->excluir(id);
+    service->excluir(pessoa.getId());
 
     std::cout << std::endl
               << "Pessoa excluída com sucesso!" << std::endl;

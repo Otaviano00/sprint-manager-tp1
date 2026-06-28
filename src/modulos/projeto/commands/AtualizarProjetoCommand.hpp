@@ -1,7 +1,7 @@
 #ifndef ATUALIZARPROJETOCOMMAND_HPP
 #define ATUALIZARPROJETOCOMMAND_HPP
 
-#include "ProjetoCommand.hpp"
+#include <modulos/projeto/commands/ProjetoCommand.hpp>
 
 class AtualizarProjetoCommand : public ProjetoCommand
 {

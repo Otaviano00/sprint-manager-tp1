@@ -1,7 +1,7 @@
 #ifndef BUSCARPROJETOCOMMAND_HPP
 #define BUSCARPROJETOCOMMAND_HPP
 
-#include "ProjetoCommand.hpp"
+#include <modulos/projeto/commands/ProjetoCommand.hpp>
 
 class BuscarProjetoCommand : public ProjetoCommand
 {

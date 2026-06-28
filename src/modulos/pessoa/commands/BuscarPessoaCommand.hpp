@@ -1,7 +1,7 @@
 #ifndef BUSCARPESSOACOMMAND_HPP
 #define BUSCARPESSOACOMMAND_HPP
 
-#include "PessoaCommand.hpp"
+#include <modulos/pessoa/commands/PessoaCommand.hpp>
 
 class BuscarPessoaCommand : public PessoaCommand
 {
