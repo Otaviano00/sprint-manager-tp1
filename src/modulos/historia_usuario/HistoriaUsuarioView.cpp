@@ -2,6 +2,9 @@
 #include <modulos/historia_usuario/HistoriaUsuarioService.hpp>
 #include <modulos/historia_usuario/commands/CriarHistoriaCommand.hpp>
 #include <modulos/historia_usuario/commands/ListarHistoriasCommand.hpp>
+#include <modulos/historia_usuario/commands/ListarHistoriaProjetoCommand.hpp>
+#include <modulos/historia_usuario/commands/ListarHistoriaPlanoSprintCommand.hpp>
+#include <modulos/historia_usuario/commands/ListarHistoriaPessoaCommand.hpp>
 #include <modulos/historia_usuario/commands/BuscarHistoriaCommand.hpp>
 #include <modulos/historia_usuario/commands/AtualizarHistoriaCommand.hpp>
 #include <modulos/historia_usuario/commands/ExcluirHistoriaCommand.hpp>
@@ -39,15 +42,62 @@ Panel *HistoriaUsuarioView::montarPainelCriar()
 
 Panel *HistoriaUsuarioView::montarPainelListar()
 {
-    if (service->autenticarPapel(S14_LER_HISTORIA_USUARIO))
+    if (service->autenticarPapel(S14_LISTAR_HISTORIA_USUARIO))
     {
-        return PanelBuilder::builder()
-            ->withTitle("Listar Historias de Usuario")
-            ->withAction([this]()
-                         { ListarHistoriasCommand cmd(this->service); cmd.executar(); })
-            ->withEnd(true)
-            ->withConfirmation(true)
-            ->build();
+        Panel *painelListar = PanelBuilder::builder()
+                                  ->withTitle("Listar Historias de Usuario")
+                                  ->withOptions(true)
+                                  ->withEnd(true)
+                                  ->build();
+
+        Panel *painelListarHistoriasDeUsuario = PanelBuilder::builder()
+                                                    ->withTitle("Listar Historias de Usuario")
+                                                    ->withAction([this]()
+                                                                 { 
+                                                           ListarHistoriasCommand cmd(this->service);
+                                                           cmd.executar(); })
+                                                    ->withEnd(true)
+                                                    ->build();
+
+        Panel *painelListarPorProjeto = PanelBuilder::builder()
+                                            ->withTitle("Listar Historias de Usuario por Projeto")
+                                            ->withOptions(true)
+                                            ->withAction([this]()
+                                                         { 
+                                                            ListarHistoriaProjetoCommand cmd(this->service);
+                                                            cmd.executar(); })
+                                            ->withEnd(true)
+                                            ->withConfirmation(true)
+                                            ->build();
+
+        Panel *painelListarPorPlanoSprint = PanelBuilder::builder()
+                                                ->withTitle("Listar Historias de Usuario por Plano de Sprint")
+                                                ->withOptions(true)
+                                                ->withAction([this]()
+                                                             { 
+                                                            ListarHistoriaPlanoSprintCommand cmd(this->service);
+                                                            cmd.executar(); })
+                                                ->withEnd(true)
+                                                ->withConfirmation(true)
+                                                ->build();
+
+        Panel *painelListarPorPessoa = PanelBuilder::builder()
+                                           ->withTitle("Listar Historias de Usuario por Pessoa")
+                                           ->withOptions(true)
+                                           ->withAction([this]()
+                                                        { 
+                                                            ListarHistoriaPessoaCommand cmd(this->service);
+                                                            cmd.executar(); })
+                                           ->withEnd(true)
+                                           ->withConfirmation(true)
+                                           ->build();
+
+        painelListar->addOption(painelListarHistoriasDeUsuario);
+        painelListar->addOption(painelListarPorProjeto);
+        painelListar->addOption(painelListarPorPlanoSprint);
+        painelListar->addOption(painelListarPorPessoa);
+
+        return painelListar;
     }
     return nullptr;
 }

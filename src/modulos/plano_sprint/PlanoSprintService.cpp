@@ -63,6 +63,10 @@ void PlanoSprintService::excluir(int id)
 
 std::list<PlanoSprint> PlanoSprintService::listarPorProjeto(Projeto &projeto)
 {
+    if (!autenticarPapel(S21_LISTAR_PLANOS_DE_SPRINT_ASSOCIADOS_A_PROJETO))
+        throw std::runtime_error("Acesso negado.");
+
+    repository->findByProjetoId(projeto.getId());
 
     return std::list<PlanoSprint>();
 }

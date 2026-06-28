@@ -76,3 +76,17 @@ bool PlanoSprintRepository::save(PlanoSprint &plano)
 
     return rows > 0;
 }
+
+std::vector<PlanoSprint> PlanoSprintRepository::findByProjetoId(long projetoId)
+{
+    SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE projetoId = ?");
+    query.bind(1, static_cast<int>(projetoId));
+
+    std::vector<PlanoSprint> planos;
+    while (query.executeStep())
+    {
+        planos.push_back(mapToEntity(query));
+    }
+
+    return planos;
+}

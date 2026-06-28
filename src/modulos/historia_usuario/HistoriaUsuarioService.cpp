@@ -60,6 +60,7 @@ bool HistoriaUsuarioService::autenticarPapel(ServicoEnum servico)
         return (papel == PapelEnum::PROPRIETARIO_DE_PRODUTO || papel == PapelEnum::MESTRE_SCRUM || papel == PapelEnum::DESENVOLVEDOR);
 
     case S14_LER_HISTORIA_USUARIO:
+    case S14_LISTAR_HISTORIA_USUARIO:
     case S20_LISTAR_HU_ASSOCIADAS_A_PROJETO:
     case S22_LISTAR_HU_ASSOCIADAS_A_PLANO_SPRINT:
     case S23_LISTAR_HU_ASSOCIADAS_A_PESSOA:

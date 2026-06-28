@@ -4,6 +4,7 @@
 #include <modulos/plano_sprint/commands/ListarPlanoSprintCommand.hpp>
 #include <modulos/plano_sprint/commands/AtualizarPlanoSprintCommand.hpp>
 #include <modulos/plano_sprint/commands/ExcluirPlanoSprintCommand.hpp>
+#include <modulos/plano_sprint/commands/ListarPlanoSprintProjetoCommand.hpp>
 #include <core/PanelBuilder.hpp>
 #include <util/ServicoEnum.hpp>
 #include <iostream>
@@ -39,6 +40,36 @@ Panel *PlanoSprintView::montarPainelListar()
 {
     if (service->autenticarPapel(S10_LISTAR_PLANO_SPRINT))
     {
+        Panel *painelListar = PanelBuilder::builder()
+                                  ->withTitle("Listar Projetos")
+                                  ->withOptions(true)
+                                  ->withEnd(true)
+                                  ->build();
+
+        Panel *painelListarProjetos = PanelBuilder::builder()
+                                          ->withTitle("Listar Planos de Sprint")
+                                          ->withAction([this]()
+                                                       { 
+                                                           ListarPlanoSprintCommand cmd(this->service);
+                                                           cmd.executar(); })
+                                          ->withEnd(true)
+                                          ->build();
+
+        Panel *painelListarPorPessoa = PanelBuilder::builder()
+                                           ->withTitle("Listar Planos de Sprint por Projeto")
+                                           ->withOptions(true)
+                                           ->withAction([this]()
+                                                        { 
+                                                            ListarPlanoSprintProjetoCommand cmd(this->service);
+                                                            cmd.executar(); })
+                                           ->withEnd(true)
+                                           ->withConfirmation(true)
+                                           ->build();
+
+        painelListar->addOption(painelListarPorPessoa);
+        painelListar->addOption(painelListarProjetos);
+
+        return painelListar;
         return PanelBuilder::builder()
             ->withTitle("Listar Planos de Sprint")
             ->withAction([this]()

@@ -10,8 +10,9 @@ public:
     PlanoSprintRepository();
 
     bool save(PlanoSprint &plano) override;
-     bool update(PlanoSprint &plano);
-     
+    bool update(PlanoSprint &plano);
+    std::vector<PlanoSprint> findByProjetoId(long projetoId);
+
 protected:
     PlanoSprint mapToEntity(SQLite::Statement &query) override;
 };
