@@ -13,9 +13,6 @@ void AlterarEstadoHistoriaCommand::executar()
     std::cout << "Novo Estado (A FAZER, FAZENDO, FEITO): ";
     std::getline(std::cin, novo);
 
-    std::cout << std::endl
-              << "Alterando estado da historia de usuario..." << novo << std::endl;
-
     service->alterarEstado(historia.getId(), novo);
     std::cout << std::endl
               << "Estado alterado com sucesso!";

@@ -3,14 +3,20 @@
 
 #include <dominios/Estado.hpp>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
 bool Estado::validar(string valor)
 {
-    return valor == "A_FAZER" ||
-           valor == "FAZENDO" ||
-           valor == "FEITO";
+    if (valor == "A FAZER" ||
+        valor == "FAZENDO" ||
+        valor == "FEITO")
+    {
+        return true;
+    }
+
+    throw std::invalid_argument("Estado inválido: " + valor);
 }
 
 #endif // ESTADO_CPP_INCLUDED

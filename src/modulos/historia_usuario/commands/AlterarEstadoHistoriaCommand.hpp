@@ -4,11 +4,13 @@
 #include <core/ICommand.hpp>
 #include <modulos/historia_usuario/IHistoriaUsuarioService.hpp>
 
-class AlterarEstadoHistoriaCommand : public ICommand {
+class AlterarEstadoHistoriaCommand : public ICommand
+{
 private:
-    IHistoriaUsuarioService* service;
+    IHistoriaUsuarioService *service;
+
 public:
-    AlterarEstadoHistoriaCommand(IHistoriaUsuarioService* service);
+    AlterarEstadoHistoriaCommand(IHistoriaUsuarioService *service);
     void executar() override;
 };
 
