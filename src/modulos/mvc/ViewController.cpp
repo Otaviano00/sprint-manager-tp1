@@ -48,14 +48,14 @@ void ViewController::executar()
                             ->withTitle("Gerenciar Projetos")
                             ->withAction([this]()
                                          { this->projetoView->executar(); })
-                            ->withEnd(true) // temporário para teste de fluxo
+                            ->withEnd(true)
                             ->build();
 
     auto menuHistoriasUsuario = PanelBuilder::builder()
                                     ->withTitle("Gerenciar Historias de Usuario")
                                     ->withAction([this]()
-                                                 { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
-                                    ->withEnd(true) // temporário para teste de fluxo
+                                                 { this->historiaView->executar(); })
+                                    ->withEnd(true)
                                     ->build();
 
     auto menuPlanosSprint = PanelBuilder::builder()

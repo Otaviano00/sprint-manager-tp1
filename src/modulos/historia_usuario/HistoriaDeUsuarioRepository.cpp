@@ -1,4 +1,7 @@
 #include <modulos/historia_usuario/HistoriaDeUsuarioRepository.hpp>
+#include <modulos/pessoa/PessoaRepository.hpp>
+#include <modulos/projeto/ProjetoRepository.hpp>
+#include <modulos/plano_sprint/PlanoSprintRepository.hpp>
 
 HistoriaDeUsuario HistoriaDeUsuarioRepository::mapToEntity(SQLite::Statement &query)
 {
@@ -37,12 +40,21 @@ HistoriaDeUsuario HistoriaDeUsuarioRepository::mapToEntity(SQLite::Statement &qu
     estado.setValor(query.getColumn("estado").getString());
     historia.setEstado(estado);
 
+    Pessoa pessoa(query.getColumn("pessoaId").getInt());
+    historia.setPessoa(pessoa);
+
+    Projeto projeto(query.getColumn("projetoId").getInt());
+    historia.setProjeto(projeto);
+
+    PlanoSprint sprint(query.getColumn("planoSprintId").getInt());
+    historia.setPlanoSprint(sprint);
+
     return historia;
 }
 
 bool HistoriaDeUsuarioRepository::save(HistoriaDeUsuario &historia)
 {
-    SQLite::Statement query(db, "INSERT INTO " + tableName + " (codigo, titulo, papel, acao, valor, estimativa, prioridade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    SQLite::Statement query(db, "INSERT INTO " + tableName + " (codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, pessoaId, projetoId, planoSprintId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     query.bind(1, historia.getCodigo().getValor());
     query.bind(2, historia.getTitulo().getValor());
     query.bind(3, historia.getPapel().getValor());
@@ -51,6 +63,9 @@ bool HistoriaDeUsuarioRepository::save(HistoriaDeUsuario &historia)
     query.bind(6, historia.getEstimativa().getValor());
     query.bind(7, historia.getPrioridade().getValor());
     query.bind(8, historia.getEstado().getValor());
+    query.bind(9, static_cast<int>(historia.getPessoa().getId()));
+    query.bind(10, static_cast<int>(historia.getProjeto().getId()));
+    query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
 
     int rows = query.exec();
 
@@ -60,4 +75,66 @@ bool HistoriaDeUsuarioRepository::save(HistoriaDeUsuario &historia)
     }
 
     return rows > 0;
+}
+
+bool HistoriaDeUsuarioRepository::update(HistoriaDeUsuario &historia)
+{
+    SQLite::Statement query(db, "UPDATE " + tableName + " SET codigo = ?, titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade = ?, estado = ?, pessoaId = ?, projetoId = ?, planoSprintId = ? WHERE id = ?");
+    query.bind(1, historia.getCodigo().getValor());
+    query.bind(2, historia.getTitulo().getValor());
+    query.bind(3, historia.getPapel().getValor());
+    query.bind(4, historia.getAcao().getValor());
+    query.bind(5, historia.getValor().getValor());
+    query.bind(6, historia.getEstimativa().getValor());
+    query.bind(7, historia.getPrioridade().getValor());
+    query.bind(8, historia.getEstado().getValor());
+    query.bind(9, static_cast<int>(historia.getPessoa().getId()));
+    query.bind(10, static_cast<int>(historia.getProjeto().getId()));
+    query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
+    query.bind(12, static_cast<int>(historia.getId()));
+
+    int rows = query.exec();
+    return rows > 0;
+}
+
+std::vector<HistoriaDeUsuario> HistoriaDeUsuarioRepository::findByPessoaId(int pessoaId)
+{
+    std::vector<HistoriaDeUsuario> historias;
+    SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE pessoaId = ?");
+    query.bind(1, pessoaId);
+
+    while (query.executeStep())
+    {
+        historias.push_back(mapToEntity(query));
+    }
+
+    return historias;
+}
+
+std::vector<HistoriaDeUsuario> HistoriaDeUsuarioRepository::findByProjetoId(int projetoId)
+{
+    std::vector<HistoriaDeUsuario> historias;
+    SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE projetoId = ?");
+    query.bind(1, projetoId);
+
+    while (query.executeStep())
+    {
+        historias.push_back(mapToEntity(query));
+    }
+
+    return historias;
+}
+
+std::vector<HistoriaDeUsuario> HistoriaDeUsuarioRepository::findByPlanoSprintId(int planoSprintId)
+{
+    std::vector<HistoriaDeUsuario> historias;
+    SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE planoSprintId = ?");
+    query.bind(1, planoSprintId);
+
+    while (query.executeStep())
+    {
+        historias.push_back(mapToEntity(query));
+    }
+
+    return historias;
 }

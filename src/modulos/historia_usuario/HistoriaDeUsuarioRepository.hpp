@@ -15,11 +15,16 @@ public:
                                                                                             {"valor", "TEXT NOT NULL"},
                                                                                             {"estimativa", "INTEGER NOT NULL"},
                                                                                             {"prioridade", "INTEGER NOT NULL"},
-                                                                                            {"estado", "TEXT NOT NULL"}})
-    {
-    }
+                                                                                            {"estado", "TEXT NOT NULL"},
+                                                                                            {"pessoaId", "INTEGER NOT NULL"},
+                                                                                            {"projetoId", "INTEGER NOT NULL"},
+                                                                                            {"planoSprintId", "INTEGER NOT NULL"}}) {}
 
     bool save(HistoriaDeUsuario &historia) override;
+    bool update(HistoriaDeUsuario &historia);
+    std::vector<HistoriaDeUsuario> findByPessoaId(int pessoaId);
+    std::vector<HistoriaDeUsuario> findByProjetoId(int projetoId);
+    std::vector<HistoriaDeUsuario> findByPlanoSprintId(int planoSprintId);
 
 protected:
     HistoriaDeUsuario mapToEntity(SQLite::Statement &query) override;

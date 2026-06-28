@@ -121,7 +121,6 @@ Panel *Panel::step()
                     return nullptr;
                 }
 
-                cout << endl;
                 ViewUtils::waitForEnter();
 
                 return nullptr;

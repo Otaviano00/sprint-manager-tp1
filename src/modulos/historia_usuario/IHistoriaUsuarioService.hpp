@@ -60,22 +60,24 @@ public:
     virtual void excluir(int id) = 0;
 
     /**
-     * @brief Altera o estado da história de usuário atual.
+     * @brief Altera o estado da história de usuário pelo identificador.
+     * @param historiaId Identificador da história de usuário.
      * @param estado Novo estado a ser aplicado.
      */
-    virtual void alterarEstado(std::string estado) = 0;
+    virtual void alterarEstado(int historiaId, std::string estado) = 0;
 
     /**
      * @brief Associa uma pessoa à história de usuário.
+     * @param historiaId Identificador da história de usuário.
      * @param pessoa Pessoa a ser vinculada.
      */
-    virtual void vincularPessoa(Pessoa &pessoa) = 0;
+    virtual void vincularPessoa(int historiaId, Pessoa &pessoa) = 0;
 
     /**
      * @brief Remove a associação de uma pessoa com a história de usuário.
-     * @param pessoa Pessoa a ser desvinculada.
+     * @param historiaId Identificador da história de usuário.
      */
-    virtual void desvincularPessoa(Pessoa &pessoa) = 0;
+    virtual void desvincularPessoa(int historiaId) = 0;
 
     /**
      * @brief Lista histórias associadas a um projeto.
@@ -100,9 +102,10 @@ public:
 
     /**
      * @brief Move uma história de usuário para um plano de sprint.
+     * @param historiaId Identificador da história de usuário.
      * @param planoSprint Destino da movimentação.
      */
-    virtual void moverParaSprint(PlanoSprint &planoSprint) = 0;
+    virtual void moverParaSprint(int historiaId, PlanoSprint &planoSprint) = 0;
 
     /**
      * @brief Destrutor virtual da interface de história de usuário.

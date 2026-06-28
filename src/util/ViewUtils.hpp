@@ -40,7 +40,10 @@ public:
 
     static void waitForEnter(const std::string &message = "[Pressione Enter para prosseguir]")
     {
-        std::cout << message << std::endl;
+        std::cout
+            << std::endl
+            << message << std::endl;
+
         std::string enter;
         std::getline(std::cin, enter);
     }

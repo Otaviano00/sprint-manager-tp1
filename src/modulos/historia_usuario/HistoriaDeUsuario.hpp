@@ -8,6 +8,9 @@
 #include <dominios/Prioridade.hpp>
 #include <dominios/Estado.hpp>
 #include <core/Entity.hpp>
+#include <modulos/pessoa/Pessoa.hpp>
+#include <modulos/projeto/Projeto.hpp>
+#include <modulos/plano_sprint/PlanoSprint.hpp>
 
 /// @brief Entidade que representa uma Historia de Usuario no sistema Scrum.
 ///
@@ -24,10 +27,13 @@ private:
     Tempo estimativa;
     Prioridade prioridade;
     Estado estado;
+    Pessoa pessoa;
+    Projeto projeto;
+    PlanoSprint planoSprint;
 
 public:
-    HistoriaDeUsuario() : Entity(0) {}
-    HistoriaDeUsuario(long id) : Entity(id) {}
+    HistoriaDeUsuario() : Entity(0), pessoa(0), projeto(0), planoSprint(0) {}
+    HistoriaDeUsuario(long id) : Entity(id), pessoa(0), projeto(0), planoSprint(0) {}
 
     // Setters
     void setCodigo(const Codigo &);
@@ -38,6 +44,9 @@ public:
     void setEstimativa(const Tempo &);
     void setPrioridade(const Prioridade &);
     void setEstado(const Estado &);
+    void setPessoa(const Pessoa &);
+    void setProjeto(const Projeto &);
+    void setPlanoSprint(const PlanoSprint &);
 
     // Getters
     Codigo getCodigo() const;
@@ -48,6 +57,9 @@ public:
     Tempo getEstimativa() const;
     Prioridade getPrioridade() const;
     Estado getEstado() const;
+    Pessoa getPessoa() const;
+    Projeto getProjeto() const;
+    PlanoSprint getPlanoSprint() const;
 };
 
 #endif
