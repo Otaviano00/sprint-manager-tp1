@@ -10,4 +10,3 @@ target_link_libraries(SprintManagerCore
 )
 
 add_executable(SprintManager main.cpp)
-target_link_libraries(SprintManager PRIVATE SprintManagerCore pthread)

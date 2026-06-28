@@ -53,6 +53,13 @@ void PlanoSprintService::atualizar(PlanoSprint &planoSprint)
   
 }
 
+void PlanoSprintService::atualizar(PlanoSprint &planoSprint)
+{
+    if (!autenticarPapel(S11_ATUALIZAR_PLANO_SPRINT))
+        throw std::runtime_error("Acesso negado.");
+    repository->update(planoSprint);
+}
+
 void PlanoSprintService::excluir(int id)
 {
     if (!autenticarPapel(S12_EXCLUIR_PLANO_SPRINT))

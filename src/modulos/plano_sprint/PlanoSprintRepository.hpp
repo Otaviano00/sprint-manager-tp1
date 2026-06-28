@@ -16,7 +16,8 @@ public:
     }
 
     bool save(PlanoSprint &plano) override;
-
+     bool update(PlanoSprint &plano);
+     
 protected:
     PlanoSprint mapToEntity(SQLite::Statement &query) override;
 };
