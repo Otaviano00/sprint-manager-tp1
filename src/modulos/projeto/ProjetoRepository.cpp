@@ -1,5 +1,14 @@
 #include <modulos/projeto/ProjetoRepository.hpp>
-#include <modulos/pessoa/PessoaRepository.hpp>
+
+ProjetoRepository::ProjetoRepository()
+    : RepositoryBase<Projeto>("projeto", {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
+                                          {"codigo", "TEXT NOT NULL UNIQUE"},
+                                          {"nome", "TEXT NOT NULL"},
+                                          {"dataInicio", "TEXT NOT NULL"},
+                                          {"dataFim", "TEXT NOT NULL"},
+                                          {"pessoaId", "INTEGER DEFAULT NULL REFERENCES pessoa(id) ON DELETE SET NULL ON UPDATE CASCADE"}})
+{
+}
 
 Projeto ProjetoRepository::mapToEntity(SQLite::Statement &query)
 {
@@ -22,19 +31,8 @@ Projeto ProjetoRepository::mapToEntity(SQLite::Statement &query)
     dataFim.setValor(query.getColumn("dataFim").getString());
     projeto.setDataFim(dataFim);
 
-    Pessoa pessoa(query.getColumn("pessoaId").getInt());
-
-    PessoaRepository pessoaRepo;
-    try
-    {
-        pessoa = pessoaRepo.findById(pessoa.getId());
-    }
-    catch (...)
-    {
-        throw std::invalid_argument("Pessoa associada ao projeto não encontrada.");
-    }
-
-    projeto.setPessoa(pessoa);
+    if (!query.getColumn("pessoaId").isNull())
+        projeto.setPessoa(Pessoa(query.getColumn("pessoaId").getInt()));
 
     return projeto;
 }
@@ -46,7 +44,10 @@ bool ProjetoRepository::save(Projeto &projeto)
     query.bind(2, projeto.getNome().getValor());
     query.bind(3, projeto.getDataInicio().getValor());
     query.bind(4, projeto.getDataFim().getValor());
-    query.bind(5, static_cast<int>(projeto.getPessoa().getId()));
+    if (projeto.getPessoa().getId() != 0)
+        query.bind(5, static_cast<int>(projeto.getPessoa().getId()));
+    else
+        query.bind(5); // NULL
 
     int rows = query.exec();
 
@@ -65,7 +66,10 @@ bool ProjetoRepository::update(Projeto &projeto)
     query.bind(2, projeto.getNome().getValor());
     query.bind(3, projeto.getDataInicio().getValor());
     query.bind(4, projeto.getDataFim().getValor());
-    query.bind(5, static_cast<int>(projeto.getPessoa().getId()));
+    if (projeto.getPessoa().getId() != 0)
+        query.bind(5, static_cast<int>(projeto.getPessoa().getId()));
+    else
+        query.bind(5); // NULL
     query.bind(6, static_cast<int>(projeto.getId()));
 
     int rows = query.exec();

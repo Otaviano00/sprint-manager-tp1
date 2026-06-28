@@ -1,5 +1,14 @@
 #include <modulos/plano_sprint/PlanoSprintRepository.hpp>
 
+PlanoSprintRepository::PlanoSprintRepository()
+    : RepositoryBase<PlanoSprint>("planosprint", {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
+                                                  {"codigo", "TEXT NOT NULL UNIQUE"},
+                                                  {"nome", "TEXT NOT NULL"},
+                                                  {"dataInicio", "TEXT NOT NULL"},
+                                                  {"dataFim", "TEXT NOT NULL"}})
+{
+}
+
 PlanoSprint PlanoSprintRepository::mapToEntity(SQLite::Statement &query)
 {
     long id = query.getColumn("id").getInt();

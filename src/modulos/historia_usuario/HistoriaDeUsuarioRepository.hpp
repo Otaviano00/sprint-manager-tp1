@@ -7,18 +7,7 @@
 class HistoriaDeUsuarioRepository : public RepositoryBase<HistoriaDeUsuario>
 {
 public:
-    HistoriaDeUsuarioRepository() : RepositoryBase<HistoriaDeUsuario>("historiadeusuario", {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
-                                                                                            {"codigo", "TEXT NOT NULL"},
-                                                                                            {"titulo", "TEXT NOT NULL"},
-                                                                                            {"papel", "TEXT NOT NULL"},
-                                                                                            {"acao", "TEXT NOT NULL"},
-                                                                                            {"valor", "TEXT NOT NULL"},
-                                                                                            {"estimativa", "INTEGER NOT NULL"},
-                                                                                            {"prioridade", "INTEGER NOT NULL"},
-                                                                                            {"estado", "TEXT NOT NULL"},
-                                                                                            {"pessoaId", "INTEGER NOT NULL"},
-                                                                                            {"projetoId", "INTEGER NOT NULL"},
-                                                                                            {"planoSprintId", "INTEGER NOT NULL"}}) {}
+    HistoriaDeUsuarioRepository();
 
     bool save(HistoriaDeUsuario &historia) override;
     bool update(HistoriaDeUsuario &historia);

@@ -27,6 +27,7 @@ protected:
 public:
     RepositoryBase(const std::string &name, const std::map<std::string, std::string> &columns) : db(DATABASE_NAME, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE)
     {
+        db.exec("PRAGMA foreign_keys = ON;");
         tableName = name;
         tableColumns = columns;
         createTable();

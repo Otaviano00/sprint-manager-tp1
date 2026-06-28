@@ -1,7 +1,25 @@
 #include <modulos/historia_usuario/HistoriaDeUsuarioRepository.hpp>
+#include <modulos/historia_usuario/HistoriaDeUsuario.hpp>
+#include <core/RepositoryBase.hpp>
 #include <modulos/pessoa/PessoaRepository.hpp>
 #include <modulos/projeto/ProjetoRepository.hpp>
 #include <modulos/plano_sprint/PlanoSprintRepository.hpp>
+
+HistoriaDeUsuarioRepository::HistoriaDeUsuarioRepository()
+    : RepositoryBase<HistoriaDeUsuario>("historiadeusuario", {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
+                                                              {"codigo", "TEXT NOT NULL UNIQUE"},
+                                                              {"titulo", "TEXT NOT NULL"},
+                                                              {"papel", "TEXT NOT NULL"},
+                                                              {"acao", "TEXT NOT NULL"},
+                                                              {"valor", "TEXT NOT NULL"},
+                                                              {"estimativa", "INTEGER NOT NULL"},
+                                                              {"prioridade", "TEXT NOT NULL"},
+                                                              {"estado", "TEXT NOT NULL"},
+                                                              {"pessoaId", "INTEGER DEFAULT NULL REFERENCES pessoa(id) ON DELETE SET NULL ON UPDATE CASCADE"},
+                                                              {"projetoId", "INTEGER DEFAULT NULL REFERENCES projeto(id) ON DELETE CASCADE ON UPDATE CASCADE"},
+                                                              {"planoSprintId", "INTEGER DEFAULT NULL REFERENCES planosprint(id) ON DELETE CASCADE ON UPDATE CASCADE"}})
+{
+}
 
 HistoriaDeUsuario HistoriaDeUsuarioRepository::mapToEntity(SQLite::Statement &query)
 {
@@ -40,14 +58,14 @@ HistoriaDeUsuario HistoriaDeUsuarioRepository::mapToEntity(SQLite::Statement &qu
     estado.setValor(query.getColumn("estado").getString());
     historia.setEstado(estado);
 
-    Pessoa pessoa(query.getColumn("pessoaId").getInt());
-    historia.setPessoa(pessoa);
+    if (!query.getColumn("pessoaId").isNull())
+        historia.setPessoa(Pessoa(query.getColumn("pessoaId").getInt()));
 
-    Projeto projeto(query.getColumn("projetoId").getInt());
-    historia.setProjeto(projeto);
+    if (!query.getColumn("projetoId").isNull())
+        historia.setProjeto(Projeto(query.getColumn("projetoId").getInt()));
 
-    PlanoSprint sprint(query.getColumn("planoSprintId").getInt());
-    historia.setPlanoSprint(sprint);
+    if (!query.getColumn("planoSprintId").isNull())
+        historia.setPlanoSprint(PlanoSprint(query.getColumn("planoSprintId").getInt()));
 
     return historia;
 }
@@ -63,9 +81,20 @@ bool HistoriaDeUsuarioRepository::save(HistoriaDeUsuario &historia)
     query.bind(6, historia.getEstimativa().getValor());
     query.bind(7, historia.getPrioridade().getValor());
     query.bind(8, historia.getEstado().getValor());
-    query.bind(9, static_cast<int>(historia.getPessoa().getId()));
-    query.bind(10, static_cast<int>(historia.getProjeto().getId()));
-    query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
+    if (historia.getPessoa().getId() != 0)
+        query.bind(9, static_cast<int>(historia.getPessoa().getId()));
+    else
+        query.bind(9); // NULL
+
+    if (historia.getProjeto().getId() != 0)
+        query.bind(10, static_cast<int>(historia.getProjeto().getId()));
+    else
+        query.bind(10); // NULL
+
+    if (historia.getPlanoSprint().getId() != 0)
+        query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
+    else
+        query.bind(11); // NULL
 
     int rows = query.exec();
 
@@ -88,9 +117,21 @@ bool HistoriaDeUsuarioRepository::update(HistoriaDeUsuario &historia)
     query.bind(6, historia.getEstimativa().getValor());
     query.bind(7, historia.getPrioridade().getValor());
     query.bind(8, historia.getEstado().getValor());
-    query.bind(9, static_cast<int>(historia.getPessoa().getId()));
-    query.bind(10, static_cast<int>(historia.getProjeto().getId()));
-    query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
+    if (historia.getPessoa().getId() != 0)
+        query.bind(9, static_cast<int>(historia.getPessoa().getId()));
+    else
+        query.bind(9); // NULL
+
+    if (historia.getProjeto().getId() != 0)
+        query.bind(10, static_cast<int>(historia.getProjeto().getId()));
+    else
+        query.bind(10); // NULL
+
+    if (historia.getPlanoSprint().getId() != 0)
+        query.bind(11, static_cast<int>(historia.getPlanoSprint().getId()));
+    else
+        query.bind(11); // NULL
+
     query.bind(12, static_cast<int>(historia.getId()));
 
     int rows = query.exec();

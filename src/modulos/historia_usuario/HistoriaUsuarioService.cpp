@@ -175,7 +175,7 @@ void HistoriaUsuarioService::desvincularPessoa(int historiaId)
         throw std::invalid_argument("Acesso negado.");
 
     HistoriaDeUsuario historia = repository->findById(historiaId);
-    Pessoa emptyPessoa;
+    Pessoa emptyPessoa(0);
     historia.setPessoa(emptyPessoa);
 
     if (!repository->update(historia))

@@ -7,14 +7,7 @@
 class ProjetoRepository : public RepositoryBase<Projeto>
 {
 public:
-    ProjetoRepository() : RepositoryBase<Projeto>("projeto", {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
-                                                              {"codigo", "TEXT NOT NULL"},
-                                                              {"nome", "TEXT NOT NULL"},
-                                                              {"dataInicio", "TEXT NOT NULL"},
-                                                              {"dataFim", "TEXT NOT NULL"},
-                                                              {"pessoaId", "INTEGER NOT NULL"}})
-    {
-    }
+    ProjetoRepository();
 
     bool save(Projeto &projeto) override;
     bool update(Projeto &projeto);

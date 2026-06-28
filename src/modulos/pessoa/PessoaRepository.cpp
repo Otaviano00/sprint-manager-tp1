@@ -5,11 +5,12 @@
 #include <modulos/pessoa/PessoaRepository.hpp>
 #include <modulos/pessoa/Pessoa.hpp>
 
-PessoaRepository::PessoaRepository() : RepositoryBase<Pessoa>(TABLE_NAME, {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
-                                                                           {"email", "TEXT NOT NULL"},
-                                                                           {"nome", "TEXT NOT NULL"},
-                                                                           {"senha", "TEXT NOT NULL"},
-                                                                           {"papel", "TEXT NOT NULL"}})
+PessoaRepository::PessoaRepository()
+    : RepositoryBase<Pessoa>(TABLE_NAME, {{"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"},
+                                          {"email", "TEXT NOT NULL UNIQUE"},
+                                          {"nome", "TEXT NOT NULL"},
+                                          {"senha", "TEXT NOT NULL"},
+                                          {"papel", "TEXT NOT NULL"}})
 {
 }
 
