@@ -1,11 +1,9 @@
 #include <modulos/autenticacao/AutenticacaoView.hpp>
 #include <modulos/autenticacao/AutenticacaoService.hpp>
 #include <modulos/pessoa/PessoaService.hpp>
-#include <modulos/pessoa/Pessoa.hpp>
-#include <dominios/Email.hpp>
-#include <dominios/Nome.hpp>
-#include <dominios/Senha.hpp>
-#include <dominios/Papel.hpp>
+#include <modulos/autenticacao/commands/LoginCommand.hpp>
+#include <modulos/autenticacao/commands/PrimeiroAcessoCommand.hpp>
+#include <modulos/autenticacao/commands/LogoutCommand.hpp>
 #include <core/PanelBuilder.hpp>
 #include <util/ViewUtils.hpp>
 #include <iostream>
@@ -30,99 +28,50 @@ void showLogo()
     }
 }
 
-void AutenticacaoView::interfaceLogin()
+Panel *AutenticacaoView::montarPainelLogin()
 {
-    std::string email;
-    std::cout << "Digite seu email: ";
-    std::getline(std::cin, email);
-
-    Email emailObj;
-    emailObj.setValor(email);
-
-    std::string senha;
-    std::cout << "Digite sua senha: ";
-    std::getline(std::cin, senha);
-
-    Senha senhaObj;
-    senhaObj.setValor(senha);
-
-    if (service->login(emailObj, senhaObj))
-    {
-        std::cout << std::endl
-                  << "Login bem-sucedido!" << std::endl;
-    }
-    else
-    {
-        throw std::invalid_argument("Email ou senha não encontrados.");
-    }
+    return PanelBuilder::builder()
+        ->withTitle("Login")
+        ->withAction([this]()
+                     { 
+                         LoginCommand cmd(this->service);
+                         cmd.executar(); })
+        ->withEnd(true)
+        ->build();
 }
 
-void AutenticacaoView::interfacePrimeiroAcesso()
+Panel *AutenticacaoView::montarPainelPrimeiroAcesso()
 {
-    Pessoa pessoa;
-
-    std::string nomeStr;
-    std::cout << "Nome: ";
-    std::getline(std::cin, nomeStr);
-
-    Nome nome;
-    nome.setValor(nomeStr);
-    pessoa.setNome(nome);
-
-    std::string emailStr;
-    std::cout << "Email: ";
-    std::getline(std::cin, emailStr);
-
-    Email email;
-    email.setValor(emailStr);
-    pessoa.setEmail(email);
-
-    std::string senhaStr;
-    std::cout << "Senha: ";
-    std::getline(std::cin, senhaStr);
-
-    Senha senha;
-    senha.setValor(senhaStr);
-    pessoa.setSenha(senha);
-
-    std::string papelStr;
-    std::cout << "Papel (DESENVOLVEDOR / MESTRE_SCRUM / PROPRIETARIO_DE_PRODUTO): ";
-    std::getline(std::cin, papelStr);
-
-    Papel papel;
-    papel.setValor(papelStr);
-    pessoa.setPapel(papel);
-
-    pessoaService->criar(pessoa);
-
-    std::cout << std::endl
-              << "Conta criada com sucesso! Faça login para continuar." << std::endl;
+    return PanelBuilder::builder()
+        ->withTitle("Primeiro Acesso - Criar Conta")
+        ->withAction([this]()
+                     { 
+                         PrimeiroAcessoCommand cmd(this->service, this->pessoaService);
+                         cmd.executar(); })
+        ->withEnd(true)
+        ->build();
 }
 
-void AutenticacaoView::interfaceLogout()
+Panel *AutenticacaoView::montarPainelLogout()
 {
-    service->logout();
-    std::cout << std::endl
-              << "Logout realizado com sucesso!" << std::endl;
+    return PanelBuilder::builder()
+        ->withInitialCleanScreen(false)
+        ->withAction([this]()
+                     { 
+                         LogoutCommand cmd(this->service);
+                         cmd.executar(); })
+        ->withZeroAction(false)
+        ->withConfirmation(false)
+        ->withEnd(true)
+        ->build();
 }
 
 bool AutenticacaoView::login()
 {
     querSair = false;
 
-    auto panelLogin = PanelBuilder::builder()
-                          ->withTitle("Login")
-                          ->withAction([this]()
-                                       { this->interfaceLogin(); })
-                          ->withEnd(true)
-                          ->build();
-
-    auto panelPrimeiroAcesso = PanelBuilder::builder()
-                                   ->withTitle("Primeiro Acesso - Criar Conta")
-                                   ->withAction([this]()
-                                                { this->interfacePrimeiroAcesso(); })
-                                   ->withEnd(true)
-                                   ->build();
+    Panel *panelLogin = montarPainelLogin();
+    Panel *panelPrimeiroAcesso = montarPainelPrimeiroAcesso();
 
     auto panelEntrada = PanelBuilder::builder()
                             ->withInitialCleanScreen(false)
@@ -135,8 +84,10 @@ bool AutenticacaoView::login()
                                                 { return this->service->isLoggedIn() || this->getQuerSair(); })
                             ->build();
 
-    panelEntrada->addOption(panelLogin);
-    panelEntrada->addOption(panelPrimeiroAcesso);
+    if (panelLogin)
+        panelEntrada->addOption(panelLogin);
+    if (panelPrimeiroAcesso)
+        panelEntrada->addOption(panelPrimeiroAcesso);
 
     panelEntrada->showPanel();
 
@@ -149,17 +100,13 @@ bool AutenticacaoView::login()
 
 bool AutenticacaoView::logout()
 {
-    auto panelLogout = PanelBuilder::builder()
-                           ->withInitialCleanScreen(false)
-                           ->withAction([this]()
-                                        { this->interfaceLogout(); })
-                           ->withZeroAction(false)
-                           ->withConfirmation(false)
-                           ->withEnd(true)
-                           ->build();
+    Panel *panelLogout = montarPainelLogout();
 
-    panelLogout->showPanel();
-    delete panelLogout;
+    if (panelLogout)
+    {
+        panelLogout->showPanel();
+        delete panelLogout;
+    }
 
     return !service->isLoggedIn();
 }

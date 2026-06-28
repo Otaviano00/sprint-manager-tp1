@@ -19,72 +19,97 @@ PessoaView::~PessoaView()
     delete service;
 }
 
-void PessoaView::executar()
+Panel *PessoaView::montarPainelCriar()
 {
-    Panel *painelCriar = nullptr;
     if (service->autenticarPapel(S1_CRIAR_PESSOA))
     {
-        painelCriar = PanelBuilder::builder()
-                          ->withTitle("Cadastrar Pessoa")
-                          ->withAction([this]()
-                                       { 
-                                           CriarPessoaCommand cmd(this->service);
-                                           cmd.executar(); })
-                          ->withEnd(true)
-                          ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Cadastrar Pessoa")
+            ->withAction([this]()
+                         { 
+                             CriarPessoaCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelListar = nullptr;
+Panel *PessoaView::montarPainelListar()
+{
     if (service->autenticarPapel(S2_LISTAR_PESSOA))
     {
-        painelListar = PanelBuilder::builder()
-                           ->withTitle("Listar Pessoas")
-                           ->withAction([this]()
-                                        { 
-                                            ListarPessoasCommand cmd(this->service);
-                                            cmd.executar(); })
-                           ->withEnd(true)
-                           ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Listar Pessoas")
+            ->withAction([this]()
+                         { 
+                             ListarPessoasCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelBuscar = nullptr;
+Panel *PessoaView::montarPainelBuscar()
+{
     if (service->autenticarPapel(S2_LER_PESSOA))
     {
-        painelBuscar = PanelBuilder::builder()
-                           ->withTitle("Buscar Pessoa")
-                           ->withAction([this]()
-                                        { 
-                                            BuscarPessoaCommand cmd(this->service);
-                                            cmd.executar(); })
-                           ->withEnd(true)
-                           ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Buscar Pessoa")
+            ->withAction([this]()
+                         { 
+                             BuscarPessoaCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelAtualizar = nullptr;
+Panel *PessoaView::montarPainelAtualizar()
+{
     if (service->autenticarPapel(S3_ATUALIZAR_PESSOA))
     {
-        painelAtualizar = PanelBuilder::builder()
-                              ->withTitle("Atualizar Pessoa")
-                              ->withAction([this]()
-                                           { 
-                                               AtualizarPessoaCommand cmd(this->service);
-                                               cmd.executar(); })
-                              ->withEnd(true)
-                              ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Atualizar Pessoa")
+            ->withAction([this]()
+                         { 
+                             AtualizarPessoaCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelExcluir = nullptr;
+Panel *PessoaView::montarPainelExcluir()
+{
     if (service->autenticarPapel(S4_EXCLUIR_PESSOA))
     {
-        painelExcluir = PanelBuilder::builder()
-                            ->withTitle("Excluir Pessoa")
-                            ->withAction([this]()
-                                         { 
-                                             ExcluirPessoaCommand cmd(this->service);
-                                             cmd.executar(); })
-                            ->withEnd(true)
-                            ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Excluir Pessoa")
+            ->withAction([this]()
+                         { 
+                             ExcluirPessoaCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
+
+void PessoaView::executar()
+{
+    Panel *painelCriar = montarPainelCriar();
+    Panel *painelListar = montarPainelListar();
+    Panel *painelBuscar = montarPainelBuscar();
+    Panel *painelAtualizar = montarPainelAtualizar();
+    Panel *painelExcluir = montarPainelExcluir();
 
     auto painelPessoas = PanelBuilder::builder()
                              ->withTitle("Gerenciar Pessoas")

@@ -16,9 +16,9 @@ private:
     IPessoaService *pessoaService;
     bool querSair = false;
 
-    void interfaceLogin();
-    void interfaceLogout();
-    void interfacePrimeiroAcesso();
+    Panel *montarPainelLogin();
+    Panel *montarPainelPrimeiroAcesso();
+    Panel *montarPainelLogout();
 
 public:
     /**

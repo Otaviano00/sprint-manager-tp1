@@ -13,6 +13,12 @@ class PessoaView : public IPessoaView
 private:
     IPessoaService *service;
 
+    Panel *montarPainelCriar();
+    Panel *montarPainelListar();
+    Panel *montarPainelBuscar();
+    Panel *montarPainelAtualizar();
+    Panel *montarPainelExcluir();
+
 public:
     /**
      * @brief Constrói o módulo de pessoas e inicializa dependências.
