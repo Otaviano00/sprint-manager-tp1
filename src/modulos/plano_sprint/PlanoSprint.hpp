@@ -5,6 +5,7 @@
 #include <dominios/Nome.hpp>
 #include <dominios/Data.hpp>
 #include <core/Entity.hpp>
+#include <modulos/projeto/Projeto.hpp>
 
 /**
  * @brief Classe que representa um plano de sprint.
@@ -18,6 +19,7 @@ private:
   Nome nome;       /**< Nome da sprint. */
   Data dataInicio; /**< Data de início da sprint. */
   Data dataFim;    /**< Data de fim da sprint. */
+  Projeto projeto; /**< Projeto qual esse plano de sprint pertence */
 
 public:
   PlanoSprint() : Entity(0) {}
@@ -78,6 +80,22 @@ public:
    * @return Instância do domínio Data correspondente à data de fim.
    */
   Data getDataFim() const;
+
+  /**
+   * @brief Define o projeto atrelado a esse plano de sprint.
+   *
+   * @param dataFim Instância da entidade Projeto.
+   * @see Projeto
+   */
+  void setProjeto(const Projeto &projeto);
+
+  /**
+   * @brief Retorna o projeto atrelado a esse plano de sprint.
+   *
+   * @return Instância da entidade Projeto
+   * @see Projeto
+   */
+  Projeto getProjeto() const;
 };
 
 #endif

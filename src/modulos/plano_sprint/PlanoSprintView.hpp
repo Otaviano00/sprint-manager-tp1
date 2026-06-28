@@ -13,11 +13,18 @@ class PlanoSprintView : public IPlanoSprintView
 private:
     IPlanoSprintService *service;
 
+    Panel *montarPainelCriar();
+    Panel *montarPainelListar();
+    Panel *montarPainelAtualizar();
+    Panel *montarPainelExcluir();
+
 public:
     /**
      * @brief Constrói o módulo de planos de sprint e inicializa dependências.
      */
     PlanoSprintView();
+
+    ~PlanoSprintView();
 
     /**
      * @brief Exibe o menu de planos de sprint e executa ações selecionadas.

@@ -17,6 +17,7 @@ bool PlanoSprintService::autenticarPapel(ServicoEnum servico)
     case S12_EXCLUIR_PLANO_SPRINT:
         return papel == PapelEnum::MESTRE_SCRUM;
     case S10_LER_PLANO_SPRINT:
+    case S10_LISTAR_PLANO_SPRINT:
     case S21_LISTAR_PLANOS_DE_SPRINT_ASSOCIADOS_A_PROJETO:
         return true;
     default:
@@ -50,13 +51,6 @@ void PlanoSprintService::atualizar(PlanoSprint &planoSprint)
 {
     if (!autenticarPapel(S11_ATUALIZAR_PLANO_SPRINT))
         throw std::runtime_error("Acesso negado.");
-  
-}
-
-void PlanoSprintService::atualizar(PlanoSprint &planoSprint)
-{
-    if (!autenticarPapel(S11_ATUALIZAR_PLANO_SPRINT))
-        throw std::runtime_error("Acesso negado.");
     repository->update(planoSprint);
 }
 
@@ -69,6 +63,6 @@ void PlanoSprintService::excluir(int id)
 
 std::list<PlanoSprint> PlanoSprintService::listarPorProjeto(Projeto &projeto)
 {
-    
+
     return std::list<PlanoSprint>();
 }

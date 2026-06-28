@@ -5,7 +5,8 @@ PlanoSprintRepository::PlanoSprintRepository()
                                                   {"codigo", "TEXT NOT NULL UNIQUE"},
                                                   {"nome", "TEXT NOT NULL"},
                                                   {"dataInicio", "TEXT NOT NULL"},
-                                                  {"dataFim", "TEXT NOT NULL"}})
+                                                  {"dataFim", "TEXT NOT NULL"},
+                                                  {"projetoId", "INTEGER DEFAULT NULL REFERENCES projeto(id) ON DELETE CASCADE ON UPDATE CASCADE"}})
 {
 }
 
@@ -30,27 +31,41 @@ PlanoSprint PlanoSprintRepository::mapToEntity(SQLite::Statement &query)
     dataFim.setValor(query.getColumn("dataFim").getString());
     plano.setDataFim(dataFim);
 
+    if (!query.getColumn("projetoId").isNull())
+        plano.setProjeto(Projeto(query.getColumn("projetoId").getInt()));
+
     return plano;
 }
 
 bool PlanoSprintRepository::update(PlanoSprint &plano)
 {
-    SQLite::Statement query(db, "UPDATE " + tableName + " SET codigo = ?, nome = ?, dataInicio = ?, dataFim = ? WHERE id = ?");
+    SQLite::Statement query(db, "UPDATE " + tableName + " SET codigo = ?, nome = ?, dataInicio = ?, dataFim = ?, projetoId = ? WHERE id = ?");
     query.bind(1, plano.getCodigo().getValor());
     query.bind(2, plano.getNome().getValor());
     query.bind(3, plano.getDataInicio().getValor());
     query.bind(4, plano.getDataFim().getValor());
-    query.bind(5, static_cast<int>(plano.getId()));
+
+    if (plano.getProjeto().getId() != 0)
+        query.bind(5, static_cast<int>(plano.getProjeto().getId()));
+    else
+        query.bind(5); // NULL
+
+    query.bind(6, static_cast<int>(plano.getId()));
     return query.exec() > 0;
 }
 
 bool PlanoSprintRepository::save(PlanoSprint &plano)
 {
-    SQLite::Statement query(db, "INSERT INTO " + tableName + " (codigo, nome, dataInicio, dataFim) VALUES (?, ?, ?, ?)");
+    SQLite::Statement query(db, "INSERT INTO " + tableName + " (codigo, nome, dataInicio, dataFim, projetoId) VALUES (?, ?, ?, ?, ?)");
     query.bind(1, plano.getCodigo().getValor());
     query.bind(2, plano.getNome().getValor());
     query.bind(3, plano.getDataInicio().getValor());
     query.bind(4, plano.getDataFim().getValor());
+
+    if (plano.getProjeto().getId() != 0)
+        query.bind(5, static_cast<int>(plano.getProjeto().getId()));
+    else
+        query.bind(5); // NULL
 
     int rows = query.exec();
 

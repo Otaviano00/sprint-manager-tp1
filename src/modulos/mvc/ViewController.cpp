@@ -61,8 +61,8 @@ void ViewController::executar()
     auto menuPlanosSprint = PanelBuilder::builder()
                                 ->withTitle("Gerenciar Planos de Sprint")
                                 ->withAction([this]()
-                                             { std::cout << "Funcionalidade em desenvolvimento." << std::endl; })
-                                ->withEnd(true) // temporário para teste de fluxo
+                                             { this->planoSprintView->executar(); })
+                                ->withEnd(true)
                                 ->build();
 
     menuPrincipal->addOption(menuPessoas);

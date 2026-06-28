@@ -5,7 +5,7 @@
       "name": "C++: Debug CMake Project",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/main",
+      "program": "${workspaceFolder}/build/src/SprintManager",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

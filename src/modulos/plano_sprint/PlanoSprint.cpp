@@ -39,3 +39,13 @@ Data PlanoSprint::getDataFim() const
 {
     return dataFim;
 }
+
+void PlanoSprint::setProjeto(const Projeto &projeto)
+{
+    this->projeto = projeto;
+}
+
+Projeto PlanoSprint::getProjeto() const
+{
+    return projeto;
+}
