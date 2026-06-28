@@ -13,6 +13,12 @@ class ProjetoView : public IProjetoView
 private:
     IProjetoService *service;
 
+    Panel *montarPainelCriar();
+    Panel *montarPainelListar();
+    Panel *montarPainelBuscar();
+    Panel *montarPainelAtualizar();
+    Panel *montarPainelExcluir();
+
 public:
     /**
      * @brief Constrói o módulo de projetos e inicializa dependências.

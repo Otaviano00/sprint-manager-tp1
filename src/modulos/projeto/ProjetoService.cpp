@@ -1,5 +1,6 @@
 #include <modulos/projeto/ProjetoService.hpp>
 #include <modulos/autenticacao/AutenticacaoService.hpp>
+#include <modulos/pessoa/PessoaRepository.hpp>
 
 ProjetoService::ProjetoService()
 {
@@ -49,6 +50,22 @@ void ProjetoService::criar(Projeto &projeto)
         throw std::invalid_argument("É necessário informar uma pessoa associada ao projeto.");
     }
 
+    PessoaRepository pessoaRepo;
+    Pessoa associada;
+    try
+    {
+        associada = pessoaRepo.findById(projeto.getPessoa().getId());
+    }
+    catch (...)
+    {
+        throw std::invalid_argument("A pessoa associada não foi encontrada.");
+    }
+
+    if (associada.getPapel().getValor() == "DESENVOLVEDOR")
+    {
+        throw std::invalid_argument("Um projeto não pode ser associado a um DESENVOLVEDOR.");
+    }
+
     if (!repository->save(projeto))
     {
         throw std::runtime_error("Falha ao cadastrar projeto");
@@ -95,6 +112,22 @@ void ProjetoService::atualizar(Projeto &projeto)
         throw std::invalid_argument("É necessário informar uma pessoa associada ao projeto.");
     }
 
+    PessoaRepository pessoaRepo;
+    Pessoa associada;
+    try
+    {
+        associada = pessoaRepo.findById(projeto.getPessoa().getId());
+    }
+    catch (...)
+    {
+        throw std::invalid_argument("A pessoa associada não foi encontrada.");
+    }
+
+    if (associada.getPapel().getValor() == "DESENVOLVEDOR")
+    {
+        throw std::invalid_argument("Um projeto não pode ser associado a um DESENVOLVEDOR.");
+    }
+
     if (!repository->update(projeto))
     {
         throw std::runtime_error("Falha ao atualizar projeto");
@@ -122,14 +155,11 @@ std::list<Projeto> ProjetoService::listarPorPessoa(Pessoa &pessoa)
     }
 
     std::list<Projeto> projetos;
-    std::vector<Projeto> resultado = repository->findAll();
+    std::vector<Projeto> resultado = repository->findByPessoaId(pessoa.getId());
 
     for (const auto &projeto : resultado)
     {
-        if (projeto.getPessoa().getId() == pessoa.getId())
-        {
-            projetos.push_back(projeto);
-        }
+        projetos.push_back(projeto);
     }
 
     return projetos;

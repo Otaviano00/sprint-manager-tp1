@@ -5,6 +5,7 @@
 #include <modulos/projeto/commands/BuscarProjetoCommand.hpp>
 #include <modulos/projeto/commands/AtualizarProjetoCommand.hpp>
 #include <modulos/projeto/commands/ExcluirProjetoCommand.hpp>
+#include <modulos/projeto/commands/ListarProjetosPessoaCommand.hpp>
 #include <core/PanelBuilder.hpp>
 #include <iostream>
 #include <string>
@@ -19,77 +20,123 @@ ProjetoView::~ProjetoView()
     delete service;
 }
 
-void ProjetoView::executar()
+Panel *ProjetoView::montarPainelCriar()
 {
-    Panel *painelCriar = nullptr;
     if (service->autenticarPapel(S5_CRIAR_PROJETO))
     {
-        painelCriar = PanelBuilder::builder()
-                          ->withTitle("Cadastrar Projeto")
-                          ->withAction([this]()
-                                       { 
-                                           CriarProjetoCommand cmd(this->service);
-                                           cmd.executar(); })
-                          ->withEnd(true)
-                          ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Cadastrar Projeto")
+            ->withAction([this]()
+                         { 
+                             CriarProjetoCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelListar = nullptr;
+Panel *ProjetoView::montarPainelListar()
+{
     if (service->autenticarPapel(S6_LER_PROJETO))
     {
-        painelListar = PanelBuilder::builder()
-                           ->withTitle("Listar Projetos")
-                           ->withAction([this]()
-                                        { 
-                                            ListarProjetosCommand cmd(this->service);
-                                            cmd.executar(); })
-                           ->withEnd(true)
-                           ->build();
-    }
+        Panel *painelListar = PanelBuilder::builder()
+                                  ->withTitle("Listar Projetos")
+                                  ->withOptions(true)
+                                  ->withEnd(true)
+                                  ->build();
 
-    Panel *painelBuscar = nullptr;
+        Panel *painelListarProjetos = PanelBuilder::builder()
+                                          ->withTitle("Listar Projetos")
+                                          ->withAction([this]()
+                                                       { 
+                                                           ListarProjetosCommand cmd(this->service);
+                                                           cmd.executar(); })
+                                          ->withEnd(true)
+                                          ->build();
+
+        Panel *painelListarPorPessoa = PanelBuilder::builder()
+                                           ->withTitle("Listar Projetos de uma Pessoa")
+                                           ->withOptions(true)
+                                           ->withAction([this]()
+                                                        { 
+                                                            ListarProjetosPessoaCommand cmd(this->service);
+                                                            cmd.executar(); })
+                                           ->withEnd(true)
+                                           ->withConfirmation(true)
+                                           ->build();
+
+        painelListar->addOption(painelListarPorPessoa);
+        painelListar->addOption(painelListarProjetos);
+
+        return painelListar;
+    }
+    return nullptr;
+}
+
+Panel *ProjetoView::montarPainelBuscar()
+{
     if (service->autenticarPapel(S6_LER_PROJETO))
     {
-        painelBuscar = PanelBuilder::builder()
-                           ->withTitle("Buscar Projeto")
-                           ->withAction([this]()
-                                        { 
-                                            BuscarProjetoCommand cmd(this->service);
-                                            cmd.executar(); })
-                           ->withEnd(true)
-                           ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Buscar Projeto")
+            ->withAction([this]()
+                         { 
+                             BuscarProjetoCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelAtualizar = nullptr;
+Panel *ProjetoView::montarPainelAtualizar()
+{
     if (service->autenticarPapel(S7_ATUALIZAR_PROJETO))
     {
-        painelAtualizar = PanelBuilder::builder()
-                              ->withTitle("Atualizar Projeto")
-                              ->withAction([this]()
-                                           { 
-                                               AtualizarProjetoCommand cmd(this->service);
-                                               cmd.executar(); })
-                              ->withEnd(true)
-                              ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Atualizar Projeto")
+            ->withAction([this]()
+                         { 
+                             AtualizarProjetoCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
 
-    Panel *painelExcluir = nullptr;
+Panel *ProjetoView::montarPainelExcluir()
+{
     if (service->autenticarPapel(S8_EXCLUIR_PROJETO))
     {
-        painelExcluir = PanelBuilder::builder()
-                            ->withTitle("Excluir Projeto")
-                            ->withAction([this]()
-                                         { 
-                                             ExcluirProjetoCommand cmd(this->service);
-                                             cmd.executar(); })
-                            ->withEnd(true)
-                            ->build();
+        return PanelBuilder::builder()
+            ->withTitle("Excluir Projeto")
+            ->withAction([this]()
+                         { 
+                             ExcluirProjetoCommand cmd(this->service);
+                             cmd.executar(); })
+            ->withEnd(true)
+            ->withConfirmation(true)
+            ->build();
     }
+    return nullptr;
+}
+
+void ProjetoView::executar()
+{
+    Panel *painelCriar = montarPainelCriar();
+    Panel *painelListar = montarPainelListar();
+    Panel *painelBuscar = montarPainelBuscar();
+    Panel *painelAtualizar = montarPainelAtualizar();
+    Panel *painelExcluir = montarPainelExcluir();
 
     auto painelProjetos = PanelBuilder::builder()
                               ->withTitle("Gerenciar Projetos")
                               ->withOptions(true)
-                              ->withZeroAction(true, "Voltar")
                               ->build();
 
     if (painelCriar != nullptr)

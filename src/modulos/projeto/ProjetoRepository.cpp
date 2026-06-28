@@ -1,24 +1,5 @@
 #include <modulos/projeto/ProjetoRepository.hpp>
-
-void ProjetoRepository::ensureSchema()
-{
-    SQLite::Statement pragma(db, "PRAGMA table_info(projeto)");
-    bool hasPessoaId = false;
-
-    while (pragma.executeStep())
-    {
-        if (pragma.getColumn("name").getString() == "pessoaId")
-        {
-            hasPessoaId = true;
-            break;
-        }
-    }
-
-    if (!hasPessoaId)
-    {
-        db.exec("ALTER TABLE projeto ADD COLUMN pessoaId INTEGER NOT NULL DEFAULT 0");
-    }
-}
+#include <modulos/pessoa/PessoaRepository.hpp>
 
 Projeto ProjetoRepository::mapToEntity(SQLite::Statement &query)
 {
@@ -42,6 +23,17 @@ Projeto ProjetoRepository::mapToEntity(SQLite::Statement &query)
     projeto.setDataFim(dataFim);
 
     Pessoa pessoa(query.getColumn("pessoaId").getInt());
+
+    PessoaRepository pessoaRepo;
+    try
+    {
+        pessoa = pessoaRepo.findById(pessoa.getId());
+    }
+    catch (...)
+    {
+        throw std::invalid_argument("Pessoa associada ao projeto não encontrada.");
+    }
+
     projeto.setPessoa(pessoa);
 
     return projeto;
@@ -78,4 +70,18 @@ bool ProjetoRepository::update(Projeto &projeto)
 
     int rows = query.exec();
     return rows > 0;
+}
+
+std::vector<Projeto> ProjetoRepository::findByPessoaId(int pessoaId)
+{
+    std::vector<Projeto> projetos;
+    SQLite::Statement query(db, "SELECT * FROM " + tableName + " WHERE pessoaId = ?");
+    query.bind(1, pessoaId);
+
+    while (query.executeStep())
+    {
+        projetos.push_back(mapToEntity(query));
+    }
+
+    return projetos;
 }
